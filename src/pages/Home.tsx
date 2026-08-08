@@ -92,13 +92,13 @@ export const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden text-charcoal bg-cream">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center bg-cream overflow-hidden">
+      <section className="relative min-h-screen py-24 md:py-32 flex items-center justify-center text-center bg-cream overflow-hidden">
         {/* Background Image - Sigiriya background */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('/poswiecie-sigiriya-459197_1920.jpg')` }}></div>
         
 
 
-        <div className="relative max-w-3xl mx-auto px-6 py-10 md:px-12 md:py-14 z-10 space-y-6 md:space-y-8 mt-12 flex flex-col items-center bg-white/85 backdrop-blur-md rounded-3xl border border-white/60 shadow-2xl animate-fade-in-up">
+        <div className="relative max-w-3xl mx-auto px-6 py-10 md:px-12 md:py-12 z-10 space-y-6 md:space-y-8 my-6 flex flex-col items-center bg-white/85 backdrop-blur-md rounded-3xl border border-white/60 shadow-2xl animate-fade-in-up">
           
           {/* Logo at the top of Hero section */}
           <div className="animate-fade-in mb-2">

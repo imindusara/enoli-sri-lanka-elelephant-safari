@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Compass, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { useTranslation } from '../contexts/LanguageContext';
 import type { Language } from '../contexts/LanguageContext';
 

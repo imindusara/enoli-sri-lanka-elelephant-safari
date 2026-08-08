@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, MessageSquare, ShieldCheck, MapPin, User, Globe, PenTool, CheckCircle2 } from 'lucide-react';
-import { useTranslation } from '../contexts/LanguageContext';
+import { Star, MessageSquare, User, Globe, PenTool, CheckCircle2 } from 'lucide-react';
 
 interface Review {
   id: string;
@@ -12,7 +11,6 @@ interface Review {
 }
 
 export const Reviews: React.FC = () => {
-  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'read' | 'write'>('read');
   const [reviewsList, setReviewsList] = useState<Review[]>([]);
   

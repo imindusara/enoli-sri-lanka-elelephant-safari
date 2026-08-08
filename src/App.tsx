@@ -9,6 +9,9 @@ import { TourDetail } from './pages/TourDetail';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Reviews } from './pages/Reviews';
+import { Gallery } from './pages/Gallery';
+import { Blog } from './pages/Blog';
+import { Preloader } from './components/Preloader';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import { LanguageProvider } from './contexts/LanguageContext';
 
@@ -18,6 +21,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Preloader />
       <Navbar />
       <main className="flex-grow">
         <Routes>
@@ -27,6 +31,8 @@ const AppContent: React.FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/blog" element={<Blog />} />
           {/* Fallback route */}
           <Route path="*" element={<Home />} />
         </Routes>

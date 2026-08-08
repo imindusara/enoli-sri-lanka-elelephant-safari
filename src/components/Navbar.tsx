@@ -86,17 +86,17 @@ export const Navbar: React.FC = () => {
           <Link to="/" className="flex items-center space-x-2 shrink-0">
             <img src="/logo.png" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
             <div>
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-primary leading-tight">
+              <span className="font-serif text-sm lg:text-base xl:text-lg font-bold tracking-tight text-primary leading-tight whitespace-nowrap">
                 CEYLON NEST JOURNEYS
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-5">
             <Link
               to="/"
-              className={`relative text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 ${
+              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
                 isActive('/') ? 'text-primary' : 'text-charcoal'
               }`}
             >
@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={toggleServices}
                 onMouseEnter={openServices}
-                className="flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent text-charcoal cursor-pointer focus:outline-none focus:ring-0"
+                className="flex items-center space-x-0.5 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent text-charcoal cursor-pointer focus:outline-none focus:ring-0 whitespace-nowrap"
               >
                 <span>{t('nav_services')}</span>
                 <ChevronDown className="h-3.5 w-3.5" />
@@ -119,13 +119,13 @@ export const Navbar: React.FC = () => {
               {isServicesDropdownOpen && (
                 <div className="absolute left-0 pt-2 w-48 z-50">
                   <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-2 animate-fade-in">
-                    <Link to="/tours" className="block px-4 py-2 text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
+                    <Link to="/tours" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
                       Tour Guide Service
                     </Link>
-                    <Link to="/contact" className="block px-4 py-2 text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
+                    <Link to="/contact" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
                       Hotel Booking Assist
                     </Link>
-                    <Link to="/contact" className="block px-4 py-2 text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
+                    <Link to="/contact" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
                       Airport Transfers
                     </Link>
                   </div>
@@ -138,7 +138,7 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={toggleTours}
                 onMouseEnter={openTours}
-                className={`relative flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent cursor-pointer focus:outline-none focus:ring-0 ${
+                className={`relative flex items-center space-x-0.5 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent cursor-pointer focus:outline-none focus:ring-0 whitespace-nowrap ${
                   isActive('/tours') ? 'text-primary' : 'text-charcoal'
                 }`}
               >
@@ -151,10 +151,10 @@ export const Navbar: React.FC = () => {
               {isToursDropdownOpen && (
                 <div className="absolute left-0 pt-2 w-48 z-50">
                   <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-2 animate-fade-in">
-                    <Link to="/tours?filter=day" className="block px-4 py-2 text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
+                    <Link to="/tours?filter=day" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
                       {t('tours_day')}
                     </Link>
-                    <Link to="/tours?filter=multi-day" className="block px-4 py-2 text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
+                    <Link to="/tours?filter=multi-day" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
                       {t('tours_multi')}
                     </Link>
                   </div>
@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
 
             <Link
               to="/about"
-              className={`relative text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 ${
+              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
                 isActive('/about') ? 'text-primary' : 'text-charcoal'
               }`}
             >
@@ -179,7 +179,7 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={toggleGallery}
                 onMouseEnter={openGallery}
-                className={`relative flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent cursor-pointer focus:outline-none focus:ring-0 ${
+                className={`relative flex items-center space-x-0.5 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent cursor-pointer focus:outline-none focus:ring-0 whitespace-nowrap ${
                   isActive('/gallery') || isActive('/blog') ? 'text-primary' : 'text-charcoal'
                 }`}
               >
@@ -192,10 +192,10 @@ export const Navbar: React.FC = () => {
               {isGalleryDropdownOpen && (
                 <div className="absolute left-0 pt-2 w-48 z-50">
                   <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-2 animate-fade-in">
-                    <Link to="/gallery" className="block px-4 py-2 text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
+                    <Link to="/gallery" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
                       Photo Gallery
                     </Link>
-                    <Link to="/blog" className="block px-4 py-2 text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
+                    <Link to="/blog" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
                       Travel Blog
                     </Link>
                   </div>
@@ -205,7 +205,7 @@ export const Navbar: React.FC = () => {
 
             <Link
               to="/reviews"
-              className={`relative text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 ${
+              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
                 isActive('/reviews') ? 'text-primary' : 'text-charcoal'
               }`}
             >
@@ -217,7 +217,7 @@ export const Navbar: React.FC = () => {
 
             <Link
               to="/contact"
-              className={`relative text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 ${
+              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
                 isActive('/contact') ? 'text-primary' : 'text-charcoal'
               }`}
             >
@@ -229,12 +229,12 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Right Side Options (Language + Book Now) */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
             {/* Language Selector */}
             <div className="relative" onMouseLeave={closeAllDropdowns}>
               <button
                 onClick={toggleLanguage}
-                className="flex items-center space-x-1.5 text-xs font-bold tracking-widest uppercase text-charcoal hover:text-accent focus:outline-none cursor-pointer"
+                className="flex items-center space-x-1 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase text-charcoal hover:text-accent focus:outline-none cursor-pointer whitespace-nowrap"
               >
                 <Globe className="h-4 w-4" />
                 <span>{language}</span>
@@ -247,7 +247,7 @@ export const Navbar: React.FC = () => {
                       <button
                         key={lang}
                         onClick={() => handleLanguageChange(lang)}
-                        className={`block w-full text-left px-4 py-2 text-xs font-bold uppercase transition-colors hover:bg-cream cursor-pointer ${
+                        className={`block w-full text-left px-4 py-2 text-[11px] xl:text-xs font-bold uppercase transition-colors hover:bg-cream cursor-pointer ${
                           language === lang ? 'text-accent bg-cream/50' : 'text-charcoal'
                         }`}
                       >
@@ -262,7 +262,7 @@ export const Navbar: React.FC = () => {
             {/* Book Now Button */}
             <Link
               to="/contact?book=true"
-              className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 focus:outline-none"
+              className="bg-primary hover:bg-primary-dark text-white px-4 py-2 xl:px-5 xl:py-2.5 rounded-full text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 focus:outline-none whitespace-nowrap"
             >
               {t('nav_book_now')}
             </Link>

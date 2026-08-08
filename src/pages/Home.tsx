@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, ShieldCheck, Award, ThumbsUp, Car, Sparkles, MessageCircle } from 'lucide-react';
+import { Compass, ShieldCheck, Award, ThumbsUp, Car, Sparkles, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { toursData } from '../data/tours';
 import { TourCard } from '../components/TourCard';
 import { useTranslation } from '../contexts/LanguageContext';
 
 export const Home: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'day' | 'multi-day'>('day');
+  const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day'>('all');
   const { t, language } = useTranslation();
 
-  const filteredTours = toursData.filter((t) => t.category === activeTab);
+  const filteredTours = activeTab === 'all'
+    ? toursData
+    : toursData.filter((t) => t.category === activeTab);
 
   // Dynamic values depending on language
   const whyChooseUsData = {
@@ -61,7 +63,7 @@ export const Home: React.FC = () => {
     ],
     IT: [
       { number: '01', title: 'Condividi i Dettagli', desc: 'Fornisci date, numero di passeggeri e interessi con il modulo online o direttamente su WhatsApp.' },
-      { number: '02', title: 'Ricevi un Preventivo', desc: 'Creeremo un itinerario su misura e un preventivo di spesa trasparente e completo per te.' },
+      { number: '02', title: 'Ricevi un Preventivo', desc: 'Creeremo un intranet su misura e un preventivo di spesa trasparente e completo per te.' },
       { number: '03', title: 'Prenota e Divertiti!', desc: 'Conferma la prenotazione senza stress, rilassati e lasciati accogliere nella nostra isola paradiso.' }
     ]
   };
@@ -71,7 +73,7 @@ export const Home: React.FC = () => {
 
   const testimonials = [
     {
-      text: "Our trip with Enoli Sri Lanka Elephant Safari was incredible. The Nine Arches Bridge and Udawalawe safari were highlights, but what truly made it special was our driver. He felt like family, was extremely safe, and showed us the best local spots. Highly recommend!",
+      text: "Our trip with Ceylon Nest Journeys was incredible. The Nine Arches Bridge and Udawalawe safari were highlights, but what truly made it special was our driver. He felt like family, was extremely safe, and showed us the best local spots. Highly recommend!",
       author: "Sarah & David M.",
       location: "United Kingdom",
     },
@@ -81,97 +83,143 @@ export const Home: React.FC = () => {
       location: "Germany",
     },
     {
-      text: "As a solo female traveler, safety was my biggest concern. Enoli Sri Lanka Elephant Safari provided a driver who was professional, polite, and extremely protective. I had the time of my life exploring Galle and Madu River!",
+      text: "As a solo female traveler, safety was my biggest concern. Ceylon Nest Journeys provided a driver who was professional, polite, and extremely protective. I had the time of my life exploring Galle and Madu River!",
       author: "Elena R.",
       location: "Italy",
     },
   ];
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden text-charcoal bg-cream">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-white bg-primary">
-        {/* Background Image Overlay */}
-        <div className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-55" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1920&q=80')` }}></div>
+      <section className="relative h-screen flex items-center justify-center text-center bg-cream overflow-hidden">
+        {/* Background Image - Sigiriya background */}
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('/poswiecie-sigiriya-459197_1920.jpg')` }}></div>
         
-        {/* Bottom curve gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent"></div>
 
-        <div className="relative max-w-5xl mx-auto px-4 text-center z-10 space-y-6 pt-16">
-          <span className="inline-flex items-center gap-1.5 bg-accent/20 border border-accent/40 text-accent-light px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest animate-fade-in">
-            <Compass className="h-4 w-4" /> {t('hero_welcome')}
+
+        <div className="relative max-w-3xl mx-auto px-6 py-10 md:px-12 md:py-14 z-10 space-y-6 md:space-y-8 mt-12 flex flex-col items-center bg-white/85 backdrop-blur-md rounded-3xl border border-white/60 shadow-2xl animate-fade-in-up">
+          
+          {/* Logo at the top of Hero section */}
+          <div className="animate-fade-in mb-2">
+            <img src="/logo.png" alt="Ceylon Nest Journeys Logo" className="h-16 w-16 object-contain rounded-2xl shadow-md border border-primary/10 bg-white/40 p-2 backdrop-blur-xs" />
+          </div>
+
+          {/* Tagline / Sub-text header tag */}
+          <span className="inline-block text-accent text-xs font-bold uppercase tracking-[0.25em] animate-fade-in">
+            {t('hero_welcome')}
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tight leading-tight animate-fade-in-up">
+
+          {/* Main large heading text (Elegant Serif, Primary Deep Green) */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tight text-primary leading-[1.15] animate-fade-in-up">
             {t('hero_title')}
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 font-light max-w-3xl mx-auto font-sans leading-relaxed animate-fade-in-up">
+
+          {/* Body paragraph text */}
+          <p className="text-base sm:text-lg md:text-xl text-charcoal max-w-2xl font-light font-sans leading-relaxed animate-fade-in-up">
             {t('hero_subtitle')}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-fade-in-up">
-            <Link
-              to="/tours"
-              className="w-full sm:w-auto bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-center"
+          {/* Two-button CTA cluster */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 w-full sm:w-auto animate-fade-in-up">
+            {/* Primary CTA ("EXPLORE OUR TOURS") - Solid Deep Green with Gold hover border and soft glow */}
+            <a
+              href="#tours"
+              className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(30,77,59,0.4)] border border-transparent hover:border-accent hover:-translate-y-0.5 text-center cursor-pointer"
             >
               {t('hero_cta_explore')}
-            </Link>
+            </a>
+            
+            {/* Secondary CTA ("BOOK VIA WHATSAPP") - Outline style in Green with green text & WhatsApp icon */}
             <a
               href="https://wa.me/94770000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-8 py-4 rounded-full font-bold text-base transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5"
+              className="w-full sm:w-auto bg-white/80 hover:bg-white text-primary border-2 border-primary hover:border-accent px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-sm cursor-pointer"
             >
-              <MessageCircle className="h-5 w-5 text-[#25D366]" />
+              <MessageCircle className="h-5 w-5 text-[#25D366] fill-[#25D366]/20" />
               <span>{t('hero_cta_whatsapp')}</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Intro / Summary Section */}
-      <section className="py-20 px-4 bg-cream">
-        <div className="max-w-4xl mx-auto text-center reveal-on-scroll">
-          <span className="text-accent text-xs font-bold uppercase tracking-widest block mb-3">{t('intro_badge')}</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal mb-6">
-            {t('intro_title')}
-          </h2>
-          <p className="text-charcoal-light text-base sm:text-lg leading-relaxed mb-6 max-w-3xl mx-auto font-sans">
-            {t('intro_p1')}
-          </p>
-          <p className="text-charcoal-light text-base sm:text-lg leading-relaxed mb-6 max-w-3xl mx-auto font-sans">
-            {t('intro_p2')}
-          </p>
-          <p className="text-charcoal-light text-base sm:text-lg font-semibold leading-relaxed mb-8 max-w-3xl mx-auto font-sans">
-            {t('intro_p3')}
-          </p>
-          <Link
-            to="/about"
-            className="text-primary hover:text-accent font-semibold flex items-center justify-center gap-1 group text-sm"
-          >
-            <span>{t('intro_learn_more')}</span>
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </Link>
+      {/* About Us Section */}
+      <section id="about" className="py-24 px-4 bg-cream border-b border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Story column */}
+            <div className="lg:col-span-7 space-y-6 reveal-on-scroll">
+              <span className="text-accent text-xs font-bold uppercase tracking-[0.2em] block">ABOUT CEYLON NEST JOURNEYS</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary leading-tight">
+                Your Trusted Travel Partner in Sri Lanka
+              </h2>
+              <div className="text-charcoal-light text-base sm:text-lg leading-relaxed font-sans space-y-4">
+                <p>
+                  Welcome to <strong>Ceylon Nest Journeys</strong>, your trusted travel partner for discovering the breathtaking beauty of Sri Lanka. We specialize in creating personalized tours that showcase the island's stunning landscapes, rich cultural heritage, diverse wildlife, and pristine beaches.
+                </p>
+                <p>
+                  Our experienced team is dedicated to providing safe, comfortable, and unforgettable travel experiences infused with genuine Sri Lankan hospitality. Whether you're seeking adventure, relaxation, cultural exploration, or a luxury getaway, we carefully design every journey to match your interests and exceed your expectations. At Ceylon Nest Journeys, we don't just plan holidays—we create memories that last a lifetime.
+                </p>
+              </div>
+            </div>
+
+            {/* Vision & Mission cards column */}
+            <div className="lg:col-span-5 space-y-6 reveal-on-scroll">
+              {/* Vision Card */}
+              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm space-y-4 hover:shadow-md transition-shadow">
+                <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
+                  <Sparkles className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-serif font-bold text-primary">Our Vision</h3>
+                <p className="text-charcoal-light text-sm leading-relaxed font-sans">
+                  To inspire the world to discover the true beauty of Sri Lanka through extraordinary travel experiences.
+                </p>
+              </div>
+
+              {/* Mission Card */}
+              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm space-y-4 hover:shadow-md transition-shadow">
+                <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
+                  <Compass className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-serif font-bold text-primary">Our Mission</h3>
+                <p className="text-charcoal-light text-sm leading-relaxed font-sans">
+                  Crafting exceptional journeys with genuine hospitality, personalized service, and unforgettable memories.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Featured Tours Section */}
-      <section className="py-20 px-4 bg-white">
+      <section id="tours" className="py-24 px-4 bg-white scroll-mt-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 reveal-on-scroll">
-            <span className="text-accent text-xs font-bold uppercase tracking-widest block mb-3">{t('tours_badge')}</span>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-charcoal mb-4">
+            <span className="text-accent text-xs font-bold uppercase tracking-[0.2em] block mb-3">{t('tours_badge')}</span>
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-primary mb-4">
               {t('tours_title')}
             </h2>
             <p className="text-charcoal-light text-sm sm:text-base max-w-md mx-auto">
-              {t('tours_subtitle')}
+              Select one of our popular day trips or plan a fully customized multi-day journey.
             </p>
 
             {/* Day / Multi-day Toggles */}
             <div className="flex justify-center mt-8">
-              <div className="bg-cream p-1.5 rounded-full inline-flex border border-gray-100 shadow-sm">
+              <div className="bg-cream p-1.5 rounded-full inline-flex border border-gray-150 shadow-sm">
+                <button
+                  onClick={() => setActiveTab('all')}
+                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                    activeTab === 'all'
+                      ? 'bg-primary text-white shadow-md'
+                      : 'text-charcoal-light hover:text-charcoal'
+                  }`}
+                >
+                  All Tours
+                </button>
                 <button
                   onClick={() => setActiveTab('day')}
-                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     activeTab === 'day'
                       ? 'bg-primary text-white shadow-md'
                       : 'text-charcoal-light hover:text-charcoal'
@@ -181,7 +229,7 @@ export const Home: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setActiveTab('multi-day')}
-                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     activeTab === 'multi-day'
                       ? 'bg-primary text-white shadow-md'
                       : 'text-charcoal-light hover:text-charcoal'
@@ -191,6 +239,18 @@ export const Home: React.FC = () => {
                 </button>
               </div>
             </div>
+
+            {/* Sub-headers depending on selected tab */}
+            {activeTab === 'day' && (
+              <p className="text-accent text-xs font-bold uppercase tracking-wider mt-6 animate-fade-in bg-accent/5 py-2 px-4 rounded-full inline-block">
+                Departing from any location in Sri Lanka | Includes Private A/C Transport & Professional Driver-Guide
+              </p>
+            )}
+            {activeTab === 'multi-day' && (
+              <p className="text-accent text-xs font-bold uppercase tracking-wider mt-6 animate-fade-in bg-accent/5 py-2 px-4 rounded-full inline-block">
+                Tailored Journeys with Premium Accommodation, Meals, Guides & Curated Activities
+              </p>
+            )}
           </div>
 
           {/* Cards Grid */}
@@ -204,12 +264,95 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Global Inclusions / Exclusions Comparison Table */}
+      <section className="py-24 px-4 bg-cream border-t border-b border-gray-150">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12 reveal-on-scroll">
+            <span className="text-accent text-xs font-bold uppercase tracking-[0.2em] block mb-3">TRANSPARENT TRAVELING</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary">
+              Global Inclusions & Exclusions
+            </h2>
+            <p className="text-charcoal-light max-w-md mx-auto text-sm sm:text-base mt-3">
+              We believe in complete transparency. Know exactly what is covered in your custom luxury trip.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-on-scroll">
+            {/* Inclusions Card */}
+            <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10 space-y-6">
+              <h3 className="text-xl font-serif font-bold text-primary flex items-center gap-2">
+                <CheckCircle2 className="h-6 w-6 text-primary" /> Included in Your Package
+              </h3>
+              <ul className="space-y-3.5 text-sm text-charcoal-light font-medium">
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0"></span>
+                  <span>Private A/C Luxury Vehicle (suitable size for group)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0"></span>
+                  <span>Professional English-speaking Driver-Guide</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0"></span>
+                  <span>Fuel charges, highway tolls, and parking fees</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0"></span>
+                  <span>Driver-guide's meals, accommodation, and allowances</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0"></span>
+                  <span>Complimentary bottled drinking water daily</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0"></span>
+                  <span>Deluxe hotel accommodation (for multi-day packages)</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Exclusions Card */}
+            <div className="bg-amber-50/10 p-8 rounded-2xl border border-amber-100/60 space-y-6">
+              <h3 className="text-xl font-serif font-bold text-accent-dark flex items-center gap-2">
+                <span className="h-6 w-6 rounded-full border-2 border-accent-dark flex items-center justify-center font-bold text-xs">✕</span> Excluded from Package
+              </h3>
+              <ul className="space-y-3.5 text-sm text-charcoal-light font-medium">
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>Entrance tickets to historical sites, monuments, & temples</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>Lunch and midday snack expenses</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>Safari Jeep rental and park guide fees</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>Water sports, boat safari tickets, or extra excursions</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>Personal expenses (laundry, telephone calls, shopping)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span>International flights and visa fees</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
-      <section className="py-20 px-4 bg-cream">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 reveal-on-scroll">
             <span className="text-accent text-xs font-bold uppercase tracking-widest block mb-3">{t('why_badge')}</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary">
               {t('why_title')}
             </h2>
             <p className="text-charcoal-light max-w-md mx-auto text-sm sm:text-base mt-3">
@@ -221,12 +364,12 @@ export const Home: React.FC = () => {
             {currentWhyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow reveal-on-scroll"
+                className="bg-cream p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow reveal-on-scroll"
               >
                 <div className="bg-primary/5 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                   {item.icon}
                 </div>
-                <h3 className="font-serif font-bold text-xl text-charcoal mb-3">{item.title}</h3>
+                <h3 className="font-serif font-bold text-xl text-primary mb-3">{item.title}</h3>
                 <p className="text-charcoal-light text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -235,24 +378,24 @@ export const Home: React.FC = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-cream border-t border-b border-gray-150">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 reveal-on-scroll">
             <span className="text-accent text-xs font-bold uppercase tracking-widest block mb-3">{t('tours_badge')}</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary">
               {t('how_title')}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-1/3 left-1/6 right-1/6 h-[2px] bg-cream -z-10"></div>
+            <div className="hidden md:block absolute top-1/3 left-1/6 right-1/6 h-[2px] bg-gray-200 -z-10"></div>
             
             {currentSteps.map((step, index) => (
               <div key={index} className="text-center px-4 reveal-on-scroll">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-cream border-4 border-white text-2xl font-bold text-primary shadow-md mb-6 hover:scale-105 transition-transform duration-300">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white border-4 border-cream text-2xl font-bold text-primary shadow-md mb-6 hover:scale-105 transition-transform duration-300">
                   {step.number}
                 </div>
-                <h3 className="font-serif font-bold text-xl text-charcoal mb-3">{step.title}</h3>
+                <h3 className="font-serif font-bold text-xl text-primary mb-3">{step.title}</h3>
                 <p className="text-charcoal-light text-sm leading-relaxed max-w-xs mx-auto">{step.desc}</p>
               </div>
             ))}
@@ -261,11 +404,11 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-cream">
+      <section id="reviews" className="py-20 px-4 bg-white scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 reveal-on-scroll">
             <span className="text-accent text-xs font-bold uppercase tracking-widest block mb-3">{t('nav_reviews')}</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary">
               {t('reviews_title')}
             </h2>
           </div>
@@ -274,13 +417,13 @@ export const Home: React.FC = () => {
             {testimonials.map((t, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between reveal-on-scroll"
+                className="bg-cream p-8 rounded-2xl shadow-sm border border-gray-150 flex flex-col justify-between reveal-on-scroll animate-fade-in"
               >
                 <p className="text-charcoal-light italic text-sm leading-relaxed mb-6 font-sans">
                   "{t.text}"
                 </p>
                 <div>
-                  <h4 className="font-serif font-bold text-charcoal text-base">{t.author}</h4>
+                  <h4 className="font-serif font-bold text-primary text-base">{t.author}</h4>
                   <p className="text-xs font-semibold text-accent uppercase tracking-wider">{t.location}</p>
                 </div>
               </div>
@@ -292,7 +435,7 @@ export const Home: React.FC = () => {
       {/* Call to Action banner */}
       <section className="relative py-24 px-4 bg-primary text-white text-center overflow-hidden">
         {/* Background Image Overlay */}
-        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80')` }}></div>
+        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-25" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80')` }}></div>
         
         <div className="relative max-w-4xl mx-auto z-10 space-y-6">
           <h2 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight">

@@ -8,6 +8,7 @@ import { Tours } from './pages/Tours';
 import { TourDetail } from './pages/TourDetail';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
+import { Reviews } from './pages/Reviews';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import { LanguageProvider } from './contexts/LanguageContext';
 
@@ -25,6 +26,7 @@ const AppContent: React.FC = () => {
           <Route path="/tours/:id" element={<TourDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/reviews" element={<Reviews />} />
           {/* Fallback route */}
           <Route path="*" element={<Home />} />
         </Routes>

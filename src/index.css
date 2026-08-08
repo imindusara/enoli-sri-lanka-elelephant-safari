@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1E3A2F;
-  --color-primary-dark: #142820;
-  --color-accent: #C87A53;
-  --color-accent-dark: #B06742;
-  --color-accent-light: #E4A281;
-  --color-cream: #FBF9F4;
-  --color-charcoal: #2C2C2C;
-  --color-charcoal-light: #4A4A4A;
+  --color-primary: #1E4D3B;
+  --color-primary-dark: #123025;
+  --color-accent: #D4AF37;
+  --color-accent-dark: #B5932C;
+  --color-accent-light: #EAD075;
+  --color-cream: #FDFDFD;
+  --color-charcoal: #333333;
+  --color-charcoal-light: #5A5A5A;
   
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", "Poppins", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Montserrat", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   
   --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-in: fade-in 0.6s ease-out forwards;

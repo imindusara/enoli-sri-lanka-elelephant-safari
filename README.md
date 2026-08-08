@@ -1,4 +1,4 @@
-# Enoli Sri Lanka Elephant Safari — Website Documentation
+# Ceylon Nest Journeys — Website Documentation
 
 A premium, modern, responsive multi-page website built with React, TypeScript, Vite, and Tailwind CSS v4.
 

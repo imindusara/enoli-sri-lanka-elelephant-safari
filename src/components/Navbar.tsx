@@ -32,18 +32,16 @@ export const Navbar: React.FC = () => {
   const languagesList: Language[] = ['EN', 'DE', 'FR', 'IT'];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-[#FDFBF7] shadow-sm border-b border-gray-100 py-3.5 transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3.5 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 shrink-0">
-            <div className="bg-[#1E3A2F]/10 p-2 rounded-lg">
-              <Compass className="h-6 w-6 text-[#1E3A2F]" />
-            </div>
+            <img src="/logo.png" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
             <div className="flex flex-col">
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-[#1E3A2F] leading-tight">
-                ENOLI SRI LANKA
+              <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-primary leading-tight">
+                CEYLON NEST JOURNEYS
               </span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-accent font-semibold leading-none">
                 {t('nav_services').split(' ')[0]}
@@ -56,7 +54,7 @@ export const Navbar: React.FC = () => {
             <Link
               to="/"
               className={`text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent ${
-                isActive('/') ? 'text-accent' : 'text-[#2D3A34]'
+                isActive('/') ? 'text-accent' : 'text-charcoal'
               }`}
             >
               {t('nav_home')}
@@ -67,7 +65,7 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
                 onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                className="flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent text-[#2D3A34]"
+                className="flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent text-charcoal cursor-pointer"
               >
                 <span>{t('nav_services')}</span>
                 <ChevronDown className="h-3.5 w-3.5" />
@@ -95,8 +93,8 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={() => setIsToursDropdownOpen(!isToursDropdownOpen)}
                 onMouseEnter={() => setIsToursDropdownOpen(true)}
-                className={`flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent ${
-                  isActive('/tours') ? 'text-accent' : 'text-[#2D3A34]'
+                className={`flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent cursor-pointer ${
+                  isActive('/tours') ? 'text-accent' : 'text-charcoal'
                 }`}
               >
                 <span>{t('nav_tours')}</span>
@@ -120,7 +118,7 @@ export const Navbar: React.FC = () => {
             <Link
               to="/about"
               className={`text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent ${
-                isActive('/about') ? 'text-accent' : 'text-[#2D3A34]'
+                isActive('/about') ? 'text-accent' : 'text-charcoal'
               }`}
             >
               {t('nav_about')}
@@ -131,7 +129,7 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={() => setIsGalleryDropdownOpen(!isGalleryDropdownOpen)}
                 onMouseEnter={() => setIsGalleryDropdownOpen(true)}
-                className="flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent text-[#2D3A34]"
+                className="flex items-center space-x-1 text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent text-charcoal cursor-pointer"
               >
                 <span>{t('nav_gallery')}</span>
                 <ChevronDown className="h-3.5 w-3.5" />
@@ -152,8 +150,10 @@ export const Navbar: React.FC = () => {
             </div>
 
             <Link
-              to="/"
-              className="text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent text-[#2D3A34]"
+              to="/reviews"
+              className={`text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent ${
+                isActive('/reviews') ? 'text-accent' : 'text-charcoal'
+              }`}
             >
               {t('nav_reviews')}
             </Link>
@@ -161,7 +161,7 @@ export const Navbar: React.FC = () => {
             <Link
               to="/contact"
               className={`text-xs font-bold tracking-widest uppercase transition-colors hover:text-accent ${
-                isActive('/contact') ? 'text-accent' : 'text-[#2D3A34]'
+                isActive('/contact') ? 'text-accent' : 'text-charcoal'
               }`}
             >
               {t('nav_contact')}
@@ -174,7 +174,7 @@ export const Navbar: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className="flex items-center space-x-1.5 text-xs font-bold tracking-widest uppercase text-[#2D3A34] hover:text-accent focus:outline-none"
+                className="flex items-center space-x-1.5 text-xs font-bold tracking-widest uppercase text-charcoal hover:text-accent focus:outline-none cursor-pointer"
               >
                 <Globe className="h-4 w-4" />
                 <span>{language}</span>
@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
                     <button
                       key={lang}
                       onClick={() => handleLanguageChange(lang)}
-                      className={`block w-full text-left px-4 py-2 text-xs font-bold uppercase transition-colors hover:bg-cream ${
+                      className={`block w-full text-left px-4 py-2 text-xs font-bold uppercase transition-colors hover:bg-cream cursor-pointer ${
                         language === lang ? 'text-accent bg-cream/50' : 'text-charcoal'
                       }`}
                     >
@@ -200,7 +200,7 @@ export const Navbar: React.FC = () => {
             {/* Book Now Button */}
             <Link
               to="/contact?book=true"
-              className="bg-[#E4A834] hover:bg-[#D39723] text-[#1E3A2F] px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
+              className="bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
             >
               {t('nav_book_now')}
             </Link>
@@ -212,7 +212,7 @@ export const Navbar: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className="flex items-center space-x-1 text-xs font-bold uppercase text-[#2D3A34]"
+                className="flex items-center space-x-1 text-xs font-bold uppercase text-charcoal cursor-pointer"
               >
                 <Globe className="h-4 w-4" />
                 <span>{language}</span>
@@ -223,7 +223,7 @@ export const Navbar: React.FC = () => {
                     <button
                       key={lang}
                       onClick={() => handleLanguageChange(lang)}
-                      className="block w-full text-left px-4 py-2 text-xs font-bold uppercase text-charcoal hover:bg-cream"
+                      className="block w-full text-left px-4 py-2 text-xs font-bold uppercase text-charcoal hover:bg-cream cursor-pointer"
                     >
                       {lang}
                     </button>
@@ -234,7 +234,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[#2D3A34] hover:text-accent p-2 focus:outline-none"
+              className="text-charcoal hover:text-accent p-2 focus:outline-none cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -246,11 +246,11 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-[#FDFBF7] border-t border-gray-150 shadow-2xl py-4 px-4 space-y-3 absolute top-full left-0 right-0 animate-fade-in">
+        <div className="lg:hidden bg-white border-t border-gray-150 shadow-2xl py-4 px-4 space-y-3 absolute top-full left-0 right-0 animate-fade-in">
           <Link
             to="/"
             className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/') ? 'text-accent bg-cream' : 'text-[#2D3A34]'
+              isActive('/') ? 'text-accent bg-cream' : 'text-charcoal'
             }`}
           >
             {t('nav_home')}
@@ -289,16 +289,25 @@ export const Navbar: React.FC = () => {
           <Link
             to="/about"
             className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/about') ? 'text-accent bg-cream' : 'text-[#2D3A34]'
+              isActive('/about') ? 'text-accent bg-cream' : 'text-charcoal'
             }`}
           >
             {t('nav_about')}
+          </Link>
+          
+          <Link
+            to="/reviews"
+            className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
+              isActive('/reviews') ? 'text-accent bg-cream' : 'text-charcoal'
+            }`}
+          >
+            {t('nav_reviews')}
           </Link>
 
           <Link
             to="/contact"
             className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/contact') ? 'text-accent bg-cream' : 'text-[#2D3A34]'
+              isActive('/contact') ? 'text-accent bg-cream' : 'text-charcoal'
             }`}
           >
             {t('nav_contact')}
@@ -307,7 +316,7 @@ export const Navbar: React.FC = () => {
           <div className="pt-2">
             <Link
               to="/contact?book=true"
-              className="block w-full text-center bg-[#E4A834] hover:bg-[#D39723] text-[#1E3A2F] py-3 rounded-xl font-bold tracking-widest uppercase transition-colors"
+              className="block w-full text-center bg-accent hover:bg-accent-dark text-white py-3 rounded-xl font-bold tracking-widest uppercase transition-colors"
             >
               {t('nav_book_now')}
             </Link>

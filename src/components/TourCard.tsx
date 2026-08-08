@@ -13,7 +13,7 @@ export const TourCard: React.FC<TourCardProps> = ({ tour }) => {
     : tour.priceLabel || 'Contact for price';
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col h-full reveal-on-scroll group">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-150 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group">
       <div className="relative h-64 overflow-hidden">
         <img
           src={tour.imageUrl}

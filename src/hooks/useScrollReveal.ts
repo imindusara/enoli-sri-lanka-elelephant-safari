@@ -5,8 +5,19 @@ export function useScrollReveal() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Scroll to top on page change
-    window.scrollTo(0, 0);
+    // Scroll to hash target if present, otherwise scroll to top
+    if (window.location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(window.location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }, 150);
+    } else {
+      window.scrollTo(0, 0);
+    }
 
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
 

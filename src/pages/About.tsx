@@ -42,18 +42,18 @@ export const About: React.FC = () => {
       <section className="py-16 px-4 max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6 reveal-on-scroll">
-            <span className="text-accent text-xs font-bold uppercase tracking-widest block">Welcome to Enoli Sri Lanka Elephant Safari</span>
+            <span className="text-accent text-xs font-bold uppercase tracking-widest block">Welcome to Ceylon Nest Journeys</span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal">
               Your Trusted Travel Partner in Sri Lanka
             </h2>
             <p className="text-charcoal-light text-sm sm:text-base leading-relaxed font-sans">
-              Welcome to **Enoli Sri Lanka Elephant Safari**, your trusted travel partner for discovering the beauty of Sri Lanka. We specialize in creating personalized tours that showcase the island's breathtaking landscapes, rich cultural heritage, diverse wildlife, and pristine beaches.
+              Welcome to **Ceylon Nest Journeys**, your trusted travel partner for discovering the beauty of Sri Lanka. We specialize in creating personalized tours that showcase the island's breathtaking landscapes, rich cultural heritage, diverse wildlife, and pristine beaches.
             </p>
             <p className="text-charcoal-light text-sm sm:text-base leading-relaxed font-sans">
               Our experienced team is dedicated to providing safe, comfortable, and unforgettable travel experiences with genuine Sri Lankan hospitality. Whether you're seeking adventure, relaxation, cultural exploration, or a luxury getaway, we carefully design every journey to match your interests and exceed your expectations.
             </p>
             <p className="text-charcoal-light text-sm sm:text-base font-semibold leading-relaxed font-sans">
-              At Enoli Sri Lanka Elephant Safari, we don't just plan holidays — we create memories that last a lifetime.
+              At Ceylon Nest Journeys, we don't just plan holidays — we create memories that last a lifetime.
             </p>
           </div>
           <div className="reveal-on-scroll">

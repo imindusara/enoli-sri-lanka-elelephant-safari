@@ -132,7 +132,7 @@ export const Home: React.FC = () => {
             
             {/* Secondary CTA ("BOOK VIA WHATSAPP") - Outline style in Green with green text & WhatsApp icon */}
             <a
-              href="https://wa.me/94770000000"
+              href="https://wa.me/94704544096"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto bg-white/80 hover:bg-white text-primary border-2 border-primary hover:border-accent px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-sm cursor-pointer"
@@ -452,7 +452,7 @@ export const Home: React.FC = () => {
               {t('nav_book_now')}
             </Link>
             <a
-              href="https://wa.me/94770000000"
+              href="https://wa.me/94704544096"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-full font-bold text-base transition-all flex items-center justify-center gap-2"

@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
   const languagesList: Language[] = ['EN', 'DE', 'FR', 'IT'];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3.5 transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-40 bg-white/65 backdrop-blur-md shadow-sm border-b border-white/20 py-3.5 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           

@@ -71,7 +71,7 @@ export const Home: React.FC = () => {
 
   const testimonials = [
     {
-      text: "Our trip with Ceylon Nest Journeys was incredible. The Nine Arches Bridge and Udawalawe safari were highlights, but what truly made it special was our driver. He felt like family, was extremely safe, and showed us the best local spots. Highly recommend!",
+      text: "Our trip with Enoli Sri Lanka Elephant Safari was incredible. The Nine Arches Bridge and Udawalawe safari were highlights, but what truly made it special was our driver. He felt like family, was extremely safe, and showed us the best local spots. Highly recommend!",
       author: "Sarah & David M.",
       location: "United Kingdom",
     },
@@ -81,7 +81,7 @@ export const Home: React.FC = () => {
       location: "Germany",
     },
     {
-      text: "As a solo female traveler, safety was my biggest concern. Ceylon Nest Journeys provided a driver who was professional, polite, and extremely protective. I had the time of my life exploring Galle and Madu River!",
+      text: "As a solo female traveler, safety was my biggest concern. Enoli Sri Lanka Elephant Safari provided a driver who was professional, polite, and extremely protective. I had the time of my life exploring Galle and Madu River!",
       author: "Elena R.",
       location: "Italy",
     },

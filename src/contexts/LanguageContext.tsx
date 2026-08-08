@@ -44,10 +44,10 @@ export const translations: TranslationDict = {
   intro_badge: { EN: 'Our Identity', DE: 'Unsere Identität', FR: 'Notre Identité', IT: 'La Nostra Identità' },
   intro_title: { EN: 'Your Trusted Travel Partner for Discovering Sri Lanka', DE: 'Ihr zuverlässiger Reisepartner für Sri Lanka', FR: 'Votre Partenaire Voyage de Confiance pour le Sri Lanka', IT: 'Il Tuo Partner di Viaggio di Fiducia per lo Sri Lanka' },
   intro_p1: {
-    EN: 'Welcome to Ceylon Nest Journeys, your trusted travel partner for discovering the beauty of Sri Lanka. We specialize in creating personalized tours that showcase the island\'s breathtaking landscapes, rich cultural heritage, diverse wildlife, and pristine beaches.',
-    DE: 'Willkommen bei Ceylon Nest Journeys, Ihrem zuverlässigen Partner zur Entdeckung der Schönheit Sri Lankas. Wir spezialisieren uns auf maßgeschneiderte Touren durch atemberaubende Landschaften, reiches Kulturerbe, vielfältige Tierwelt und goldene Strände.',
-    FR: 'Bienvenue chez Ceylon Nest Journeys, votre partenaire de confiance pour découvrir la beauté du Sri Lanka. Nous concevons des circuits personnalisés à travers des paysages magnifiques, un riche patrimoine culturel, une faune variée et des plages dorées.',
-    IT: 'Benvenuti in Ceylon Nest Journeys, il vostro partner di fiducia per scoprire la bellezza dello Sri Lanka. Siamo specializzati nella creazione di tour personalizzati che mostrano i paesaggi mozzafiato dell\'isola, il ricco patrimonio culturale, la fauna selvatica e le spiagge.'
+    EN: 'Welcome to Enoli Sri Lanka Elephant Safari, your trusted travel partner for discovering the beauty of Sri Lanka. We specialize in creating personalized tours that showcase the island\'s breathtaking landscapes, rich cultural heritage, diverse wildlife, and pristine beaches.',
+    DE: 'Willkommen bei Enoli Sri Lanka Elephant Safari, Ihrem zuverlässigen Partner zur Entdeckung der Schönheit Sri Lankas. Wir spezialisieren uns auf maßgeschneiderte Touren durch atemberaubende Landschaften, reiches Kulturerbe, vielfältige Tierwelt und goldene Strände.',
+    FR: 'Bienvenue chez Enoli Sri Lanka Elephant Safari, votre partenaire de confiance pour découvrir la beauté du Sri Lanka. Nous concevons des circuits personnalisés à travers des paysages magnifiques, un riche patrimoine culturel, une faune variée et des plages dorées.',
+    IT: 'Benvenuti in Enoli Sri Lanka Elephant Safari, il vostro partner di fiducia per scoprire la bellezza dello Sri Lanka. Siamo specializzati nella creazione di tour personalizzati che mostrano i paesaggi mozzafiato dell\'isola, il ricco patrimonio culturale, la fauna selvatica e le spiagge.'
   },
   intro_p2: {
     EN: 'Our experienced team is dedicated to providing safe, comfortable, and unforgettable travel experiences with genuine Sri Lankan hospitality. Whether you\'re seeking adventure, relaxation, cultural exploration, or a luxury getaway, we carefully design every journey to match your interests and exceed your expectations.',
@@ -56,10 +56,10 @@ export const translations: TranslationDict = {
     IT: 'Il nostro team di esperti si impegna a fornire esperienze di viaggio sicure, confortevoli e indimenticabili con l\'autentica ospitalità dello Sri Lanka. Che cerchiate avventura, relax, cultura o lusso, personalizziamo il vostro viaggio.'
   },
   intro_p3: {
-    EN: 'At Ceylon Nest Journeys, we don\'t just plan holidays — we create memories that last a lifetime.',
-    DE: 'Bei Ceylon Nest Journeys planen wir nicht nur Urlaub – wir schaffen Erinnerungen fürs Leben.',
-    FR: 'Chez Ceylon Nest Journeys, nous ne planifions pas seulement des vacances – nous créons des souvenirs pour la vie.',
-    IT: 'A Ceylon Nest Journeys, non pianifichiamo solo vacanze, creiamo ricordi che durano una vita.'
+    EN: 'At Enoli Sri Lanka Elephant Safari, we don\'t just plan holidays — we create memories that last a lifetime.',
+    DE: 'Bei Enoli Sri Lanka Elephant Safari planen wir nicht nur Urlaub – wir schaffen Erinnerungen fürs Leben.',
+    FR: 'Chez Enoli Sri Lanka Elephant Safari, nous ne planifions pas seulement des vacances – nous créons des souvenirs pour la vie.',
+    IT: 'A Enoli Sri Lanka Elephant Safari, non pianifichiamo solo vacanze, creiamo ricordi che durano una vita.'
   },
   intro_learn_more: { EN: 'Learn More About Us', DE: 'Mehr über uns erfahren', FR: 'En savoir plus', IT: 'Scopri di più su di noi' },
 
@@ -87,7 +87,7 @@ export const translations: TranslationDict = {
 
   // CTA Footer Banner
   ready_title: { EN: 'Ready to Discover the True Beauty of Sri Lanka?', DE: 'Bereit, die wahre Schönheit Sri Lankas zu entdecken?', FR: 'Prêt à Découvrir la Vraie Beauté du Sri Lanka?', IT: 'Pronti a Scoprire la Vera Bellezza dello Sri Lanka?' },
-  ready_subtitle: { EN: 'Let Ceylon Nest Journeys design a tailored holiday experience filled with comfort, wonder, and lasting memories.', DE: 'Lassen Sie uns eine maßgeschneiderte Urlaubsreise voller Komfort, Wunder und bleibender Erinnerungen für Sie planen.', FR: 'Laissez-nous concevoir une expérience de vacances sur mesure, pleine de confort, d\'émerveillement et de souvenirs.', IT: 'Lasciate che Ceylon Nest Journeys crei un\'esperienza di vacanza su misura ricca di comfort, meraviglia e ricordi.' },
+  ready_subtitle: { EN: 'Let Enoli Sri Lanka Elephant Safari design a tailored holiday experience filled with comfort, wonder, and lasting memories.', DE: 'Lassen Sie uns eine maßgeschneiderte Urlaubsreise voller Komfort, Wunder und bleibender Erinnerungen für Sie planen.', FR: 'Laissez-nous concevoir une expérience de vacances sur mesure, pleine de confort, d\'émerveillement et de souvenirs.', IT: 'Lasciate che Enoli Sri Lanka Elephant Safari crei un\'esperienza di vacanza su misura ricca di comfort, meraviglia e ricordi.' },
 
   // Booking Form
   form_title: { EN: 'Plan Your Journey', DE: 'Planen Sie Ihre Reise', FR: 'Planifiez Votre Voyage', IT: 'Pianifica il Tuo Viaggio' },

@@ -124,7 +124,7 @@ export const Contact: React.FC = () => {
             <div className="absolute inset-0 bg-primary/20"></div>
             <div className="relative bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl max-w-sm text-center border border-gray-100 mx-4 space-y-3">
               <MapPin className="h-10 w-10 text-accent mx-auto animate-bounce" />
-              <h4 className="font-serif font-bold text-lg text-charcoal">Ceylon Nest Journeys HQ</h4>
+              <h4 className="font-serif font-bold text-lg text-charcoal">Enoli Sri Lanka Elephant Safari HQ</h4>
               <p className="text-xs text-charcoal-light leading-relaxed">
                 123, Galle Road, Colombo 03, Sri Lanka. Contact us for custom meetups or airport greetings.
               </p>

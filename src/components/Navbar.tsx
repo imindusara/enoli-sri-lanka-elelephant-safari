@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-[#1E3A2F] leading-tight">
-                CEYLON NEST
+                ENOLI SRI LANKA
               </span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-accent font-semibold leading-none">
                 {t('nav_services').split(' ')[0]}

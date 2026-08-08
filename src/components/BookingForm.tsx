@@ -67,7 +67,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ defaultTourId = '' }) 
     if (!validate()) return;
 
     const selectedTourName = toursData.find(t => t.id === formData.tourId)?.title || formData.tourId;
-    const text = `Hi Ceylon Nest Journeys! I would like to book a tour.
+    const text = `Hi Enoli Sri Lanka Elephant Safari! I would like to book a tour.
 Name: ${formData.name}
 Email: ${formData.email}
 Phone/WhatsApp: ${formData.phone}
@@ -90,7 +90,7 @@ Message: ${formData.message || 'None'}`;
           Enquiry Received!
         </h3>
         <p className="text-charcoal-light max-w-md mx-auto mb-8 leading-relaxed">
-          Thank you for reaching out to **Ceylon Nest Journeys**. Our travel specialists will customize your itinerary and contact you with a details quote within a few hours.
+          Thank you for reaching out to **Enoli Sri Lanka Elephant Safari**. Our travel specialists will customize your itinerary and contact you with a details quote within a few hours.
         </p>
         <button
           onClick={() => {

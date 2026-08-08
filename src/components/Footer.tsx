@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
             <Link to="/" className="flex items-center space-x-2">
               <Compass className="h-6 w-6 text-accent" />
               <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">
-                Ceylon Nest<span className="text-accent font-sans font-light"> Journeys</span>
+                Enoli Sri Lanka<span className="text-accent font-sans font-light"> Elephant Safari</span>
               </span>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
 
         {/* Divider */}
         <div className="border-t border-primary-dark/60 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Enoli Sri Lanka Elephant Safari. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-accent transition-colors duration-200">Privacy Policy</a>
             <a href="#" className="hover:text-accent transition-colors duration-200">Terms of Service</a>

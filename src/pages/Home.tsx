@@ -93,20 +93,15 @@ export const Home: React.FC = () => {
     <div className="overflow-x-hidden text-charcoal bg-cream">
       {/* Hero Section */}
       <section className="relative min-h-screen py-24 md:py-32 flex items-center justify-center text-center bg-cream overflow-hidden">
-        {/* Background Image - Sigiriya background */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('/poswiecie-sigiriya-459197_1920.jpg')` }}></div>
-        
+        {/* Background Image - Sigiriya background with dark overlay */}
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('/poswiecie-sigiriya-459197_1920.jpg')` }}>
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
 
-
-        <div className="relative max-w-3xl mx-auto px-6 py-10 md:px-12 md:py-12 z-10 space-y-6 md:space-y-8 my-6 flex flex-col items-center bg-white/85 backdrop-blur-md rounded-3xl border border-white/60 shadow-2xl animate-fade-in-up">
+        <div className="relative max-w-3xl mx-auto px-6 py-10 md:px-12 md:py-12 z-10 space-y-6 md:space-y-8 my-6 flex flex-col items-center bg-white/25 backdrop-blur-md rounded-3xl border border-white/25 shadow-2xl animate-fade-in-up">
           
-          {/* Logo at the top of Hero section */}
-          <div className="animate-fade-in mb-2">
-            <img src="/logo.png" alt="Ceylon Nest Journeys Logo" className="h-16 w-16 object-contain rounded-2xl shadow-md border border-primary/10 bg-white/40 p-2 backdrop-blur-xs" />
-          </div>
-
-          {/* Tagline / Sub-text header tag */}
-          <span className="inline-block text-accent text-xs font-bold uppercase tracking-[0.25em] animate-fade-in">
+          {/* Tagline / Sub-text header tag - Improved Contrast & Styling */}
+          <span className="inline-block text-primary text-xs font-bold uppercase tracking-[0.35em] animate-fade-in">
             {t('hero_welcome')}
           </span>
 
@@ -115,8 +110,8 @@ export const Home: React.FC = () => {
             {t('hero_title')}
           </h1>
 
-          {/* Body paragraph text */}
-          <p className="text-base sm:text-lg md:text-xl text-charcoal max-w-2xl font-light font-sans leading-relaxed animate-fade-in-up">
+          {/* Body paragraph text - Improved contrast and weight */}
+          <p className="text-base sm:text-lg md:text-xl text-[#1A1A1A] max-w-2xl font-medium font-sans leading-relaxed animate-fade-in-up">
             {t('hero_subtitle')}
           </p>
 
@@ -125,17 +120,17 @@ export const Home: React.FC = () => {
             {/* Primary CTA ("EXPLORE OUR TOURS") - Solid Deep Green with Gold hover border and soft glow */}
             <a
               href="#tours"
-              className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(30,77,59,0.4)] border border-transparent hover:border-accent hover:-translate-y-0.5 text-center cursor-pointer"
+              className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(30,77,59,0.4)] border border-transparent hover:border-accent hover:-translate-y-0.5 flex items-center justify-center text-center cursor-pointer"
             >
               {t('hero_cta_explore')}
             </a>
             
-            {/* Secondary CTA ("BOOK VIA WHATSAPP") - Outline style in Green with green text & WhatsApp icon */}
+            {/* Secondary CTA ("BOOK VIA WHATSAPP") - Subtle thin outline border in Green with green text & WhatsApp icon */}
             <a
               href="https://wa.me/94763586686"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-white/80 hover:bg-white text-primary border-2 border-primary hover:border-accent px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-sm cursor-pointer"
+              className="w-full sm:w-auto bg-white/80 hover:bg-white text-primary border border-primary/50 hover:border-accent px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-sm cursor-pointer"
             >
               <MessageCircle className="h-5 w-5 text-[#25D366] fill-[#25D366]/20" />
               <span>{t('hero_cta_whatsapp')}</span>

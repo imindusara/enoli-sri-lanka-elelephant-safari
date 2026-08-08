@@ -15,20 +15,20 @@ export const Contact: React.FC = () => {
     {
       icon: <Phone className="h-6 w-6 text-accent" />,
       title: 'Phone Inquiry',
-      value: '+94 70 454 4096',
-      link: 'tel:+94704544096',
+      value: '+94 76 358 6686',
+      link: 'tel:+94763586686',
     },
     {
       icon: <MessageSquare className="h-6 w-6 text-accent" />,
       title: 'WhatsApp Chat',
-      value: '+94 70 454 4096',
-      link: 'https://wa.me/94704544096',
+      value: '+94 76 358 6686',
+      link: 'https://wa.me/94763586686',
     },
     {
       icon: <Mail className="h-6 w-6 text-accent" />,
       title: 'Email Us',
-      value: 'Supundilhan2019@gmail.com',
-      link: 'mailto:Supundilhan2019@gmail.com',
+      value: 'info@ceylonnestjourneys.com',
+      link: 'mailto:info@ceylonnestjourneys.com',
     },
     {
       icon: <MapPin className="h-6 w-6 text-accent" />,

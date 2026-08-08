@@ -75,11 +75,11 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-accent shrink-0" />
-                <a href="tel:+94704544096" className="hover:text-accent transition-colors duration-200 text-gray-400">+94 70 454 4096</a>
+                <a href="tel:+94763586686" className="hover:text-accent transition-colors duration-200 text-gray-400">+94 76 358 6686</a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent shrink-0" />
-                <a href="mailto:Supundilhan2019@gmail.com" className="hover:text-accent transition-colors duration-200 text-gray-400">Supundilhan2019@gmail.com</a>
+                <a href="mailto:info@ceylonnestjourneys.com" className="hover:text-accent transition-colors duration-200 text-gray-400">info@ceylonnestjourneys.com</a>
               </li>
             </ul>
           </div>

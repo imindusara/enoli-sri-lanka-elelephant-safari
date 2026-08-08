@@ -76,7 +76,7 @@ Date: ${formData.date}
 Travelers: ${formData.travelers}
 Message: ${formData.message || 'None'}`;
 
-    const whatsappUrl = `https://wa.me/94704544096?text=${encodeURIComponent(text)}`;
+    const whatsappUrl = `https://wa.me/94763586686?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
 

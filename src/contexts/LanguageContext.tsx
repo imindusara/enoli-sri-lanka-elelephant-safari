@@ -27,20 +27,20 @@ export const translations: TranslationDict = {
   nav_book_now: { EN: 'Book Now', DE: 'Jetzt Buchen', FR: 'Réserver', IT: 'Prenota Ora' },
   
   // Hero Section
-  hero_welcome: { EN: 'BESPOKE SRI LANKAN EXPEDITIONS', DE: 'BESONDERE SRI LANKA EXPEDITIONEN', FR: 'EXPÉDITIONS SUR MESURE AU SRI LANKA', IT: 'SPEDIZIONI SU MISURA IN SRI LANKA' },
+  hero_welcome: { EN: 'PREMIUM SRI LANKAN TRAVELS', DE: 'PREMIUM SRI LANKA REISEN', FR: 'VOYAGES DE LUXE AU SRI LANKA', IT: 'VIAGGI DI LUSSO IN SRI LANKA' },
   hero_title: {
-    EN: 'To Inspire the World to Discover the True Beauty of Sri Lanka.',
-    DE: 'Die Welt inspirieren, die wahre Schönheit Sri Lankas zu entdecken.',
-    FR: 'Inspirer le monde à découvrir la vraie beauté du Sri Lanka.',
-    IT: 'Ispirare il mondo a scoprire la vera bellezza dello Sri Lanka.'
+    EN: 'Private, Personalized Tours Across Sri Lanka',
+    DE: 'Private, personalisierte Touren durch Sri Lanka',
+    FR: 'Circuits privés et personnalisés au Sri Lanka',
+    IT: 'Tour privati e personalizzati in Sri Lanka'
   },
   hero_subtitle: {
-    EN: 'Crafting exceptional journeys with genuine hospitality, personalized service, and unforgettable memories.',
-    DE: 'Einzigartige Reisen mit echter Gastfreundschaft, persönlichem Service und unvergesslichen Erinnerungen.',
-    FR: 'Créer des voyages exceptionnels avec une hospitalité authentique, un service personnalisé et des souvenirs inoubliables.',
-    IT: 'Creare viaggi eccezionali con un\'ospitalità autentica, un servizio personalizzato e ricordi indimenticabili.'
+    EN: 'Explore pristine beaches, ancient cities, and lush tea plantations with your own dedicated driver-guide.',
+    DE: 'Erkunden Sie Traumstrände, antike Städte und Teeplantagen mit Ihrem eigenen privaten Fahrer und Guide.',
+    FR: 'Découvrez des plages de rêve, des cités anciennes et des plantations de thé avec votre chauffeur-guide privé.',
+    IT: 'Esplora spiagge incontaminate, città antiche e piantagioni di tè con la tua guida-autista privata.'
   },
-  hero_cta_explore: { EN: 'Explore Our Tours', DE: 'Touren Erkunden', FR: 'Explorer Nos Circuits', IT: 'Esplora i Nostri Tour' },
+  hero_cta_explore: { EN: 'Plan My Trip', DE: 'Meine Reise Planen', FR: 'Planifier Mon Voyage', IT: 'Pianifica il Mio Viaggio' },
   hero_cta_whatsapp: { EN: 'Book via WhatsApp', DE: 'Per WhatsApp Buchen', FR: 'Réserver via WhatsApp', IT: 'Prenota via WhatsApp' },
 
   // Intro Section

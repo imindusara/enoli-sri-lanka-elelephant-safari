@@ -92,49 +92,42 @@ export const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden text-charcoal bg-cream">
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] sm:min-h-screen py-16 sm:py-24 md:py-32 flex items-center justify-center text-center bg-cream overflow-hidden">
-        {/* Background Image - Sigiriya background with dark overlay */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('/poswiecie-sigiriya-459197_1920.jpg')` }}>
-          <div className="absolute inset-0 bg-black/35"></div>
-        </div>
+      <section className="relative min-h-[80vh] sm:min-h-screen py-16 sm:py-24 md:py-32 flex items-center justify-center text-center bg-cream overflow-hidden">
+        {/* Optimized Image Background instead of CSS background-image */}
+        <img
+          src="/poswiecie-sigiriya-459197_1920.jpg"
+          alt="Sigiriya Rock Fortress Sri Lanka"
+          className="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-black/40 z-0"></div>
 
-        <div className="relative max-w-3xl mx-auto px-4 py-8 sm:px-12 sm:py-12 z-10 space-y-5 sm:space-y-8 my-4 flex flex-col items-center bg-white/35 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl animate-fade-in-up">
+        <div className="relative max-w-3xl mx-auto px-4 py-8 sm:px-12 sm:py-12 z-10 space-y-5 sm:space-y-8 my-4 flex flex-col items-center bg-white/40 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl animate-fade-in-up">
           
-          {/* Tagline / Sub-text header tag - Improved Contrast & Styling */}
+          {/* Tagline / Sub-text header tag */}
           <span className="inline-block text-primary text-[10px] sm:text-xs font-black uppercase tracking-[0.35em] animate-fade-in">
             {t('hero_welcome')}
           </span>
 
-          {/* Main large heading text (Elegant Serif, Primary Deep Green) */}
+          {/* Main large heading text */}
           <h1 className="fluid-h1 font-serif font-bold tracking-tight text-primary leading-tight animate-fade-in-up">
             {t('hero_title')}
           </h1>
 
-          {/* Body paragraph text - Hidden on mobile for clutter-free UI */}
-          <p className="fluid-body text-charcoal-light max-w-2xl font-medium font-sans leading-relaxed animate-fade-in-up hidden sm:block">
+          {/* Body paragraph text */}
+          <p className="fluid-body text-charcoal-light max-w-2xl font-medium font-sans leading-relaxed animate-fade-in-up">
             {t('hero_subtitle')}
           </p>
 
-          {/* Two-button CTA cluster */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-2 w-full sm:w-auto animate-fade-in-up">
-            {/* Primary CTA ("EXPLORE OUR TOURS") */}
-            <a
-              href="#tours"
-              className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(30,77,59,0.4)] border border-transparent hover:border-accent hover:-translate-y-0.5 flex items-center justify-center text-center cursor-pointer min-h-[48px]"
+          {/* Single Clear CTA Button (Eliminated competing CTA) */}
+          <div className="pt-2 w-full sm:w-auto animate-fade-in-up">
+            <Link
+              to="/custom-tours"
+              className="w-full sm:w-auto inline-flex bg-primary hover:bg-primary-dark text-white px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(30,77,59,0.4)] border border-transparent hover:border-accent hover:-translate-y-0.5 items-center justify-center text-center cursor-pointer min-h-[48px]"
             >
               {t('hero_cta_explore')}
-            </a>
-            
-            {/* Secondary CTA ("BOOK VIA WHATSAPP") */}
-            <a
-              href="https://wa.me/94763586686"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-white/90 hover:bg-white text-primary border border-primary/50 hover:border-accent px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 shadow-sm cursor-pointer min-h-[48px]"
-            >
-              <MessageCircle className="h-5 w-5 text-[#25D366] fill-[#25D366]/20" />
-              <span>{t('hero_cta_whatsapp')}</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

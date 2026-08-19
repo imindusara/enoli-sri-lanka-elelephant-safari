@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Brand/About Column */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
+              <img src="/logo-new.jpg" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
               <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">
                 Ceylon Nest<span className="text-accent font-sans font-light"> Journeys</span>
               </span>
@@ -36,32 +36,45 @@ export const Footer: React.FC = () => {
             <h3 className="text-white font-serif font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/" className="hover:text-accent transition-colors duration-200 block">Home</Link>
+                <Link to="/" className="hover:text-accent transition-colors duration-200 block text-gray-400">Home</Link>
               </li>
               <li>
-                <Link to="/tours" className="hover:text-accent transition-colors duration-200 block">All Tours</Link>
+                <Link to="/tours" className="hover:text-accent transition-colors duration-200 block text-gray-400">All Tours</Link>
               </li>
               <li>
-                <Link to="/tours?filter=day" className="hover:text-accent transition-colors duration-200 block">Day Tours</Link>
+                <Link to="/destinations" className="hover:text-accent transition-colors duration-200 block text-gray-400">Destinations</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-accent transition-colors duration-200 block">About Us</Link>
+                <Link to="/custom-tours" className="hover:text-accent transition-colors duration-200 block text-gray-400">Private Tours</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-accent transition-colors duration-200 block">Contact & Booking</Link>
+                <Link to="/about" className="hover:text-accent transition-colors duration-200 block text-gray-400">About Us</Link>
+              </li>
+              <li>
+                <Link to="/reviews" className="hover:text-accent transition-colors duration-200 block text-gray-400">Reviews</Link>
               </li>
             </ul>
           </div>
 
-          {/* Top Destinations / Categories */}
+          {/* Travel Services & Info */}
           <div>
-            <h3 className="text-white font-serif font-semibold text-lg mb-4">Top Attractions</h3>
+            <h3 className="text-white font-serif font-semibold text-lg mb-4">Services & Info</h3>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li>Nine Arches Bridge, Ella</li>
-              <li>Sigiriya Rock Fortress</li>
-              <li>Galle Historic Dutch Fort</li>
-              <li>Udawalawe Elephant Safari</li>
-              <li>Madu River Mangroves</li>
+              <li>
+                <Link to="/airport-transfers" className="hover:text-accent transition-colors duration-200 block text-gray-400">Airport Transfers</Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-accent transition-colors duration-200 block text-gray-400">Travel Services</Link>
+              </li>
+              <li>
+                <Link to="/responsible-tourism" className="hover:text-accent transition-colors duration-200 block text-gray-400">Responsible Tourism</Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-accent transition-colors duration-200 block text-gray-400">Travel FAQs</Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-accent transition-colors duration-200 block text-gray-400">Travel Guide / Blog</Link>
+              </li>
             </ul>
           </div>
 
@@ -87,10 +100,21 @@ export const Footer: React.FC = () => {
 
         {/* Divider */}
         <div className="border-t border-primary-dark/60 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved. | Website by{' '}
+            <a href="https://www.univerzlk.com/" target="_blank" rel="noopener noreferrer" className="hover:text-accent font-semibold transition-colors duration-200">
+              univerzlk
+            </a>{' '}
+            (
+            <a href="tel:+94778873302" className="hover:text-accent font-semibold transition-colors duration-200">
+              +94 77 887 3302
+            </a>
+            )
+          </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-accent transition-colors duration-200">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors duration-200">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-accent transition-colors duration-200">Privacy Policy</Link>
+            <Link to="/terms-conditions" className="hover:text-accent transition-colors duration-200">Terms & Conditions</Link>
+            <Link to="/cancellation-policy" className="hover:text-accent transition-colors duration-200">Cancellation Policy</Link>
           </div>
         </div>
       </div>

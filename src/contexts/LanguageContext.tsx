@@ -18,8 +18,11 @@ export const translations: TranslationDict = {
   nav_services: { EN: 'Services', DE: 'Dienstleistungen', FR: 'Services', IT: 'Servizi' },
   nav_tours: { EN: 'Tours', DE: 'Touren', FR: 'Circuits', IT: 'Tour' },
   nav_about: { EN: 'About', DE: 'Über uns', FR: 'À propos', IT: 'Chi Siamo' },
+  nav_destinations: { EN: 'Destinations', DE: 'Reiseziele', FR: 'Destinations', IT: 'Destinazioni' },
+  nav_custom_tours: { EN: 'Private Tours', DE: 'Maßgeschneidert', FR: 'Circuits sur Mesure', IT: 'Tour su Misura' },
   nav_gallery: { EN: 'Gallery', DE: 'Galerie', FR: 'Galerie', IT: 'Galleria' },
   nav_reviews: { EN: 'Reviews', DE: 'Bewertungen', FR: 'Avis', IT: 'Recensioni' },
+  nav_blog: { EN: 'Travel Guide', DE: 'Reiseführer', FR: 'Guide de Voyage', IT: 'Guida di Viaggio' },
   nav_contact: { EN: 'Contact', DE: 'Kontakt', FR: 'Contact', IT: 'Contatti' },
   nav_book_now: { EN: 'Book Now', DE: 'Jetzt Buchen', FR: 'Réserver', IT: 'Prenota Ora' },
   

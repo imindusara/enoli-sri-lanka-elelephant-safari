@@ -6,248 +6,264 @@ import type { Language } from '../contexts/LanguageContext';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isToursDropdownOpen, setIsToursDropdownOpen] = useState(false);
-  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const [isGalleryDropdownOpen, setIsGalleryDropdownOpen] = useState(false);
-  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<'tours' | 'destinations' | 'more' | 'language' | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
+
   const location = useLocation();
   const { language, setLanguage, t } = useTranslation();
 
   // Close menus on page change
   useEffect(() => {
     setIsOpen(false);
-    setIsToursDropdownOpen(false);
-    setIsServicesDropdownOpen(false);
-    setIsGalleryDropdownOpen(false);
-    setIsLanguageDropdownOpen(false);
+    setActiveDropdown(null);
+    setMobileExpanded({});
   }, [location]);
 
-  const isActive = (path: string) => location.pathname === path;
+  // Handle scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const closeAllDropdowns = () => {
-    setIsServicesDropdownOpen(false);
-    setIsToursDropdownOpen(false);
-    setIsGalleryDropdownOpen(false);
-    setIsLanguageDropdownOpen(false);
-  };
-
-  const toggleServices = () => {
-    const nextState = !isServicesDropdownOpen;
-    closeAllDropdowns();
-    setIsServicesDropdownOpen(nextState);
-  };
-
-  const openServices = () => {
-    closeAllDropdowns();
-    setIsServicesDropdownOpen(true);
-  };
-
-  const toggleTours = () => {
-    const nextState = !isToursDropdownOpen;
-    closeAllDropdowns();
-    setIsToursDropdownOpen(nextState);
-  };
-
-  const openTours = () => {
-    closeAllDropdowns();
-    setIsToursDropdownOpen(true);
-  };
-
-  const toggleGallery = () => {
-    const nextState = !isGalleryDropdownOpen;
-    closeAllDropdowns();
-    setIsGalleryDropdownOpen(nextState);
-  };
-
-  const openGallery = () => {
-    closeAllDropdowns();
-    setIsGalleryDropdownOpen(true);
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
   };
 
   const toggleLanguage = () => {
-    const nextState = !isLanguageDropdownOpen;
-    closeAllDropdowns();
-    setIsLanguageDropdownOpen(nextState);
+    setActiveDropdown(activeDropdown === 'language' ? null : 'language');
   };
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
-    setIsLanguageDropdownOpen(false);
+    setActiveDropdown(null);
+  };
+
+  const toggleMobileExpand = (key: string) => {
+    setMobileExpanded(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
   };
 
   const languagesList: Language[] = ['EN', 'DE', 'FR', 'IT'];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-white/65 backdrop-blur-md shadow-sm border-b border-white/20 py-4.5 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14">
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-white/20 flex items-center ${
+        isScrolled 
+          ? 'bg-white/90 backdrop-blur-md shadow-md h-20' 
+          : 'bg-white/70 backdrop-blur-sm h-24'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-full">
           
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 shrink-0">
-            <img src="/logo.png" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
-            <div>
-              <span className="font-serif text-sm lg:text-base xl:text-lg font-bold tracking-tight text-primary leading-tight whitespace-nowrap">
+          {/* LEFT: Logo & Brand Area (25-30% width) */}
+          <div className="w-[28%] min-w-[200px] shrink-0">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <img 
+                src="/logo-new.jpg" 
+                alt="Ceylon Nest Journeys Logo" 
+                className="h-12 w-12 object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105" 
+              />
+              <span className="font-serif text-sm xl:text-base font-black tracking-wider text-primary leading-tight uppercase transition-colors group-hover:text-accent">
                 CEYLON NEST JOURNEYS
               </span>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-5">
+          {/* CENTER: Main Desktop Navigation (Spacious, 13-15px, medium/semibold) */}
+          <div className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 text-[13px] xl:text-[14px] font-semibold tracking-wide text-charcoal">
+            
+            {/* HOME */}
             <Link
               to="/"
-              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
-                isActive('/') ? 'text-primary' : 'text-charcoal'
+              className={`relative py-2 hover:text-accent transition-colors ${
+                isActive('/') && location.pathname === '/' ? 'text-primary font-bold' : 'text-charcoal'
               }`}
             >
               <span>{t('nav_home')}</span>
-              {isActive('/') && (
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-fade-in" />
+              {isActive('/') && location.pathname === '/' && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent rounded-full" />
               )}
             </Link>
 
-            {/* Services Dropdown */}
-            <div className="relative" onMouseLeave={closeAllDropdowns}>
+            {/* TOURS Dropdown */}
+            <div 
+              className="relative py-2"
+              onMouseEnter={() => setActiveDropdown('tours')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               <button
-                onClick={toggleServices}
-                onMouseEnter={openServices}
-                className="flex items-center space-x-0.5 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent text-charcoal cursor-pointer focus:outline-none focus:ring-0 whitespace-nowrap"
-              >
-                <span>{t('nav_services')}</span>
-                <ChevronDown className="h-3.5 w-3.5" />
-              </button>
-              {isServicesDropdownOpen && (
-                <div className="absolute left-0 pt-2 w-48 z-50">
-                  <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-2 animate-fade-in">
-                    <Link to="/tours" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
-                      Tour Guide Service
-                    </Link>
-                    <Link to="/contact" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
-                      Hotel Booking Assist
-                    </Link>
-                    <Link to="/contact" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
-                      Airport Transfers
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Tours (Packages) Dropdown */}
-            <div className="relative" onMouseLeave={closeAllDropdowns}>
-              <button
-                onClick={toggleTours}
-                onMouseEnter={openTours}
-                className={`relative flex items-center space-x-0.5 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent cursor-pointer focus:outline-none focus:ring-0 whitespace-nowrap ${
-                  isActive('/tours') ? 'text-primary' : 'text-charcoal'
+                className={`flex items-center gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
+                  isActive('/tours') ? 'text-primary font-bold' : 'text-charcoal'
                 }`}
               >
                 <span>{t('nav_tours')}</span>
-                <ChevronDown className="h-3.5 w-3.5" />
-                {isActive('/tours') && (
-                  <span className="absolute -bottom-2 left-[40%] -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-fade-in" />
-                )}
+                <ChevronDown className="h-4 w-4 shrink-0" />
               </button>
-              {isToursDropdownOpen && (
-                <div className="absolute left-0 pt-2 w-48 z-50">
-                  <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-2 animate-fade-in">
-                    <Link to="/tours?filter=day" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
-                      {t('tours_day')}
+              
+              {activeDropdown === 'tours' && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-[95%] pt-3 w-52 z-50">
+                  <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 py-3 border border-gray-100 overflow-hidden animate-fade-in">
+                    <Link to="/tours" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      All Tours
                     </Link>
-                    <Link to="/tours?filter=multi-day" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
-                      {t('tours_multi')}
+                    <Link to="/tours?filter=day" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Day Tours
+                    </Link>
+                    <Link to="/tours?filter=multi-day" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Multi-Day Tours
                     </Link>
                   </div>
                 </div>
               )}
+              {isActive('/tours') && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent rounded-full" />
+              )}
             </div>
 
+            {/* DESTINATIONS Dropdown */}
+            <div 
+              className="relative py-2"
+              onMouseEnter={() => setActiveDropdown('destinations')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button
+                className={`flex items-center gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
+                  isActive('/destinations') ? 'text-primary font-bold' : 'text-charcoal'
+                }`}
+              >
+                <span>{t('nav_destinations')}</span>
+                <ChevronDown className="h-4 w-4 shrink-0" />
+              </button>
+              
+              {activeDropdown === 'destinations' && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-[95%] pt-3 w-56 z-50">
+                  <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 py-3 border border-gray-100 overflow-hidden animate-fade-in">
+                    <Link to="/destinations" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all border-b border-gray-50 mb-1">
+                      All Destinations
+                    </Link>
+                    <Link to="/destinations/sigiriya" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Sigiriya Rock
+                    </Link>
+                    <Link to="/destinations/ella" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Ella Valleys
+                    </Link>
+                    <Link to="/destinations/galle" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Galle Dutch Fort
+                    </Link>
+                    <Link to="/destinations/kandy" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Kandy Sacred City
+                    </Link>
+                    <Link to="/destinations/yala" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Yala Wildlife
+                    </Link>
+                  </div>
+                </div>
+              )}
+              {isActive('/destinations') && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent rounded-full" />
+              )}
+            </div>
+
+            {/* CUSTOM TOURS / PRIVATE TOURS */}
+            <Link
+              to="/custom-tours"
+              className={`relative py-2 hover:text-accent transition-colors whitespace-nowrap ${
+                isActive('/custom-tours') ? 'text-primary font-bold' : 'text-charcoal'
+              }`}
+            >
+              <span>{t('nav_custom_tours')}</span>
+              {isActive('/custom-tours') && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent rounded-full" />
+              )}
+            </Link>
+
+            {/* ABOUT */}
             <Link
               to="/about"
-              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
-                isActive('/about') ? 'text-primary' : 'text-charcoal'
+              className={`relative py-2 hover:text-accent transition-colors ${
+                isActive('/about') ? 'text-primary font-bold' : 'text-charcoal'
               }`}
             >
               <span>{t('nav_about')}</span>
               {isActive('/about') && (
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-fade-in" />
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent rounded-full" />
               )}
             </Link>
 
-            {/* Gallery Dropdown */}
-            <div className="relative" onMouseLeave={closeAllDropdowns}>
+            {/* MORE Dropdown */}
+            <div 
+              className="relative py-2"
+              onMouseEnter={() => setActiveDropdown('more')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               <button
-                onClick={toggleGallery}
-                onMouseEnter={openGallery}
-                className={`relative flex items-center space-x-0.5 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent cursor-pointer focus:outline-none focus:ring-0 whitespace-nowrap ${
-                  isActive('/gallery') || isActive('/blog') ? 'text-primary' : 'text-charcoal'
+                className={`flex items-center gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
+                  isActive('/reviews') || isActive('/gallery') || isActive('/blog') || isActive('/contact') ? 'text-primary font-bold' : 'text-charcoal'
                 }`}
               >
-                <span>{t('nav_gallery')}</span>
-                <ChevronDown className="h-3.5 w-3.5" />
-                {(isActive('/gallery') || isActive('/blog')) && (
-                  <span className="absolute -bottom-2 left-[40%] -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-fade-in" />
-                )}
+                <span>More</span>
+                <ChevronDown className="h-4 w-4 shrink-0" />
               </button>
-              {isGalleryDropdownOpen && (
-                <div className="absolute left-0 pt-2 w-48 z-50">
-                  <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-2 animate-fade-in">
-                    <Link to="/gallery" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
-                      Photo Gallery
+              
+              {activeDropdown === 'more' && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-[95%] pt-3 w-52 z-50">
+                  <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 py-3 border border-gray-100 overflow-hidden animate-fade-in">
+                    <Link to="/reviews" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Reviews
                     </Link>
-                    <Link to="/blog" className="block px-4 py-2 text-[11px] xl:text-xs font-bold tracking-wide uppercase text-charcoal hover:bg-cream hover:text-primary transition-colors focus:outline-none">
-                      Travel Blog
+                    <Link to="/gallery" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Gallery
+                    </Link>
+                    <Link to="/blog" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Travel Guide
+                    </Link>
+                    <Link to="/contact" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all border-t border-gray-50 mt-1 pt-3">
+                      Contact Us
                     </Link>
                   </div>
                 </div>
               )}
+              {(isActive('/reviews') || isActive('/gallery') || isActive('/blog') || isActive('/contact')) && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent rounded-full" />
+              )}
             </div>
 
-            <Link
-              to="/reviews"
-              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
-                isActive('/reviews') ? 'text-primary' : 'text-charcoal'
-              }`}
-            >
-              <span>{t('nav_reviews')}</span>
-              {isActive('/reviews') && (
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-fade-in" />
-              )}
-            </Link>
-
-            <Link
-              to="/contact"
-              className={`relative text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-colors hover:text-accent focus:outline-none focus:ring-0 whitespace-nowrap ${
-                isActive('/contact') ? 'text-primary' : 'text-charcoal'
-              }`}
-            >
-              <span>{t('nav_contact')}</span>
-              {isActive('/contact') && (
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-fade-in" />
-              )}
-            </Link>
           </div>
 
-          {/* Right Side Options (Language + Book Now) */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
-            {/* Language Selector */}
-            <div className="relative" onMouseLeave={closeAllDropdowns}>
+          {/* RIGHT: Language Selector & BOOK NOW Button */}
+          <div className="hidden lg:flex items-center justify-end space-x-6 w-[28%] shrink-0">
+            {/* Language Selector (🌐 EN ▼) */}
+            <div 
+              className="relative"
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               <button
                 onClick={toggleLanguage}
-                className="flex items-center space-x-1 text-[10px] xl:text-[11px] font-bold tracking-wider uppercase text-charcoal hover:text-accent focus:outline-none cursor-pointer whitespace-nowrap"
+                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-charcoal hover:text-accent transition-colors cursor-pointer focus:outline-none"
               >
-                <Globe className="h-4 w-4" />
+                <Globe className="h-4.5 w-4.5 text-charcoal-light" />
                 <span>{language}</span>
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
-              {isLanguageDropdownOpen && (
-                <div className="absolute right-0 pt-2 w-28 z-50">
-                  <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-1 animate-fade-in">
+              
+              {activeDropdown === 'language' && (
+                <div className="absolute right-0 top-[110%] pt-2 w-28 z-50">
+                  <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-1.5 border border-gray-100 overflow-hidden animate-fade-in">
                     {languagesList.map((lang) => (
                       <button
                         key={lang}
                         onClick={() => handleLanguageChange(lang)}
-                        className={`block w-full text-left px-4 py-2 text-[11px] xl:text-xs font-bold uppercase transition-colors hover:bg-cream cursor-pointer ${
+                        className={`block w-full text-left px-4 py-2 text-xs font-bold uppercase transition-colors hover:bg-cream cursor-pointer ${
                           language === lang ? 'text-accent bg-cream/50' : 'text-charcoal'
                         }`}
                       >
@@ -259,40 +275,23 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* Book Now Button */}
+            {/* BOOK NOW Button (Gold accent, pulsing but elegant, medium height, comfortable padding) */}
             <Link
-              to="/contact?book=true"
-              className="bg-primary hover:bg-primary-dark text-white px-4 py-2 xl:px-5 xl:py-2.5 rounded-full text-[10px] xl:text-[11px] font-bold tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 focus:outline-none whitespace-nowrap"
+              to="/book-now"
+              className="bg-accent hover:bg-accent-light text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full transition-all duration-300 hover:scale-103 shadow-xs hover:shadow-md animate-pulse hover:animate-none whitespace-nowrap border border-accent-light/10"
             >
               {t('nav_book_now')}
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-4">
-            {/* Language select on Mobile header */}
-            <div className="relative">
-              <button
-                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className="flex items-center space-x-1 text-xs font-bold uppercase text-charcoal cursor-pointer"
-              >
-                <Globe className="h-4 w-4" />
-                <span>{language}</span>
-              </button>
-              {isLanguageDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-24 rounded-lg bg-white shadow-xl ring-1 ring-black/5 py-1 z-50">
-                  {languagesList.map((lang) => (
-                    <button
-                      key={lang}
-                      onClick={() => handleLanguageChange(lang)}
-                      className="block w-full text-left px-4 py-2 text-xs font-bold uppercase text-charcoal hover:bg-cream cursor-pointer"
-                    >
-                      {lang}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+          {/* Mobile Actions (Mobile Hamburger & Quick Actions) */}
+          <div className="lg:hidden flex items-center space-x-3">
+            <Link
+              to="/book-now"
+              className="bg-accent text-white px-4 py-2.5 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all shadow-xs"
+            >
+              Book Now
+            </Link>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -306,101 +305,151 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* MOBILE SLIDE-OUT DRAWER */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-150 shadow-2xl py-4 px-4 space-y-3 absolute top-full left-0 right-0 animate-fade-in">
+        <div className="lg:hidden bg-white border-t border-gray-150 shadow-2xl py-6 px-5 space-y-4 absolute top-full left-0 right-0 animate-fade-in overflow-y-auto max-h-[85vh]">
+          
+          {/* HOME */}
           <Link
             to="/"
-            className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/') ? 'text-accent bg-cream' : 'text-charcoal'
+            className={`block py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream ${
+              isActive('/') && location.pathname === '/' ? 'text-accent bg-cream' : 'text-charcoal'
             }`}
           >
             {t('nav_home')}
           </Link>
 
+          {/* TOURS */}
           <div className="space-y-1">
-            <div className="py-2 px-3 text-xs font-bold text-gray-400 uppercase tracking-widest">
-              {t('nav_services')}
-            </div>
-            <Link to="/tours" className="block py-2 pl-6 pr-3 rounded-lg text-xs font-bold uppercase text-gray-500 hover:bg-cream">
-              Tour Guides
-            </Link>
-            <Link to="/contact" className="block py-2 pl-6 pr-3 rounded-lg text-xs font-bold uppercase text-gray-500 hover:bg-cream">
-              Hotel Bookings
-            </Link>
+            <button
+              onClick={() => toggleMobileExpand('tours')}
+              className="w-full flex justify-between items-center py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer"
+            >
+              <span>{t('nav_tours')}</span>
+              <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded.tours ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileExpanded.tours && (
+              <div className="pl-6 space-y-1 border-l-2 border-accent/20 ml-4">
+                <Link to="/tours" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  All Tours
+                </Link>
+                <Link to="/tours?filter=day" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Day Tours
+                </Link>
+                <Link to="/tours?filter=multi-day" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Multi-Day Tours
+                </Link>
+              </div>
+            )}
           </div>
 
+          {/* DESTINATIONS */}
           <div className="space-y-1">
-            <div className="py-2 px-3 text-xs font-bold text-gray-400 uppercase tracking-widest">
-              {t('nav_tours')}
-            </div>
-            <Link
-              to="/tours?filter=day"
-              className="block py-2 pl-6 pr-3 rounded-lg text-xs font-bold uppercase text-gray-500 hover:bg-cream"
+            <button
+              onClick={() => toggleMobileExpand('destinations')}
+              className="w-full flex justify-between items-center py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer"
             >
-              {t('tours_day')}
-            </Link>
-            <Link
-              to="/tours?filter=multi-day"
-              className="block py-2 pl-6 pr-3 rounded-lg text-xs font-bold uppercase text-gray-500 hover:bg-cream"
-            >
-              {t('tours_multi')}
-            </Link>
+              <span>{t('nav_destinations')}</span>
+              <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded.destinations ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileExpanded.destinations && (
+              <div className="pl-6 space-y-1 border-l-2 border-accent/20 ml-4">
+                <Link to="/destinations" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  All Destinations
+                </Link>
+                <Link to="/destinations/sigiriya" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Sigiriya
+                </Link>
+                <Link to="/destinations/ella" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Ella
+                </Link>
+                <Link to="/destinations/galle" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Galle
+                </Link>
+                <Link to="/destinations/kandy" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Kandy
+                </Link>
+                <Link to="/destinations/yala" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Yala
+                </Link>
+              </div>
+            )}
           </div>
 
+          {/* CUSTOM TOURS */}
+          <Link
+            to="/custom-tours"
+            className={`block py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream ${
+              isActive('/custom-tours') ? 'text-accent bg-cream' : 'text-charcoal'
+            }`}
+          >
+            {t('nav_custom_tours')}
+          </Link>
+
+          {/* ABOUT */}
           <Link
             to="/about"
-            className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
+            className={`block py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream ${
               isActive('/about') ? 'text-accent bg-cream' : 'text-charcoal'
             }`}
           >
             {t('nav_about')}
           </Link>
-          
+
+          {/* MORE (Mobile Drawer) */}
           <div className="space-y-1">
-            <div className="py-2 px-3 text-xs font-bold text-gray-400 uppercase tracking-widest">
-              {t('nav_gallery')}
-            </div>
-            <Link
-              to="/gallery"
-              className={`block py-2 pl-6 pr-3 rounded-lg text-xs font-bold uppercase hover:bg-cream ${
-                isActive('/gallery') ? 'text-accent bg-cream' : 'text-gray-500'
-              }`}
+            <button
+              onClick={() => toggleMobileExpand('more')}
+              className="w-full flex justify-between items-center py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer"
             >
-              Photo Gallery
-            </Link>
-            <Link
-              to="/blog"
-              className={`block py-2 pl-6 pr-3 rounded-lg text-xs font-bold uppercase hover:bg-cream ${
-                isActive('/blog') ? 'text-accent bg-cream' : 'text-gray-500'
-              }`}
-            >
-              Travel Blog
-            </Link>
+              <span>More Options</span>
+              <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded.more ? 'rotate-180' : ''}`} />
+            </button>
+            {mobileExpanded.more && (
+              <div className="pl-6 space-y-1 border-l-2 border-accent/20 ml-4">
+                <Link to="/reviews" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Reviews
+                </Link>
+                <Link to="/gallery" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Gallery
+                </Link>
+                <Link to="/blog" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Travel Guide
+                </Link>
+                <Link to="/contact" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                  Contact
+                </Link>
+              </div>
+            )}
           </div>
-          
-          <Link
-            to="/reviews"
-            className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/reviews') ? 'text-accent bg-cream' : 'text-charcoal'
-            }`}
-          >
-            {t('nav_reviews')}
-          </Link>
 
-          <Link
-            to="/contact"
-            className={`block py-2 px-3 rounded-lg text-xs font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/contact') ? 'text-accent bg-cream' : 'text-charcoal'
-            }`}
-          >
-            {t('nav_contact')}
-          </Link>
+          {/* Language selection on Mobile drawer */}
+          <div className="space-y-2 py-2 px-4 border-t border-gray-100">
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-1">
+              <Globe className="h-4 w-4" /> Language Selection
+            </div>
+            <div className="flex gap-2 pt-2">
+              {languagesList.map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => handleLanguageChange(lang)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    language === lang 
+                      ? 'bg-primary text-white' 
+                      : 'bg-cream text-charcoal border border-gray-200'
+                  }`}
+                >
+                  {lang}
+                </button>
+              ))}
+            </div>
+          </div>
 
-          <div className="pt-2">
+          {/* Book Now link */}
+          <div className="pt-4 border-t border-gray-100">
             <Link
-              to="/contact?book=true"
-              className="block w-full text-center bg-primary hover:bg-primary-dark text-white py-3 rounded-xl font-bold tracking-widest uppercase transition-colors focus:outline-none"
+              to="/book-now"
+              className="block w-full text-center bg-accent hover:bg-accent-light text-white py-3.5 rounded-xl font-bold tracking-widest uppercase transition-colors"
             >
               {t('nav_book_now')}
             </Link>

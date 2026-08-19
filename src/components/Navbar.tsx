@@ -69,7 +69,7 @@ export const Navbar: React.FC = () => {
           <div className="w-[28%] min-w-[200px] shrink-0">
             <Link to="/" className="flex items-center space-x-3 group">
               <img 
-                src="/logo-new.jpg" 
+                src="/logo.jpeg" 
                 alt="Ceylon Nest Journeys Logo" 
                 className="h-12 w-12 object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105" 
               />

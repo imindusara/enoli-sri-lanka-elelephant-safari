@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Brand/About Column */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/logo-new.jpg" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
+              <img src="/logo.jpeg" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
               <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">
                 Ceylon Nest<span className="text-accent font-sans font-light"> Journeys</span>
               </span>

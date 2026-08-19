@@ -70,10 +70,10 @@ export const Tours: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Category Filters */}
         <div className="flex flex-col items-center mb-12 space-y-6">
-          <div className="bg-white p-1.5 rounded-full inline-flex border border-gray-200 shadow-sm">
+          <div className="bg-white p-1 rounded-2xl sm:rounded-full flex flex-wrap justify-center sm:inline-flex border border-gray-200 shadow-sm max-w-full">
             <button
               onClick={() => handleTabChange('all')}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'all'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -83,7 +83,7 @@ export const Tours: React.FC = () => {
             </button>
             <button
               onClick={() => handleTabChange('day')}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'day'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -93,7 +93,7 @@ export const Tours: React.FC = () => {
             </button>
             <button
               onClick={() => handleTabChange('multi-day')}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'multi-day'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -105,20 +105,20 @@ export const Tours: React.FC = () => {
 
           {/* Duration Filter Submenu for Multi-Day */}
           {activeTab === 'multi-day' && (
-            <div className="flex items-center gap-3 flex-wrap justify-center">
-              <span className="text-xs font-bold text-charcoal-light uppercase tracking-wider">Filter by Duration:</span>
-              <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row items-center gap-3 justify-center w-full max-w-full">
+              <span className="text-[10px] sm:text-xs font-bold text-charcoal-light uppercase tracking-wider">Duration:</span>
+              <div className="flex flex-wrap justify-center gap-2 max-w-full">
                 {(['all', '2', '5', '7', '9'] as const).map((dur) => (
                   <button
                     key={dur}
                     onClick={() => setDurationFilter(dur)}
-                    className={`px-4 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
+                    className={`px-3.5 py-2 rounded-xl text-[10px] sm:text-xs font-semibold border transition-all cursor-pointer min-h-[38px] ${
                       durationFilter === dur
                         ? 'bg-accent text-white border-accent shadow-sm'
                         : 'bg-white text-charcoal-light border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    {dur === 'all' ? 'All Durations' : `${dur} Days`}
+                    {dur === 'all' ? 'All' : `${dur} Days`}
                   </button>
                 ))}
               </div>

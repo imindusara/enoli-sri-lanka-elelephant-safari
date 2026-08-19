@@ -157,7 +157,7 @@ export const CustomTours: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="John Doe"
-                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent"
+                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-accent min-h-[48px]"
                     />
                   </div>
                   <div className="space-y-2">
@@ -168,7 +168,7 @@ export const CustomTours: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="john@example.com"
-                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent"
+                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-accent min-h-[48px]"
                     />
                   </div>
                 </div>
@@ -182,7 +182,7 @@ export const CustomTours: React.FC = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent"
+                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-accent min-h-[48px]"
                     />
                   </div>
                   <div className="space-y-2">
@@ -190,7 +190,7 @@ export const CustomTours: React.FC = () => {
                     <select
                       value={formData.duration}
                       onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent"
+                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-accent min-h-[48px]"
                     >
                       <option value="1-3">1 to 3 Days</option>
                       <option value="4-6">4 to 6 Days</option>
@@ -207,7 +207,7 @@ export const CustomTours: React.FC = () => {
                       min="1"
                       value={formData.travelers}
                       onChange={(e) => setFormData({ ...formData, travelers: e.target.value })}
-                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent"
+                      className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-accent min-h-[48px]"
                     />
                   </div>
                 </div>

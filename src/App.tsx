@@ -27,15 +27,17 @@ import { Preloader } from './components/Preloader';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import { LanguageProvider } from './contexts/LanguageContext';
 
+import { BottomActionBar } from './components/BottomActionBar';
+
 // Scroll reveal application wrapper
 const AppContent: React.FC = () => {
   useScrollReveal();
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen no-scroll-x">
       <Preloader />
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pb-safe-action-bar lg:pb-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tours" element={<Tours />} />
@@ -63,6 +65,7 @@ const AppContent: React.FC = () => {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <BottomActionBar />
     </div>
   );
 };

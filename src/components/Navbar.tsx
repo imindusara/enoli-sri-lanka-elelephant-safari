@@ -20,6 +20,18 @@ export const Navbar: React.FC = () => {
     setMobileExpanded({});
   }, [location]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('body-scroll-lock');
+    } else {
+      document.body.classList.remove('body-scroll-lock');
+    }
+    return () => {
+      document.body.classList.remove('body-scroll-lock');
+    };
+  }, [isOpen]);
+
   // Handle scroll detection
   useEffect(() => {
     const handleScroll = () => {
@@ -56,30 +68,30 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-white/20 flex items-center ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-white/20 flex items-center h-16 lg:h-24 ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-md shadow-md h-20' 
-          : 'bg-white/70 backdrop-blur-sm h-24'
+          ? 'bg-white/90 backdrop-blur-md shadow-md lg:h-20' 
+          : 'bg-white/70 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-full">
           
-          {/* LEFT: Logo & Brand Area (25-30% width) */}
+          {/* LEFT: Logo & Brand Area */}
           <div className="w-[28%] min-w-[200px] shrink-0">
             <Link to="/" className="flex items-center space-x-3 group">
               <img 
                 src="/logo.jpeg" 
                 alt="Ceylon Nest Journeys Logo" 
-                className="h-12 w-12 object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105" 
+                className="h-10 w-10 lg:h-12 lg:w-12 object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105" 
               />
-              <span className="font-serif text-sm xl:text-base font-black tracking-wider text-primary leading-tight uppercase transition-colors group-hover:text-accent">
-                CEYLON NEST JOURNEYS
+              <span className="font-serif text-xs lg:text-sm xl:text-base font-black tracking-wider text-primary leading-tight uppercase transition-colors group-hover:text-accent">
+                CEYLON NEST
               </span>
             </Link>
           </div>
 
-          {/* CENTER: Main Desktop Navigation (Spacious, 13-15px, medium/semibold) */}
+          {/* CENTER: Main Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 text-[13px] xl:text-[14px] font-semibold tracking-wide text-charcoal">
             
             {/* HOME */}
@@ -242,7 +254,7 @@ export const Navbar: React.FC = () => {
 
           {/* RIGHT: Language Selector & BOOK NOW Button */}
           <div className="hidden lg:flex items-center justify-end space-x-6 w-[28%] shrink-0">
-            {/* Language Selector (🌐 EN ▼) */}
+            {/* Language Selector */}
             <div 
               className="relative"
               onMouseLeave={() => setActiveDropdown(null)}
@@ -275,7 +287,7 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* BOOK NOW Button (Gold accent, pulsing but elegant, medium height, comfortable padding) */}
+            {/* BOOK NOW Button */}
             <Link
               to="/book-now"
               className="bg-accent hover:bg-accent-light text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full transition-all duration-300 hover:scale-103 shadow-xs hover:shadow-md animate-pulse hover:animate-none whitespace-nowrap border border-accent-light/10"
@@ -288,14 +300,14 @@ export const Navbar: React.FC = () => {
           <div className="lg:hidden flex items-center space-x-3">
             <Link
               to="/book-now"
-              className="bg-accent text-white px-4 py-2.5 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all shadow-xs"
+              className="bg-accent text-white px-4 py-2 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all shadow-xs"
             >
               Book Now
             </Link>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-charcoal hover:text-accent p-2 focus:outline-none cursor-pointer"
+              className="text-charcoal hover:text-accent p-2 focus:outline-none cursor-pointer min-h-[48px] min-w-[48px] flex items-center justify-center"
               aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -307,13 +319,13 @@ export const Navbar: React.FC = () => {
 
       {/* MOBILE SLIDE-OUT DRAWER */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-150 shadow-2xl py-6 px-5 space-y-4 absolute top-full left-0 right-0 animate-fade-in overflow-y-auto max-h-[85vh]">
+        <div className="lg:hidden fixed top-16 left-0 right-0 bg-white border-t border-gray-150 shadow-2xl py-6 px-5 space-y-3 overflow-y-auto h-[calc(100vh-64px)] z-50">
           
           {/* HOME */}
           <Link
             to="/"
-            className={`block py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/') && location.pathname === '/' ? 'text-accent bg-cream' : 'text-charcoal'
+            className={`block py-3.5 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream min-h-[48px] ${
+              isActive('/') && location.pathname === '/' ? 'text-accent bg-cream font-black' : 'text-charcoal'
             }`}
           >
             {t('nav_home')}
@@ -323,20 +335,20 @@ export const Navbar: React.FC = () => {
           <div className="space-y-1">
             <button
               onClick={() => toggleMobileExpand('tours')}
-              className="w-full flex justify-between items-center py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer"
+              className="w-full flex justify-between items-center py-3.5 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer min-h-[48px]"
             >
               <span>{t('nav_tours')}</span>
               <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded.tours ? 'rotate-180' : ''}`} />
             </button>
             {mobileExpanded.tours && (
               <div className="pl-6 space-y-1 border-l-2 border-accent/20 ml-4">
-                <Link to="/tours" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/tours" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   All Tours
                 </Link>
-                <Link to="/tours?filter=day" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/tours?filter=day" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Day Tours
                 </Link>
-                <Link to="/tours?filter=multi-day" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/tours?filter=multi-day" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Multi-Day Tours
                 </Link>
               </div>
@@ -347,40 +359,40 @@ export const Navbar: React.FC = () => {
           <div className="space-y-1">
             <button
               onClick={() => toggleMobileExpand('destinations')}
-              className="w-full flex justify-between items-center py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer"
+              className="w-full flex justify-between items-center py-3.5 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer min-h-[48px]"
             >
               <span>{t('nav_destinations')}</span>
               <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded.destinations ? 'rotate-180' : ''}`} />
             </button>
             {mobileExpanded.destinations && (
               <div className="pl-6 space-y-1 border-l-2 border-accent/20 ml-4">
-                <Link to="/destinations" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/destinations" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   All Destinations
                 </Link>
-                <Link to="/destinations/sigiriya" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/destinations/sigiriya" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Sigiriya
                 </Link>
-                <Link to="/destinations/ella" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/destinations/ella" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Ella
                 </Link>
-                <Link to="/destinations/galle" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/destinations/galle" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Galle
                 </Link>
-                <Link to="/destinations/kandy" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/destinations/kandy" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Kandy
                 </Link>
-                <Link to="/destinations/yala" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/destinations/yala" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Yala
                 </Link>
               </div>
             )}
           </div>
 
-          {/* CUSTOM TOURS */}
+          {/* CUSTOM TOURS / PRIVATE TOURS */}
           <Link
             to="/custom-tours"
-            className={`block py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/custom-tours') ? 'text-accent bg-cream' : 'text-charcoal'
+            className={`block py-3.5 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream min-h-[48px] ${
+              isActive('/custom-tours') ? 'text-accent bg-cream font-black' : 'text-charcoal'
             }`}
           >
             {t('nav_custom_tours')}
@@ -389,8 +401,8 @@ export const Navbar: React.FC = () => {
           {/* ABOUT */}
           <Link
             to="/about"
-            className={`block py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream ${
-              isActive('/about') ? 'text-accent bg-cream' : 'text-charcoal'
+            className={`block py-3.5 px-4 rounded-xl text-sm font-bold tracking-widest uppercase hover:bg-cream min-h-[48px] ${
+              isActive('/about') ? 'text-accent bg-cream font-black' : 'text-charcoal'
             }`}
           >
             {t('nav_about')}
@@ -400,23 +412,23 @@ export const Navbar: React.FC = () => {
           <div className="space-y-1">
             <button
               onClick={() => toggleMobileExpand('more')}
-              className="w-full flex justify-between items-center py-3 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer"
+              className="w-full flex justify-between items-center py-3.5 px-4 rounded-xl text-sm font-bold tracking-widest uppercase text-charcoal hover:bg-cream cursor-pointer min-h-[48px]"
             >
               <span>More Options</span>
               <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileExpanded.more ? 'rotate-180' : ''}`} />
             </button>
             {mobileExpanded.more && (
               <div className="pl-6 space-y-1 border-l-2 border-accent/20 ml-4">
-                <Link to="/reviews" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/reviews" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Reviews
                 </Link>
-                <Link to="/gallery" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/gallery" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Gallery
                 </Link>
-                <Link to="/blog" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/blog" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Travel Guide
                 </Link>
-                <Link to="/contact" className="block py-2 text-xs font-semibold text-gray-500 hover:text-primary">
+                <Link to="/contact" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Contact
                 </Link>
               </div>
@@ -424,16 +436,16 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Language selection on Mobile drawer */}
-          <div className="space-y-2 py-2 px-4 border-t border-gray-100">
-            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-1">
-              <Globe className="h-4 w-4" /> Language Selection
+          <div className="space-y-2 py-3 px-4 border-t border-gray-150">
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-1.5">
+              <Globe className="h-4.5 w-4.5" /> Language Selection
             </div>
             <div className="flex gap-2 pt-2">
               {languagesList.map((lang) => (
                 <button
                   key={lang}
                   onClick={() => handleLanguageChange(lang)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-4 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
                     language === lang 
                       ? 'bg-primary text-white' 
                       : 'bg-cream text-charcoal border border-gray-200'
@@ -446,10 +458,10 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Book Now link */}
-          <div className="pt-4 border-t border-gray-100">
+          <div className="pt-4 border-t border-gray-150">
             <Link
               to="/book-now"
-              className="block w-full text-center bg-accent hover:bg-accent-light text-white py-3.5 rounded-xl font-bold tracking-widest uppercase transition-colors"
+              className="block w-full text-center bg-accent hover:bg-accent-light text-white py-4 rounded-xl font-bold tracking-widest uppercase transition-colors min-h-[48px] flex items-center justify-center"
             >
               {t('nav_book_now')}
             </Link>

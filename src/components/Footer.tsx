@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
+  const toggleSection = (section: string) => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
+
   return (
-    <footer className="bg-primary text-gray-300 pt-16 pb-8 border-t border-primary-dark">
+    <footer className="bg-primary text-gray-300 pt-10 pb-8 border-t border-primary-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-10">
+          
           {/* Brand/About Column */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2">
               <img src="/logo.jpeg" alt="Ceylon Nest Journeys Logo" className="h-10 w-10 object-contain rounded-lg" />
               <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">
@@ -31,66 +38,90 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links Column */}
-          <div>
-            <h3 className="text-white font-serif font-semibold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-3 text-sm">
+          {/* Quick Links Column (Accordion on Mobile) */}
+          <div className="border-b border-white/5 lg:border-none pb-4 lg:pb-0">
+            <button 
+              onClick={() => toggleSection('quick-links')}
+              className="w-full flex justify-between items-center lg:block text-left text-white font-serif font-semibold text-lg mb-2 lg:mb-4 min-h-[48px] lg:min-h-0 cursor-pointer"
+            >
+              <span>Quick Links</span>
+              <span className="lg:hidden">
+                {expandedSection === 'quick-links' ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+              </span>
+            </button>
+            <ul className={`space-y-3 text-sm lg:block ${expandedSection === 'quick-links' ? 'block' : 'hidden'}`}>
               <li>
-                <Link to="/" className="hover:text-accent transition-colors duration-200 block text-gray-400">Home</Link>
+                <Link to="/" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Home</Link>
               </li>
               <li>
-                <Link to="/tours" className="hover:text-accent transition-colors duration-200 block text-gray-400">All Tours</Link>
+                <Link to="/tours" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">All Tours</Link>
               </li>
               <li>
-                <Link to="/destinations" className="hover:text-accent transition-colors duration-200 block text-gray-400">Destinations</Link>
+                <Link to="/destinations" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Destinations</Link>
               </li>
               <li>
-                <Link to="/custom-tours" className="hover:text-accent transition-colors duration-200 block text-gray-400">Private Tours</Link>
+                <Link to="/custom-tours" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Private Tours</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-accent transition-colors duration-200 block text-gray-400">About Us</Link>
+                <Link to="/about" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">About Us</Link>
               </li>
               <li>
-                <Link to="/reviews" className="hover:text-accent transition-colors duration-200 block text-gray-400">Reviews</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Travel Services & Info */}
-          <div>
-            <h3 className="text-white font-serif font-semibold text-lg mb-4">Services & Info</h3>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li>
-                <Link to="/airport-transfers" className="hover:text-accent transition-colors duration-200 block text-gray-400">Airport Transfers</Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-accent transition-colors duration-200 block text-gray-400">Travel Services</Link>
-              </li>
-              <li>
-                <Link to="/responsible-tourism" className="hover:text-accent transition-colors duration-200 block text-gray-400">Responsible Tourism</Link>
-              </li>
-              <li>
-                <Link to="/faq" className="hover:text-accent transition-colors duration-200 block text-gray-400">Travel FAQs</Link>
-              </li>
-              <li>
-                <Link to="/blog" className="hover:text-accent transition-colors duration-200 block text-gray-400">Travel Guide / Blog</Link>
+                <Link to="/reviews" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Reviews</Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Details Column */}
-          <div>
-            <h3 className="text-white font-serif font-semibold text-lg mb-4">Contact Info</h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start space-x-3">
+          {/* Travel Services & Info (Accordion on Mobile) */}
+          <div className="border-b border-white/5 lg:border-none pb-4 lg:pb-0">
+            <button 
+              onClick={() => toggleSection('services')}
+              className="w-full flex justify-between items-center lg:block text-left text-white font-serif font-semibold text-lg mb-2 lg:mb-4 min-h-[48px] lg:min-h-0 cursor-pointer"
+            >
+              <span>Services & Info</span>
+              <span className="lg:hidden">
+                {expandedSection === 'services' ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+              </span>
+            </button>
+            <ul className={`space-y-3 text-sm text-gray-400 lg:block ${expandedSection === 'services' ? 'block' : 'hidden'}`}>
+              <li>
+                <Link to="/airport-transfers" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Airport Transfers</Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Travel Services</Link>
+              </li>
+              <li>
+                <Link to="/responsible-tourism" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Responsible Tourism</Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Travel FAQs</Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 lg:py-0">Travel Guide / Blog</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Details Column (Accordion on Mobile) */}
+          <div className="pb-4 lg:pb-0">
+            <button 
+              onClick={() => toggleSection('contact')}
+              className="w-full flex justify-between items-center lg:block text-left text-white font-serif font-semibold text-lg mb-2 lg:mb-4 min-h-[48px] lg:min-h-0 cursor-pointer"
+            >
+              <span>Contact Info</span>
+              <span className="lg:hidden">
+                {expandedSection === 'contact' ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+              </span>
+            </button>
+            <ul className={`space-y-4 text-sm lg:block ${expandedSection === 'contact' ? 'block' : 'hidden'}`}>
+              <li className="flex items-start space-x-3 py-2 lg:py-0">
                 <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span className="text-gray-400">123, Galle Road, Colombo 03, Sri Lanka</span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center space-x-3 py-2 lg:py-0">
                 <Phone className="h-5 w-5 text-accent shrink-0" />
                 <a href="tel:+94763586686" className="hover:text-accent transition-colors duration-200 text-gray-400">+94 76 358 6686</a>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center space-x-3 py-2 lg:py-0">
                 <Mail className="h-5 w-5 text-accent shrink-0" />
                 <a href="mailto:info@ceylonnestjourneys.com" className="hover:text-accent transition-colors duration-200 text-gray-400">info@ceylonnestjourneys.com</a>
               </li>
@@ -98,23 +129,13 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-primary-dark/60 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>
-            © {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved. | Website by{' '}
-            <a href="https://www.univerzlk.com/" target="_blank" rel="noopener noreferrer" className="hover:text-accent font-semibold transition-colors duration-200">
-              univerzlk
-            </a>{' '}
-            (
-            <a href="tel:+94778873302" className="hover:text-accent font-semibold transition-colors duration-200">
-              +94 77 887 3302
-            </a>
-            )
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="hover:text-accent transition-colors duration-200">Privacy Policy</Link>
-            <Link to="/terms-conditions" className="hover:text-accent transition-colors duration-200">Terms & Conditions</Link>
-            <Link to="/cancellation-policy" className="hover:text-accent transition-colors duration-200">Cancellation Policy</Link>
+        {/* Policies & Copyright */}
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
+          <p>© {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved.</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link to="/privacy-policy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link to="/terms-conditions" className="hover:text-accent transition-colors">Terms & Conditions</Link>
+            <Link to="/cancellation-policy" className="hover:text-accent transition-colors">Cancellation Policy</Link>
           </div>
         </div>
       </div>

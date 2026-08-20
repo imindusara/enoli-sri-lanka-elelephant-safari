@@ -35,8 +35,8 @@ export const destinationsData: Destination[] = [
     ],
     gallery: [
       '/poswiecie-sigiriya-459197_1920.jpg',
-      'https://images.unsplash.com/photo-1588598126744-12502ef0a221?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80'
+      '/sigiriya.jpg',
+      '/sigiriya and kandy.jpg'
     ],
     tips: [
       'Start the climb by 6:30 AM to beat the tropical sun and tourist crowds.',
@@ -50,7 +50,7 @@ export const destinationsData: Destination[] = [
     region: 'Hill Country',
     tagline: 'Misty Valleys, Tea Gardens & Epic Railways',
     description: 'Nestled in the lush, misty mountains of Sri Lanka, Ella is a small town famous for its laid-back vibe, breath-taking panoramas, and stunning hiking trails. Walk through emerald tea plantations, see the engineering marvel of the Nine Arches Bridge, climb Little Adam\'s Peak, and enjoy cascading waterfalls.',
-    imageUrl: 'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/ella.webp',
     highlights: [
       'Watch trains cross the iconic Nine Arches Bridge',
       'Hike Little Adam\'s Peak at sunrise or sunset',
@@ -65,9 +65,9 @@ export const destinationsData: Destination[] = [
       'Local Cooking Masterclasses'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80'
+      '/ella.webp',
+      '/classic sri lanka tour.webp',
+      '/Grand Sri Lanka Tour.webp'
     ],
     tips: [
       'Book train tickets well in advance for the Kandy-Ella scenic route.',
@@ -81,7 +81,7 @@ export const destinationsData: Destination[] = [
     region: 'Southern Coast',
     tagline: 'Colonial Splendor and Ocean Breezes',
     description: 'A historic coastal jewel, Galle boasts a magnificent 17th-century Dutch Fort, a UNESCO World Heritage site. Wander through its narrow cobblestone streets, flanked by colonial villas, chic cafes, antique shops, and boutique hotels, all enclosed by massive stone ramparts looking out over the Indian Ocean.',
-    imageUrl: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/galle.webp',
     highlights: [
       'Walk the ramparts of Galle Dutch Fort at sunset',
       'Photograph the iconic white Galle Lighthouse',
@@ -96,9 +96,9 @@ export const destinationsData: Destination[] = [
       'Sea Turtle Hatchery Visits'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1563182660-983568a64d1c?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=600&q=80'
+      '/galle.webp',
+      '/classic sri lanka tour.webp',
+      '/Signature Sri Lanka Tour.webp'
     ],
     tips: [
       'Enjoy dinner or drinks inside the fort walls; the ambiance is magical after dark.',
@@ -112,7 +112,7 @@ export const destinationsData: Destination[] = [
     region: 'Central Province',
     tagline: 'The Sacred Kingdom and Cultural Capital',
     description: 'Kandy, nestled in the green hills of central Sri Lanka, is the country\'s cultural and spiritual center. It houses the sacred Temple of the Tooth Relic, which contains a tooth of the Buddha, and showcases majestic Kandyan dances, botanical gardens, and the serene Kandy Lake.',
-    imageUrl: 'https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/sigiriya and kandy.jpg',
     highlights: [
       'Visit the sacred Temple of the Tooth Relic (Sri Dalada Maligawa)',
       'Stroll through the Royal Botanical Gardens in Peradeniya',
@@ -127,9 +127,9 @@ export const destinationsData: Destination[] = [
       'Handicraft and Souvenir Shopping'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1588598126744-12502ef0a221?auto=format&fit=crop&w=600&q=80'
+      '/sigiriya and kandy.jpg',
+      '/classic sri lanka tour.webp',
+      '/Signature Sri Lanka Tour.webp'
     ],
     tips: [
       'Dress respectfully when visiting temples (cover shoulders and knees, remove shoes).',
@@ -143,7 +143,7 @@ export const destinationsData: Destination[] = [
     region: 'Southeast Coast',
     tagline: 'Leopard Kingdom and Wilderness Wildlife',
     description: 'Yala National Park is Sri Lanka\'s most famous wildlife sanctuary. Bordering the Indian Ocean, it contains a variety of ecosystems including moist monsoon forests, dry monsoon forests, thorn forests, grasslands, and freshwater wetlands. It has one of the highest leopard densities in the world.',
-    imageUrl: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/elephant.jpg',
     highlights: [
       'Spot elusive Sri Lankan leopards in the wild',
       'Observe herds of wild Asian elephants and sloth bears',
@@ -158,9 +158,9 @@ export const destinationsData: Destination[] = [
       'Sithulpawwa Ancient Temple Exploration'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1563201412-f240ecf91439?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=600&q=80'
+      '/elephant.jpg',
+      '/Signature Sri Lanka Tour.webp',
+      '/classic sri lanka tour.webp'
     ],
     tips: [
       'Book a morning (6 AM) or afternoon (2:30 PM) safari for the best chance of leopard sightings.',

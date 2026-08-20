@@ -51,7 +51,7 @@ export const toursData: Tour[] = [
       'Entrance fees & safari jeep costs',
       'Personal expenses & gratuities'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/ella.webp',
     gallery: [
       'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1588598126744-12502ef0a221?auto=format&fit=crop&w=600&q=80',
@@ -86,7 +86,7 @@ export const toursData: Tour[] = [
       'Entrance fees & boat ride tickets',
       'Personal expenses & gratuities'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/galle.webp',
     gallery: [
       'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1563182660-983568a64d1c?auto=format&fit=crop&w=600&q=80',
@@ -120,7 +120,7 @@ export const toursData: Tour[] = [
       'Entrance fees & safari jeep costs',
       'Personal expenses & gratuities'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1578590494538-cd46ea167b05?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/sigiriya.jpg',
     gallery: [
       'https://images.unsplash.com/photo-1578590494538-cd46ea167b05?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1608958223696-e251a37c3574?auto=format&fit=crop&w=600&q=80',
@@ -157,7 +157,7 @@ export const toursData: Tour[] = [
       'Sightseeing entrance fees & safari jeep tickets',
       'Personal expenses & gratuities'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/sigiriya and kandy.jpg',
     gallery: [
       'https://images.unsplash.com/photo-1578590494538-cd46ea167b05?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&w=600&q=80',
@@ -219,7 +219,7 @@ export const toursData: Tour[] = [
       'Entrance fees & safari jeep costs',
       'Personal expenses & gratuities'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/classic sri lanka tour.webp',
     gallery: [
       'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1588598126744-12502ef0a221?auto=format&fit=crop&w=600&q=80',
@@ -313,7 +313,7 @@ export const toursData: Tour[] = [
       'Entrance fees & safari jeep costs',
       'Personal expenses & gratuities'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/Grand Sri Lanka Tour.webp',
     gallery: [
       'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',
@@ -429,7 +429,7 @@ export const toursData: Tour[] = [
       'Entrance fees & safari jeep costs',
       'Personal expenses & gratuities'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1563182660-983568a64d1c?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/Signature Sri Lanka Tour.webp',
     gallery: [
       'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',

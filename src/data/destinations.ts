@@ -30,7 +30,6 @@ export const destinationsData: Destination[] = [
     activities: [
       'Historical Walking Tours',
       'Archaeology & Photography',
-      'Hot Air Ballooning (nearby Dambulla)',
       'Sigiriya Village Bicycle Tours'
     ],
     gallery: [
@@ -39,7 +38,7 @@ export const destinationsData: Destination[] = [
       '/sigiriya and kandy.jpg'
     ],
     tips: [
-      'Start the climb by 6:30 AM to beat the tropical sun and tourist crowds.',
+      'The fortress opens at 05:00 AM; start your climb early to beat the tropical sun and tourist crowds.',
       'Stay fully hydrated and wear sturdy walking shoes.',
       'Respect the local instructions regarding photography, especially near the frescoes.'
     ]

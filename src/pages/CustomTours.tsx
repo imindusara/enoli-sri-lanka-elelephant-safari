@@ -72,7 +72,7 @@ Email: ${formData.email}
 Phone/WhatsApp: ${formData.phone}
 Duration: ${formData.duration} Days
 Travelers: ${formData.travelers}
-Budget Class: ${formData.budget}
+Budget Class: Standard (4★ Hotels)
 
 Destinations Selected:
 ${formData.destinations.map(d => `- ${d}`).join('\n') || 'None'}
@@ -283,31 +283,12 @@ ${formData.notes || 'None'}`;
                   </div>
                 </div>
 
-                {/* Budget selection */}
-                <div className="space-y-2">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-charcoal">Preferred Hotel Budget</label>
-                  <div className="grid grid-cols-3 gap-4">
-                    {['budget', 'mid-range', 'luxury'].map((level) => (
-                      <label
-                        key={level}
-                        className={`flex flex-col items-center justify-center p-4 border rounded-2xl cursor-pointer text-center capitalize transition-all ${
-                          formData.budget === level
-                            ? 'bg-primary/5 border-primary text-primary font-bold shadow-xs'
-                            : 'bg-cream border-gray-200 text-charcoal-light hover:border-gray-300'
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="budget"
-                          value={level}
-                          checked={formData.budget === level}
-                          onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                          className="sr-only"
-                        />
-                        <span className="text-xs">{level}</span>
-                      </label>
-                    ))}
-                  </div>
+                {/* Accommodation Standard Info */}
+                <div className="bg-primary/5 border border-primary/10 rounded-2xl p-5 space-y-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-primary font-bold">Accommodation Standard</label>
+                  <p className="text-xs text-charcoal-light leading-relaxed">
+                    All of our standard private itineraries feature high-quality <strong>4★ hotel accommodation</strong> with premium amenities, comfort, breakfast, and dinner.
+                  </p>
                 </div>
 
                 {/* Extra Notes */}

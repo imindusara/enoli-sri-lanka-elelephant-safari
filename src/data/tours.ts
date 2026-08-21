@@ -136,11 +136,10 @@ export const toursData: Tour[] = [
     tagline: 'Culture, Heritage & Wildlife Tour (Half Board)',
     duration: '2 Days',
     startLocation: 'Any location in Sri Lanka',
-    overview: 'Experience the best of Sigiriya and Kandy on this 2-day private tour with deluxe accommodation (half board) and a dedicated tour guide. Explore Sigiriya\'s iconic Lion Rock, the enchanting Dambulla Golden Temple, the charming Hiriwadunna village, and an exhilarating wild elephant safari. In Kandy, visit the sacred Tooth Relic Temple, stroll along the scenic Kandy Lake, immerse yourself in the beauty of the Peradeniya Botanical Garden, and admire the historic Matale Hindu Temple. This unforgettable journey combines cultural, spiritual, and natural wonders, promising a perfect blend of adventure and relaxation.',
+    overview: 'Experience the best of Sigiriya and Kandy on this 2-day private tour with deluxe accommodation (half board) and a dedicated tour guide. Explore Sigiriya\'s iconic Lion Rock, the charming Hiriwadunna village, and an exhilarating wild elephant safari. In Kandy, visit the sacred Tooth Relic Temple, stroll along the scenic Kandy Lake, immerse yourself in the beauty of the Peradeniya Botanical Garden, and admire the historic Matale Hindu Temple. This unforgettable journey combines cultural, spiritual, and natural wonders, promising a perfect blend of adventure and relaxation.',
     highlights: [
       'Sigiriya Lion Rock Fortress climb',
       'Temple of the Sacred Tooth Relic in Kandy',
-      'Dambulla Golden Cave Temple complex',
       'Wild Elephant Jeep Safari',
       'Hiriwadunna traditional village experience'
     ],
@@ -170,7 +169,6 @@ export const toursData: Tour[] = [
         day: 1,
         title: 'Cultural Triangle Explorations & Safari',
         activities: [
-          'Visit the ancient Dambulla Golden Cave Temple complex',
           'Scale the magnificent 5th-century Sigiriya Rock Fortress (Lion Rock)',
           'Experience traditional rural life with a Hiriwadunna village tour',
           'Embark on a wild elephant jeep safari in the national park'

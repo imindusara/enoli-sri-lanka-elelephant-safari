@@ -15,25 +15,25 @@ export const Contact: React.FC = () => {
     {
       icon: <Phone className="h-6 w-6 text-accent" />,
       title: 'Phone Inquiry',
-      value: '+94 76 358 6686',
-      link: 'tel:+94763586686',
+      value: '+94 77 111 2040',
+      link: 'tel:+94771112040',
     },
     {
       icon: <MessageSquare className="h-6 w-6 text-accent" />,
       title: 'WhatsApp Chat',
-      value: '+94 76 358 6686',
-      link: 'https://wa.me/94763586686',
+      value: '+94 77 111 2040',
+      link: 'https://wa.me/94771112040',
     },
     {
       icon: <Mail className="h-6 w-6 text-accent" />,
       title: 'Email Us',
-      value: 'info@ceylonnestjourneys.com',
-      link: 'mailto:info@ceylonnestjourneys.com',
+      value: 'ceylonnestjourneys@gmail.com',
+      link: 'mailto:ceylonnestjourneys@gmail.com',
     },
     {
       icon: <MapPin className="h-6 w-6 text-accent" />,
       title: 'Office Address',
-      value: '123, Galle Road, Colombo 03, Sri Lanka',
+      value: 'No 124, kanda kurudu watta, dediyawala, waskaduwa',
       link: '#',
     },
   ];
@@ -126,7 +126,7 @@ export const Contact: React.FC = () => {
               <MapPin className="h-10 w-10 text-accent mx-auto animate-bounce" />
               <h4 className="font-serif font-bold text-lg text-charcoal">Ceylon Nest Journeys HQ</h4>
               <p className="text-xs text-charcoal-light leading-relaxed">
-                123, Galle Road, Colombo 03, Sri Lanka. Contact us for custom meetups or airport greetings.
+                No 124, kanda kurudu watta, dediyawala, waskaduwa, Sri Lanka. Contact us for custom meetups or airport greetings.
               </p>
             </div>
           </div>

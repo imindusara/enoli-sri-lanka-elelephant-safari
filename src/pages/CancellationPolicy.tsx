@@ -26,7 +26,7 @@ export const CancellationPolicy: React.FC = () => {
             <p>If a tour is interrupted or cancelled due to extreme weather, safety alerts, or force majeure events, Ceylon Nest Journeys will offer alternative dates or equivalent credit for future travel tours.</p>
 
             <h3 className="font-serif font-bold text-lg text-primary mt-6">4. Submission of Claims</h3>
-            <p>All cancellation requests must be sent in writing via email to <a href="mailto:info@ceylonnestjourneys.com" className="text-accent underline font-semibold">info@ceylonnestjourneys.com</a>.</p>
+            <p>All cancellation requests must be sent in writing via email to <a href="mailto:ceylonnestjourneys@gmail.com" className="text-accent underline font-semibold">ceylonnestjourneys@gmail.com</a>.</p>
           </div>
         </div>
       </div>

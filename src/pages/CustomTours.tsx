@@ -63,10 +63,32 @@ export const CustomTours: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate sending details
+    
+    const subject = `Custom Tour Design Request - ${formData.name}`;
+    const body = `CEYLON NEST JOURNEYS - CUSTOM TOUR REQUEST
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone/WhatsApp: ${formData.phone}
+Duration: ${formData.duration} Days
+Travelers: ${formData.travelers}
+Budget Class: ${formData.budget}
+
+Destinations Selected:
+${formData.destinations.map(d => `- ${d}`).join('\n') || 'None'}
+
+Interests Selected:
+${formData.interests.map(i => `- ${i}`).join('\n') || 'None'}
+
+Special Notes:
+${formData.notes || 'None'}`;
+
+    const mailtoUrl = `mailto:ceylonnestjourneys@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+
     setTimeout(() => {
       setSubmitted(true);
-    }, 1000);
+    }, 500);
   };
 
   return (
@@ -114,8 +136,8 @@ export const CustomTours: React.FC = () => {
               <li className="flex gap-2 items-start text-xs text-charcoal-light leading-relaxed">
                 <CheckCircle2 className="h-4.5 w-4.5 text-accent shrink-0" />
                 <div>
-                  <span className="block font-bold text-primary">Curated Boutique Hotels</span>
-                  Hand-picked stays, from rustic eco-lodges to 5-star colonial heritage hotels.
+                  <span className="block font-bold text-primary">Curated 4★ Hotels</span>
+                  Hand-picked stays, specializing in premium 4★ hotels.
                 </div>
               </li>
             </ul>

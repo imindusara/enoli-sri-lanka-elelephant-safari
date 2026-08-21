@@ -239,13 +239,16 @@ export const Navbar: React.FC = () => {
                     <Link to="/blog" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
                       Travel Guide
                     </Link>
+                    <Link to="/faq" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      FAQs
+                    </Link>
                     <Link to="/contact" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all border-t border-gray-50 mt-1 pt-3">
                       Contact Us
                     </Link>
                   </div>
                 </div>
               )}
-              {(isActive('/reviews') || isActive('/gallery') || isActive('/blog') || isActive('/contact')) && (
+              {(isActive('/reviews') || isActive('/gallery') || isActive('/blog') || isActive('/faq') || isActive('/contact')) && (
                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent rounded-full" />
               )}
             </div>
@@ -427,6 +430,9 @@ export const Navbar: React.FC = () => {
                 </Link>
                 <Link to="/blog" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Travel Guide
+                </Link>
+                <Link to="/faq" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
+                  FAQs
                 </Link>
                 <Link to="/contact" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Contact

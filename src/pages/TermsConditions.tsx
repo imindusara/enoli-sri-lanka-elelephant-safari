@@ -25,7 +25,7 @@ export const TermsConditions: React.FC = () => {
             <p>It is the responsibility of the client to ensure they have valid travel insurance, visas, passports, and health vaccinations required to enter Sri Lanka. Ceylon Nest Journeys is not liable for travel delays due to missing documents.</p>
 
             <h3 className="font-serif font-bold text-lg text-primary mt-6">5. Contact Information</h3>
-            <p>If you have any questions regarding our terms, please email us at <a href="mailto:info@ceylonnestjourneys.com" className="text-accent underline font-semibold">info@ceylonnestjourneys.com</a>.</p>
+            <p>If you have any questions regarding our terms, please email us at <a href="mailto:ceylonnestjourneys@gmail.com" className="text-accent underline font-semibold">ceylonnestjourneys@gmail.com</a>.</p>
           </div>
         </div>
       </div>

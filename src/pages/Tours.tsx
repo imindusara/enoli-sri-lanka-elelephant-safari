@@ -8,7 +8,7 @@ export const Tours: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filterParam = searchParams.get('filter');
   
-  const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day' | 'transfers'>('all');
   const [durationFilter, setDurationFilter] = useState<'all' | '2' | '5' | '7' | '9'>('all');
 
   useEffect(() => {
@@ -16,12 +16,14 @@ export const Tours: React.FC = () => {
       setActiveTab('day');
     } else if (filterParam === 'multi-day') {
       setActiveTab('multi-day');
+    } else if (filterParam === 'transfers') {
+      setActiveTab('transfers');
     } else {
       setActiveTab('all');
     }
   }, [filterParam]);
 
-  const handleTabChange = (tab: 'all' | 'day' | 'multi-day') => {
+  const handleTabChange = (tab: 'all' | 'day' | 'multi-day' | 'transfers') => {
     setActiveTab(tab);
     setDurationFilter('all'); // reset duration sub-filter
     if (tab === 'all') {
@@ -100,6 +102,16 @@ export const Tours: React.FC = () => {
               }`}
             >
               Multi-Day Tours
+            </button>
+            <button
+              onClick={() => handleTabChange('transfers')}
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
+                activeTab === 'transfers'
+                  ? 'bg-primary text-white shadow-md'
+                  : 'text-charcoal-light hover:text-charcoal'
+              }`}
+            >
+              Scenic Transfers
             </button>
           </div>
 

@@ -115,15 +115,15 @@ export const Footer: React.FC = () => {
             <ul className={`space-y-4 text-sm lg:block ${expandedSection === 'contact' ? 'block' : 'hidden'}`}>
               <li className="flex items-start space-x-3 py-2 lg:py-0">
                 <MapPin className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span className="text-gray-400">123, Galle Road, Colombo 03, Sri Lanka</span>
+                <span className="text-gray-400">No 124, kanda kurudu watta, dediyawala, waskaduwa, Sri Lanka</span>
               </li>
               <li className="flex items-center space-x-3 py-2 lg:py-0">
                 <Phone className="h-5 w-5 text-accent shrink-0" />
-                <a href="tel:+94763586686" className="hover:text-accent transition-colors duration-200 text-gray-400">+94 76 358 6686</a>
+                <a href="tel:+94771112040" className="hover:text-accent transition-colors duration-200 text-gray-400">+94 77 111 2040</a>
               </li>
               <li className="flex items-center space-x-3 py-2 lg:py-0">
                 <Mail className="h-5 w-5 text-accent shrink-0" />
-                <a href="mailto:info@ceylonnestjourneys.com" className="hover:text-accent transition-colors duration-200 text-gray-400">info@ceylonnestjourneys.com</a>
+                <a href="mailto:ceylonnestjourneys@gmail.com" className="hover:text-accent transition-colors duration-200 text-gray-400">ceylonnestjourneys@gmail.com</a>
               </li>
             </ul>
           </div>

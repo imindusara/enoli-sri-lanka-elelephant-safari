@@ -7,7 +7,7 @@ interface FloatingWhatsAppProps {
 }
 
 export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
-  phoneNumber = '+94763586686', // User phone number
+  phoneNumber = '+94771112040', // User phone number
   message = 'Hi Ceylon Nest Journeys! I would like to enquire about your Sri Lankan tours.',
 }) => {
   const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;

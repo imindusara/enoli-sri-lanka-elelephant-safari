@@ -8,7 +8,7 @@ export interface ItineraryDay {
 export interface Tour {
   id: string;
   title: string;
-  category: 'day' | 'multi-day';
+  category: 'day' | 'multi-day' | 'transfers';
   tagline: string;
   duration: string;
   startLocation: string;
@@ -145,7 +145,7 @@ export const toursData: Tour[] = [
       'Hiriwadunna traditional village experience'
     ],
     includes: [
-      'Deluxe Hotel Accommodation (Half Board - Dinner & Breakfast)',
+      '4★ Hotel Accommodation (Half Board - Dinner & Breakfast)',
       'Air-conditioned private vehicle',
       'Professional English-speaking driver-guide',
       'Driver\'s accommodation & meals',
@@ -529,5 +529,68 @@ export const toursData: Tour[] = [
         overnight: 'Departure'
       }
     ]
+  },
+  {
+    id: 'sightseeing-transfer-galle',
+    title: 'Colombo/Airport to Galle Sightseeing Transfer',
+    category: 'transfers',
+    tagline: 'Travel from Colombo/Airport to Galle with 3-4 Scenic Sightseeing Stops',
+    duration: '1 Day (Transfer + Tour)',
+    startLocation: 'Colombo or Bandaranaike International Airport (CMB)',
+    overview: 'Transform your transport into an adventure! Instead of a plain taxi ride, book our premium sightseeing transfer from Colombo City or the International Airport to Galle. Along the way, we stop at 3 to 4 major highlights of the southwestern coast, including the Madu River boat safari, a sea turtle conservation hatchery, traditional stilt fishermen spots, and historic coastal sites. Travel in a comfortable private A/C vehicle with a dedicated driver-guide who handles your luggage safely.',
+    highlights: [
+      'Madu River mangrove boat safari',
+      'Sea Turtle hatchery & conservation project',
+      'Traditional stilt fishermen photo stop',
+      'Private A/C transfer with luggage security'
+    ],
+    includes: [
+      'Air-conditioned private vehicle',
+      'Professional English-speaking driver-guide',
+      'Luggage transport & transfer to Galle hotel',
+      'All fuel fees, highway tolls & parking fees'
+    ],
+    excludes: [
+      'Food & beverages (lunch/snacks)',
+      'Entrance fees & safari tickets',
+      'Personal expenses & gratuities'
+    ],
+    imageUrl: '/galle.webp',
+    gallery: [
+      '/galle.webp',
+      '/ella.webp'
+    ],
+    price: 95
+  },
+  {
+    id: 'badulla-ella-scenic-train',
+    title: 'Badulla to Ella Scenic Train Experience',
+    category: 'transfers',
+    tagline: 'Ride the Iconic Demodara Nine Arches Loop & Highland Railways',
+    duration: '1 Day',
+    startLocation: 'Badulla or Ella railway stations',
+    overview: 'Experience one of the most scenic train journeys in the world! Travel along the famous highland railway track from Badulla to Ella. This tour includes your reserved train tickets, a guided trip through mountain tunnels, misty tea gardens, and the famous Demodara Loop (where the railway track loops under itself). Watch the train cross the iconic Nine Arches Bridge from both inside the carriage and from a spectacular valley viewpoint, accompanied by our guide.',
+    highlights: [
+      'Reserved train tickets (Badulla to Ella)',
+      'Traverse the famous Demodara Loop',
+      'Scenic walk on Nine Arches Bridge',
+      'Dedicated guide & local transport included'
+    ],
+    includes: [
+      'Reserved train observation/first class ticket',
+      'Dedicated guide support for the day',
+      'Local station transfers',
+      'Bottled drinking water'
+    ],
+    excludes: [
+      'Meals & personal snacks',
+      'Personal expenses & gratuities'
+    ],
+    imageUrl: '/ella.webp',
+    gallery: [
+      '/ella.webp',
+      '/classic sri lanka tour.webp'
+    ],
+    price: 35
   }
 ];

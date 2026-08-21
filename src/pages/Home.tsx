@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, ShieldCheck, Award, ThumbsUp, Car, Sparkles, MessageCircle, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Award, ThumbsUp, Car, Sparkles, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { toursData } from '../data/tours';
 import { TourCard } from '../components/TourCard';
 import { useTranslation } from '../contexts/LanguageContext';
 
 export const Home: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day' | 'transfers'>('all');
   const { t, language } = useTranslation();
 
   const filteredTours = activeTab === 'all'
@@ -132,54 +132,6 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* About Us Section */}
-      <section id="about" className="py-24 px-4 bg-cream border-b border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Story column */}
-            <div className="lg:col-span-7 space-y-6 reveal-on-scroll">
-              <span className="text-accent text-xs font-bold uppercase tracking-[0.2em] block">ABOUT CEYLON NEST JOURNEYS</span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary leading-tight">
-                Your Trusted Travel Partner in Sri Lanka
-              </h2>
-              <div className="text-charcoal-light text-base sm:text-lg leading-relaxed font-sans space-y-4">
-                <p>
-                  Welcome to <strong>Ceylon Nest Journeys</strong>, your trusted travel partner for discovering the breathtaking beauty of Sri Lanka. We specialize in creating personalized tours that showcase the island's stunning landscapes, rich cultural heritage, diverse wildlife, and pristine beaches.
-                </p>
-                <p>
-                  Our experienced team is dedicated to providing safe, comfortable, and unforgettable travel experiences infused with genuine Sri Lankan hospitality. Whether you're seeking adventure, relaxation, cultural exploration, or a luxury getaway, we carefully design every journey to match your interests and exceed your expectations. At Ceylon Nest Journeys, we don't just plan holidays—we create memories that last a lifetime.
-                </p>
-              </div>
-            </div>
-
-            {/* Vision & Mission cards column */}
-            <div className="lg:col-span-5 space-y-6 reveal-on-scroll">
-              {/* Vision Card */}
-              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm space-y-4 hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
-                  <Sparkles className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-primary">Our Vision</h3>
-                <p className="text-charcoal-light text-sm leading-relaxed font-sans">
-                  To inspire the world to discover the true beauty of Sri Lanka through extraordinary travel experiences.
-                </p>
-              </div>
-
-              {/* Mission Card */}
-              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm space-y-4 hover:shadow-md transition-shadow">
-                <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
-                  <Compass className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-serif font-bold text-primary">Our Mission</h3>
-                <p className="text-charcoal-light text-sm leading-relaxed font-sans">
-                  Crafting exceptional journeys with genuine hospitality, personalized service, and unforgettable memories.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Tours Section */}
       <section id="tours" className="py-24 px-4 bg-white scroll-mt-12">
         <div className="max-w-7xl mx-auto">
@@ -225,6 +177,16 @@ export const Home: React.FC = () => {
                 >
                   {t('tours_multi')}
                 </button>
+                <button
+                  onClick={() => setActiveTab('transfers')}
+                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                    activeTab === 'transfers'
+                      ? 'bg-primary text-white shadow-md'
+                      : 'text-charcoal-light hover:text-charcoal'
+                  }`}
+                >
+                  Scenic Transfers
+                </button>
               </div>
             </div>
 
@@ -239,6 +201,11 @@ export const Home: React.FC = () => {
                 Tailored Journeys with Premium Accommodation, Meals, Guides & Curated Activities
               </p>
             )}
+            {activeTab === 'transfers' && (
+              <p className="text-accent text-xs font-bold uppercase tracking-wider mt-6 animate-fade-in bg-accent/5 py-2 px-4 rounded-full inline-block">
+                Destination to Destination Transfers with 3-4 Scenic Sightseeing Stops along the way & Scenic Train Rides
+              </p>
+            )}
           </div>
 
           {/* Cards Grid */}
@@ -248,6 +215,24 @@ export const Home: React.FC = () => {
                 <TourCard tour={tour} />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section id="about" className="py-20 px-4 bg-cream border-b border-gray-150">
+        <div className="max-w-3xl mx-auto text-center space-y-6 reveal-on-scroll">
+          <span className="text-accent text-xs font-bold uppercase tracking-[0.2em] block">ABOUT CEYLON NEST JOURNEYS</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-primary leading-tight">
+            Your Trusted Travel Partner in Sri Lanka
+          </h2>
+          <div className="text-charcoal-light text-base sm:text-lg leading-relaxed font-sans space-y-4">
+            <p>
+              Welcome to <strong>Ceylon Nest Journeys</strong>, your trusted travel partner for discovering the breathtaking beauty of Sri Lanka. We specialize in creating personalized tours that showcase the island\'s stunning landscapes, rich cultural heritage, diverse wildlife, and pristine beaches.
+            </p>
+            <p>
+              Our experienced team is dedicated to providing safe, comfortable, and unforgettable travel experiences infused with genuine Sri Lankan hospitality. Whether you\'re seeking adventure, relaxation, cultural exploration, or a luxury getaway, we carefully design every journey to match your interests and exceed your expectations. At Ceylon Nest Journeys, we don\'t just plan holidays—we create memories that last a lifetime.
+            </p>
           </div>
         </div>
       </section>
@@ -294,7 +279,7 @@ export const Home: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0"></span>
-                  <span>Deluxe hotel accommodation (for multi-day packages)</span>
+                  <span>Premium 4★ hotel accommodation (for multi-day packages)</span>
                 </li>
               </ul>
             </div>
@@ -440,7 +425,7 @@ export const Home: React.FC = () => {
               {t('nav_book_now')}
             </Link>
             <a
-              href="https://wa.me/94763586686"
+              href="https://wa.me/94771112040"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-full font-bold text-base transition-all flex items-center justify-center gap-2"

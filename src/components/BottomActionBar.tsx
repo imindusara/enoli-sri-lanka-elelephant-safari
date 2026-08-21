@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MessageSquare, Calendar } from 'lucide-react';
 
 export const BottomActionBar: React.FC = () => {
-  const whatsappNumber = '94763586686';
+  const whatsappNumber = '94771112040';
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi%20Ceylon%20Nest%20Journeys!%20I%20would%20like%20to%20enquire%20about%20your%20Sri%20Lankan%20private%20tours.`;
 
   return (

@@ -31,25 +31,7 @@ export const blogPosts: BlogPost[] = [
 - **Sigiriya Frescoes:** Vibrant paintings of celestial maidens preserved in a sheltered rock pocket.
 - **The Lion Paw Entrance:** The massive stone paws flanking the final climb to the summit palace.`
   },
-  {
-    id: 'post-2',
-    title: 'Aesthetic Road Trip Routes Across Sri Lanka',
-    category: 'DESTINATIONS',
-    date: '2026-08-01',
-    readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80',
-    excerpt: 'Explore the best scenic routes from Colombo to Galle, Kandy to Nuwara Eliya, and Ella to Haputale for the ultimate road trip experience.',
-    content: `Sri Lanka features some of the most scenic road networks in South Asia, taking you from coastal expressway views to winding misty tea hills. Here are our top pick routes:
 
-### 1. Southern Coastal Route (Colombo to Galle)
-Cruising along the coastal road or taking the Southern Expressway offers immediate vistas of palm-fringed beaches, stilt fishermen, and tropical lagoons. Be sure to stop at Hikkaduwa for fresh coconut water.
-
-### 2. The Tea Country Climb (Kandy to Nuwara Eliya)
-A winding road that takes you past lush green mountains, cascading waterfalls (like Ramboda Falls), and colonial tea factory buildings. The temperature drops noticeably as you rise above 1,800 meters.
-
-### 3. Ella to Haputale (Highlands Route)
-A road that hugs the mountainside, offering sweeping views of the southern plains. Pass by pine trees, small fruit stalls, and train tracks running parallel to the road.`
-  },
   {
     id: 'post-3',
     title: 'Colombo Airport to Galle Transfer Guide',

@@ -67,7 +67,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ defaultTourId = '' }) 
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateStep(4)) {
       setStep(4);
@@ -75,10 +75,35 @@ export const BookingForm: React.FC<BookingFormProps> = ({ defaultTourId = '' }) 
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    const selectedTourName = formData.tourId === 'customized-trip' 
+      ? 'Customized Tour (Design My Own Trip)'
+      : (toursData.find(t => t.id === formData.tourId)?.title || formData.tourId);
+
+    try {
+      await fetch("https://formsubmit.co/ajax/ceylonnestjourneys@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `New Tour Booking Enquiry - ${formData.name}`,
+          Name: formData.name,
+          Email: formData.email,
+          "Phone / WhatsApp": formData.phone,
+          "Tour Selected": selectedTourName,
+          "Preferred Date": formData.date,
+          "Travelers Count": formData.travelers,
+          "Message / Special Requests": formData.message || 'None'
+        })
+      });
+    } catch (error) {
+      console.error("Booking form silent email submission failed:", error);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1200);
+    }
   };
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
@@ -88,7 +113,10 @@ export const BookingForm: React.FC<BookingFormProps> = ({ defaultTourId = '' }) 
       return;
     }
 
-    const selectedTourName = toursData.find(t => t.id === formData.tourId)?.title || formData.tourId;
+    const selectedTourName = formData.tourId === 'customized-trip' 
+      ? 'Customized Tour (Design My Own Trip)'
+      : (toursData.find(t => t.id === formData.tourId)?.title || formData.tourId);
+
     const text = `Hi Ceylon Nest Journeys! I would like to book a tour.
 Name: ${formData.name}
 Email: ${formData.email}
@@ -189,6 +217,9 @@ Message: ${formData.message || 'None'}`;
                   {tour.title}
                 </option>
               ))}
+              <option value="customized-trip">
+                Customized Tour (Design My Own Trip)
+              </option>
             </select>
             {errors.tourId && <p className="text-red-500 text-xs mt-1 font-medium">{errors.tourId}</p>}
           </div>

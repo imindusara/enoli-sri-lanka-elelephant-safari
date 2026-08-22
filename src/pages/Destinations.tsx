@@ -8,7 +8,7 @@ export const Destinations: React.FC = () => {
     <div className="pt-24 bg-cream min-h-screen pb-16">
       {/* Header Banner */}
       <div className="bg-primary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-20" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80')` }}></div>
+        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-20" style={{ backgroundImage: `url('/Colombo Airport to Bentota Scenic Transfer.jpg')` }}></div>
         <div className="relative max-w-4xl mx-auto z-10 space-y-4">
           <span className="inline-flex items-center gap-1 bg-accent/20 border border-accent/40 text-accent-light px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest">
             <MapPin className="h-3.5 w-3.5" /> Iconic Hotspots

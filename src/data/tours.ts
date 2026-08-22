@@ -8,7 +8,7 @@ export interface ItineraryDay {
 export interface Tour {
   id: string;
   title: string;
-  category: 'day' | 'multi-day' | 'transfers';
+  category: 'day' | 'multi-day' | 'transfers' | 'hire';
   tagline: string;
   duration: string;
   startLocation: string;
@@ -58,7 +58,7 @@ export const toursData: Tour[] = [
       'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=600&q=80'
     ],
-    price: 85
+    price: 230
   },
   {
     id: 'galle-one-day',
@@ -93,7 +93,7 @@ export const toursData: Tour[] = [
       'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=600&q=80'
     ],
-    price: 75
+    price: 170
   },
   {
     id: 'sigiriya-one-day',
@@ -127,7 +127,7 @@ export const toursData: Tour[] = [
       'https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80'
     ],
-    price: 90
+    price: 300
   },
   {
     id: 'sigiriya-kandy-2-days',
@@ -590,5 +590,187 @@ export const toursData: Tour[] = [
       '/classic sri lanka tour.webp'
     ],
     price: 35
+  },
+  {
+    id: 'car-driver-hire',
+    title: 'Private Car & Driver Hire',
+    category: 'hire',
+    tagline: 'Rent a Private Car/Van with English-Speaking Driver',
+    duration: 'Flexible',
+    startLocation: 'Any location in Sri Lanka',
+    overview: 'Explore Sri Lanka at your own pace! Rent a private air-conditioned vehicle with a professional, English-speaking driver. Choose between a standard car ($80/day) or a comfortable van ($120/day). You plan your own hotel bookings and sightseeing stops, while we handle all transport costs, driver needs, and highway fees.',
+    highlights: [
+      'Private air-conditioned car ($80/day) or van ($120/day)',
+      'Includes driver salary, driver accommodation, and meals',
+      'All fuel costs, highway fees, and parking fees included',
+      'Professional English-speaking driver'
+    ],
+    includes: [
+      'Private air-conditioned Car or Van with professional driver',
+      'English-speaking driver service',
+      'Driver salary, driver accommodation, and meals',
+      'All fuel costs, highway fees, and parking fees covered'
+    ],
+    excludes: [
+      'Guest hotel bookings & accommodation (guests must arrange their own hotels)',
+      'Entrance tickets to attractions, safari costs, and activity fees'
+    ],
+    imageUrl: '/classic sri lanka tour.webp',
+    gallery: [
+      '/classic sri lanka tour.webp',
+      '/Signature Sri Lanka Tour.webp'
+    ],
+    price: 80,
+    priceLabel: 'From $80 (Car) / $120 (Van) per day'
+  },
+  {
+    id: 'airport-bentota-transfer',
+    title: 'Colombo Airport to Bentota Scenic Transfer',
+    category: 'transfers',
+    tagline: 'Comfortable coastal ride to Bentota with sightseeing stops',
+    duration: '1 Day',
+    startLocation: 'Bandaranaike International Airport (CMB) or Colombo',
+    overview: 'Travel in comfort from Colombo Airport to the beach resort of Bentota. Our private sightseeing transfer service allows you to stop at popular coastal sites, such as a turtle hatchery or take a boat safari on the Madu River, with our professional English-speaking driver handling the route.',
+    highlights: [
+      'Private Car ($65) or Van ($95) options available',
+      'Sightseeing stops along the scenic southern expressway',
+      'English-speaking driver-guide who handles highway tolls & parking',
+      'Door-to-door transfer directly to your Bentota hotel'
+    ],
+    includes: [
+      'Private air-conditioned Car or Van with driver',
+      'All fuel costs, highway tolls, and parking fees',
+      'Professional English-speaking driver'
+    ],
+    excludes: [
+      'Entrance fees to optional stops (Turtle Hatchery, Boat Safari)',
+      'Meals and personal snacks'
+    ],
+    imageUrl: '/Colombo Airport to Bentota Scenic Transfer.jpg',
+    gallery: [
+      '/Colombo Airport to Bentota Scenic Transfer.jpg'
+    ],
+    price: 65,
+    priceLabel: 'From $65 (Car) / $95 (Van)'
+  },
+  {
+    id: 'airport-galle-transfer',
+    title: 'Colombo Airport to Galle Scenic Transfer',
+    category: 'transfers',
+    tagline: 'Custom coastal transfer to the historic Galle Dutch Fort',
+    duration: '1 Day',
+    startLocation: 'Bandaranaike International Airport (CMB) or Colombo',
+    overview: 'Make your transfer from Colombo Airport to Galle an adventure! Ride along the southwestern coast and request stops at key highlights (e.g. stilt fishermen or turtle sanctuaries) before arriving at your hotel in the historic Galle Dutch Fort.',
+    highlights: [
+      'Private Car ($80) or Van ($110) options available',
+      'Stop at scenic coastal lookouts and heritage locations',
+      'Stress-free ride with all fuel, highway bills, and parking included',
+      'Door-to-door drop-off at your Galle destination'
+    ],
+    includes: [
+      'Private air-conditioned Car or Van with driver',
+      'All fuel, expressway bills, and parking fees',
+      'Friendly English-speaking driver-guide'
+    ],
+    excludes: [
+      'Optional attraction entrance fees',
+      'Meals & personal refreshments'
+    ],
+    imageUrl: '/galle.webp',
+    gallery: [
+      '/galle.webp'
+    ],
+    price: 80,
+    priceLabel: 'From $80 (Car) / $110 (Van)'
+  },
+  {
+    id: 'airport-ella-transfer',
+    title: 'Colombo Airport to Ella Scenic Transfer',
+    category: 'transfers',
+    tagline: 'Travel to the misty mountain town of Ella with highland stops',
+    duration: '1 Day',
+    startLocation: 'Bandaranaike International Airport (CMB) or Colombo',
+    overview: 'Journey from the airport up into the spectacular tea country of Ella. Climb the winding hills and take photo stops at cascading waterfalls and scenic viewpoints along the route in a comfortable private A/C vehicle.',
+    highlights: [
+      'Private Car ($200) or Van ($280) options available',
+      'Stops at waterfalls and panoramic mountain lookouts',
+      'Licensed English-speaking driver-guide',
+      'Tolls, fuel, and driver fees fully covered'
+    ],
+    includes: [
+      'Private air-conditioned Car or Van with driver',
+      'All fuel, expressway tolls, and parking fees',
+      'Professional English-speaking driver'
+    ],
+    excludes: [
+      'Meals, drinks & personal snacks',
+      'Attraction entry fees'
+    ],
+    imageUrl: '/ella.webp',
+    gallery: [
+      '/ella.webp'
+    ],
+    price: 200,
+    priceLabel: 'From $200 (Car) / $280 (Van)'
+  },
+  {
+    id: 'airport-kandy-transfer',
+    title: 'Colombo Airport to Kandy Scenic Transfer',
+    category: 'transfers',
+    tagline: 'Ride to the sacred capital of Kandy with cultural stops',
+    duration: '1 Day',
+    startLocation: 'Bandaranaike International Airport (CMB) or Colombo',
+    overview: 'Transfer from Colombo Airport to the royal hill capital of Kandy. Relax in a private vehicle and enjoy opportunities to stop at the Millennium Elephant Foundation or spice gardens along the route.',
+    highlights: [
+      'Private Car ($100) or Van ($130) options available',
+      'Custom stops at spice gardens or elephant centers',
+      'Comfortable private A/C ride with professional driver',
+      'Tolls, fuel, and parking fully included'
+    ],
+    includes: [
+      'Private air-conditioned Car or Van with driver',
+      'All fuel, highway tolls, and parking fees',
+      'English-speaking driver-guide'
+    ],
+    excludes: [
+      'Optional attraction tickets',
+      'Meals & personal expenses'
+    ],
+    imageUrl: '/sigiriya and kandy.jpg',
+    gallery: [
+      '/sigiriya and kandy.jpg'
+    ],
+    price: 100,
+    priceLabel: 'From $100 (Car) / $130 (Van)'
+  },
+  {
+    id: 'airport-sigiriya-transfer',
+    title: 'Colombo Airport to Sigiriya Scenic Transfer',
+    category: 'transfers',
+    tagline: 'Travel to the central Cultural Triangle with historical stops',
+    duration: '1 Day',
+    startLocation: 'Bandaranaike International Airport (CMB) or Colombo',
+    overview: 'Enjoy a private sightseeing transfer to the ancient heart of Sri Lanka. Journey from the airport directly to your hotel in Sigiriya or Dambulla, with the option to stop at historical sights along the way.',
+    highlights: [
+      'Private Car ($120) or Van ($160) options available',
+      'Travel in air-conditioned comfort to the Cultural Triangle',
+      'English-speaking driver handles all tolls, parking, and fuel',
+      'Door-to-door hotel transfers included'
+    ],
+    includes: [
+      'Private air-conditioned Car or Van with driver',
+      'All fuel, highway bills, and parking fees',
+      'Professional English-speaking driver'
+    ],
+    excludes: [
+      'Meals, drinks & personal snacks',
+      'Attraction entry tickets'
+    ],
+    imageUrl: '/sigiriya.jpg',
+    gallery: [
+      '/sigiriya.jpg'
+    ],
+    price: 120,
+    priceLabel: 'From $120 (Car) / $160 (Van)'
   }
 ];

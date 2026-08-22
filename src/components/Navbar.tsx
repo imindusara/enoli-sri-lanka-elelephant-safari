@@ -134,6 +134,12 @@ export const Navbar: React.FC = () => {
                     <Link to="/tours?filter=multi-day" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
                       Multi-Day Tours
                     </Link>
+                    <Link to="/tours?filter=transfers" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Scenic Transfers
+                    </Link>
+                    <Link to="/tours?filter=hire" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Car & Driver
+                    </Link>
                   </div>
                 </div>
               )}
@@ -177,6 +183,18 @@ export const Navbar: React.FC = () => {
                     </Link>
                     <Link to="/destinations/yala" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
                       Yala Wildlife
+                    </Link>
+                    <Link to="/destinations/mirissa" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Mirissa Beach
+                    </Link>
+                    <Link to="/destinations/trincomalee" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Trincomalee Bay
+                    </Link>
+                    <Link to="/destinations/anuradhapura" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Anuradhapura City
+                    </Link>
+                    <Link to="/destinations/polonnaruwa" className="block px-5 py-2 text-xs font-semibold text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      Polonnaruwa Citadel
                     </Link>
                   </div>
                 </div>
@@ -272,19 +290,27 @@ export const Navbar: React.FC = () => {
               </button>
               
               {activeDropdown === 'language' && (
-                <div className="absolute right-0 top-[110%] pt-2 w-28 z-50">
+                <div className="absolute right-0 top-[110%] pt-2 w-32 z-50">
                   <div className="rounded-xl bg-white shadow-xl ring-1 ring-black/5 py-1.5 border border-gray-100 overflow-hidden animate-fade-in">
-                    {languagesList.map((lang) => (
-                      <button
-                        key={lang}
-                        onClick={() => handleLanguageChange(lang)}
-                        className={`block w-full text-left px-4 py-2 text-xs font-bold uppercase transition-colors hover:bg-cream cursor-pointer ${
-                          language === lang ? 'text-accent bg-cream/50' : 'text-charcoal'
-                        }`}
-                      >
-                        {lang}
-                      </button>
-                    ))}
+                    {languagesList.map((lang) => {
+                      const labels: Record<string, string> = {
+                        EN: 'English',
+                        DE: 'German',
+                        FR: 'French',
+                        IT: 'Italian'
+                      };
+                      return (
+                        <button
+                          key={lang}
+                          onClick={() => handleLanguageChange(lang)}
+                          className={`block w-full text-left px-4 py-2 text-xs font-bold uppercase transition-colors hover:bg-cream cursor-pointer ${
+                            language === lang ? 'text-accent bg-cream/50' : 'text-charcoal'
+                          }`}
+                        >
+                          {labels[lang]}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -354,6 +380,12 @@ export const Navbar: React.FC = () => {
                 <Link to="/tours?filter=multi-day" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Multi-Day Tours
                 </Link>
+                <Link to="/tours?filter=transfers" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
+                  Scenic Transfers
+                </Link>
+                <Link to="/tours?filter=hire" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
+                  Car & Driver
+                </Link>
               </div>
             )}
           </div>
@@ -386,6 +418,18 @@ export const Navbar: React.FC = () => {
                 </Link>
                 <Link to="/destinations/yala" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Yala
+                </Link>
+                <Link to="/destinations/mirissa" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
+                  Mirissa
+                </Link>
+                <Link to="/destinations/trincomalee" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
+                  Trincomalee
+                </Link>
+                <Link to="/destinations/anuradhapura" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
+                  Anuradhapura
+                </Link>
+                <Link to="/destinations/polonnaruwa" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
+                  Polonnaruwa
                 </Link>
               </div>
             )}
@@ -446,21 +490,29 @@ export const Navbar: React.FC = () => {
             <div className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-1.5">
               <Globe className="h-4.5 w-4.5" /> Language Selection
             </div>
-            <div className="flex gap-2 pt-2">
-              {languagesList.map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => handleLanguageChange(lang)}
-                  className={`px-4 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
-                    language === lang 
-                      ? 'bg-primary text-white' 
-                      : 'bg-cream text-charcoal border border-gray-200'
-                  }`}
-                >
-                  {lang}
-                </button>
-              ))}
-            </div>
+             <div className="flex flex-wrap gap-2 pt-2">
+               {languagesList.map((lang) => {
+                 const labels: Record<string, string> = {
+                   EN: 'English',
+                   DE: 'German',
+                   FR: 'French',
+                   IT: 'Italian'
+                 };
+                 return (
+                   <button
+                     key={lang}
+                     onClick={() => handleLanguageChange(lang)}
+                     className={`px-3 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
+                       language === lang 
+                         ? 'bg-primary text-white' 
+                         : 'bg-cream text-charcoal border border-gray-200'
+                     }`}
+                   >
+                     {labels[lang]}
+                   </button>
+                 );
+               })}
+             </div>
           </div>
 
           {/* Book Now link */}

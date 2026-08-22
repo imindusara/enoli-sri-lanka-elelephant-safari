@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, ChevronDown, ChevronUp } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -26,14 +26,25 @@ export const Footer: React.FC = () => {
               Crafting exceptional journeys with genuine hospitality, personalized service, and unforgettable memories in Sri Lanka.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300" aria-label="Facebook">
+              <a 
+                href="https://www.facebook.com/share/1Mb9JS24sS/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300" 
+                aria-label="Facebook"
+              >
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href="#" className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300" aria-label="Instagram">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300" aria-label="Twitter">
-                <Twitter className="h-4 w-4" />
+              <a 
+                href="https://www.tiktok.com/@ceylohbyun2?_r=1&_t=ZS-996EzvCnX4j" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300 flex items-center justify-center" 
+                aria-label="TikTok"
+              >
+                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" className="h-4 w-4" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path>
+                </svg>
               </a>
             </div>
           </div>

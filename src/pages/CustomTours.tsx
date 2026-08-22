@@ -8,13 +8,14 @@ export const CustomTours: React.FC = () => {
     phone: '',
     duration: '7-10',
     travelers: '2',
-    budget: 'mid-range',
+    serviceType: 'full-package' as 'full-package' | 'driver-only',
     destinations: [] as string[],
     interests: [] as string[],
     notes: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const destinationOptions = [
     'Sigiriya & Cultural Triangle',
@@ -61,34 +62,46 @@ export const CustomTours: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     const subject = `Custom Tour Design Request - ${formData.name}`;
-    const body = `CEYLON NEST JOURNEYS - CUSTOM TOUR REQUEST
+    const serviceLabel = formData.serviceType === 'driver-only' 
+      ? 'Driver & Vehicle Hire Only (No Hotels)' 
+      : 'Full Tour Package (includes 4★ Hotels)';
 
-Name: ${formData.name}
-Email: ${formData.email}
-Phone/WhatsApp: ${formData.phone}
-Duration: ${formData.duration} Days
-Travelers: ${formData.travelers}
-Budget Class: Standard (4★ Hotels)
+    const whatsappMsg = `CEYLON NEST JOURNEYS - CUSTOM TOUR REQUEST\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone/WhatsApp: ${formData.phone}\nDuration: ${formData.duration} Days\nTravelers: ${formData.travelers}\nService Type: ${serviceLabel}\n\nDestinations:\n${formData.destinations.map(d => `- ${d}`).join('\n') || 'None'}\n\nInterests:\n${formData.interests.map(i => `- ${i}`).join('\n') || 'None'}\n\nNotes:\n${formData.notes || 'None'}`;
+    const whatsappUrl = `https://wa.me/94771112040?text=${encodeURIComponent(whatsappMsg)}`;
 
-Destinations Selected:
-${formData.destinations.map(d => `- ${d}`).join('\n') || 'None'}
-
-Interests Selected:
-${formData.interests.map(i => `- ${i}`).join('\n') || 'None'}
-
-Special Notes:
-${formData.notes || 'None'}`;
-
-    const mailtoUrl = `mailto:ceylonnestjourneys@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
-
-    setTimeout(() => {
+    try {
+      await fetch("https://formsubmit.co/ajax/ceylonnestjourneys@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: subject,
+          Name: formData.name,
+          Email: formData.email,
+          "Phone / WhatsApp": formData.phone,
+          "Trip Duration": `${formData.duration} Days`,
+          "Travelers Count": formData.travelers,
+          "Service Type Selected": serviceLabel,
+          "Preferred Hotspots": formData.destinations.join(', ') || 'None',
+          "Tour Focus & Interests": formData.interests.join(', ') || 'None',
+          "Special Requests": formData.notes || 'None'
+        })
+      });
+    } catch (error) {
+      console.error("Silent background email submission failed:", error);
+    } finally {
+      setIsSubmitting(false);
       setSubmitted(true);
-    }, 500);
+      // Open WhatsApp pre-filled chat in a new tab
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   return (
@@ -283,12 +296,43 @@ ${formData.notes || 'None'}`;
                   </div>
                 </div>
 
-                {/* Accommodation Standard Info */}
-                <div className="bg-primary/5 border border-primary/10 rounded-2xl p-5 space-y-2">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-primary font-bold">Accommodation Standard</label>
-                  <p className="text-xs text-charcoal-light leading-relaxed">
-                    All of our standard private itineraries feature high-quality <strong>4★ hotel accommodation</strong> with premium amenities, comfort, breakfast, and dinner.
-                  </p>
+                {/* Service Type Selection */}
+                <div className="space-y-3">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-charcoal">Select Service Type *</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, serviceType: 'full-package' })}
+                      className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all cursor-pointer min-h-[120px] ${
+                        formData.serviceType === 'full-package'
+                          ? 'border-accent bg-primary/5 ring-2 ring-accent/10'
+                          : 'border-gray-200 bg-white hover:border-gray-300'
+                      }`}
+                    >
+                      <div>
+                        <span className="block font-bold text-sm text-primary">Full Tour Package</span>
+                        <span className="text-[11px] text-charcoal-light block mt-2 leading-relaxed">
+                          Includes premium 4★ hotel accommodation, daily breakfast & dinner, private vehicle, and guiding driver.
+                        </span>
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, serviceType: 'driver-only' })}
+                      className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all cursor-pointer min-h-[120px] ${
+                        formData.serviceType === 'driver-only'
+                          ? 'border-accent bg-primary/5 ring-2 ring-accent/10'
+                          : 'border-gray-200 bg-white hover:border-gray-300'
+                      }`}
+                    >
+                      <div>
+                        <span className="block font-bold text-sm text-primary">Driver & Vehicle Only</span>
+                        <span className="text-[11px] text-charcoal-light block mt-2 leading-relaxed">
+                          Includes private vehicle, fuel, parking, highway tolls, and English-speaking driver. Excludes hotels (you book your own accommodation).
+                        </span>
+                      </div>
+                    </button>
+                  </div>
                 </div>
 
                 {/* Extra Notes */}
@@ -306,9 +350,12 @@ ${formData.notes || 'None'}`;
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="w-full bg-primary hover:bg-accent text-white font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isSubmitting}
+                  className={`w-full bg-primary hover:bg-accent text-white font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
                 >
-                  <span>Submit Custom Plan Request</span>
+                  <span>{isSubmitting ? 'Sending Request...' : 'Submit Custom Plan Request'}</span>
                   <Send className="h-3.5 w-3.5" />
                 </button>
               </form>

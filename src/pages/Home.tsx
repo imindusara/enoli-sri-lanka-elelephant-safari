@@ -6,7 +6,7 @@ import { TourCard } from '../components/TourCard';
 import { useTranslation } from '../contexts/LanguageContext';
 
 export const Home: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day' | 'transfers'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day' | 'transfers' | 'hire'>('all');
   const { t, language } = useTranslation();
 
   const filteredTours = activeTab === 'all'
@@ -187,6 +187,16 @@ export const Home: React.FC = () => {
                 >
                   Scenic Transfers
                 </button>
+                <button
+                  onClick={() => setActiveTab('hire')}
+                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                    activeTab === 'hire'
+                      ? 'bg-primary text-white shadow-md'
+                      : 'text-charcoal-light hover:text-charcoal'
+                  }`}
+                >
+                  Car & Driver
+                </button>
               </div>
             </div>
 
@@ -204,6 +214,11 @@ export const Home: React.FC = () => {
             {activeTab === 'transfers' && (
               <p className="text-accent text-xs font-bold uppercase tracking-wider mt-6 animate-fade-in bg-accent/5 py-2 px-4 rounded-full inline-block">
                 Destination to Destination Transfers with 3-4 Scenic Sightseeing Stops along the way & Scenic Train Rides
+              </p>
+            )}
+            {activeTab === 'hire' && (
+              <p className="text-accent text-xs font-bold uppercase tracking-wider mt-6 animate-fade-in bg-accent/5 py-2 px-4 rounded-full inline-block">
+                Private Car ($80/day) or Van ($120/day) with Professional English-speaking Driver | Includes Fuel, Highway Fees, Parking Fees, Driver Salary & Accommodation
               </p>
             )}
           </div>

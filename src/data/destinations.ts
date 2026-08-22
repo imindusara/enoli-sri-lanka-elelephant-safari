@@ -166,5 +166,125 @@ export const destinationsData: Destination[] = [
       'Yala National Park Block 1 is usually closed for maintenance from early September to mid-October.',
       'Maintain complete silence inside the park and never feed or disturb the animals.'
     ]
+  },
+  {
+    id: 'mirissa',
+    name: 'Mirissa',
+    region: 'Southern Coast',
+    tagline: 'Golden Beaches, Surf Breaks & Whale Watching',
+    description: 'Mirissa is a beautiful crescent-shaped beach on the southern coast of Sri Lanka. It combines a laid-back tropical vibe with excellent surfing, trendy beach bars, and scenic lookouts. It is most famous as a premier base for whale watching excursions in the Indian Ocean.',
+    imageUrl: '/Gallery/Coconut Tree Hill Mirissa.webp',
+    highlights: [
+      'Take photos at the iconic dome-shaped Coconut Tree Hill',
+      'Go on a morning blue whale watching boat safari',
+      'Surf the beginner-friendly point breaks at Mirissa Bay',
+      'Relax at Secret Beach and watch sunset over the ocean'
+    ],
+    bestTimeToVisit: 'November to April (Calm waters, whale season)',
+    activities: [
+      'Whale & Dolphin Watching',
+      'Surfing & Paddleboarding',
+      'Beachside Dining & Nightlife',
+      'Snorkeling with Sea Turtles'
+    ],
+    gallery: [
+      '/Gallery/Coconut Tree Hill Mirissa.webp',
+      '/Gallery/Traditional Stilt Fishermen.jpg'
+    ],
+    tips: [
+      'Visit Coconut Tree Hill at sunrise to avoid the crowds and heat.',
+      'Make sure to book whale watching tours with operators who follow ethical guidelines (keeping safe distance).',
+      'Keep an eye out for sea turtles swimming near the main bay reef.'
+    ]
+  },
+  {
+    id: 'trincomalee',
+    name: 'Trincomalee',
+    region: 'Northeast Coast',
+    tagline: 'Deep Natural Harbors, Hindu Temples & Marine Parks',
+    description: 'Trincomalee (Trinco) is a historic port city on the northeast coast of Sri Lanka. Renowned for its calm, shallow blue beaches like Nilaveli and Uppuveli, Trinco offers exceptional diving, snorkeling around Pigeon Island Marine National Park, whale watching, and ancient spiritual landmarks.',
+    imageUrl: '/Trincomalee.jpg',
+    highlights: [
+      'Snorkel above pristine coral reefs at Pigeon Island',
+      'Visit the colorful Koneswaram Hindu Temple on Swami Rock',
+      'Relax on the powdery white sands of Nilaveli Beach',
+      'Explore Fort Frederick built by the Portuguese in 1623'
+    ],
+    bestTimeToVisit: 'May to October (Best sea conditions for east coast)',
+    activities: [
+      'Pigeon Island Snorkeling & Diving',
+      'Spiritual & Heritage Sightseeing',
+      'Dolphin & Whale Watching',
+      'Coastal Relaxation'
+    ],
+    gallery: [
+      '/Trincomalee.jpg',
+      '/Gallery/River Boating Adventure.jpg'
+    ],
+    tips: [
+      'Visit Koneswaram Temple in the afternoon for beautiful ocean sunset views.',
+      'Pigeon Island has a strict no-plastic and no-litter policy; follow park ranger instructions.',
+      'Rent a boat to Pigeon Island early in the morning to beat the peak tourist hours.'
+    ]
+  },
+  {
+    id: 'anuradhapura',
+    name: 'Anuradhapura',
+    region: 'Cultural Triangle',
+    tagline: 'The First Ancient Capital & Sacred Buddhist Sanctuary',
+    description: 'Anuradhapura is the historic first ancient capital of Sri Lanka, carrying immense heritage, architectural, and archaeological value. As a UNESCO World Heritage site and the cradle of ancient Sri Lankan civilization, it is a deeply sacred sanctuary and the primary center of Buddhist pilgrimage. The sacred city is home to monumental stupas (dagobas) like Ruwanwelisaya, monastic ruins, and the sacred Jaya Sri Maha Bodhi tree, the oldest historically documented tree in the world.',
+    imageUrl: '/Anuradhapura.webp',
+    highlights: [
+      'Pay respects at Jaya Sri Maha Bodhi, the sacred Bodhi tree',
+      'Marvel at the colossal brick dome of Ruwanwelisaya Stupa',
+      'Explore the historic monastery ruins and twin ponds (Kuttam Pokuna)',
+      'See Jetavanarama, once one of the tallest structures in the ancient world'
+    ],
+    bestTimeToVisit: 'January to April or September to December',
+    activities: [
+      'Archaeological Ruins Tour',
+      'Buddhist Pilgrimage Walk',
+      'Exploring Ancient Irrigation Reservoirs',
+      'Mihintale Sacred Mountain Day Climb'
+    ],
+    gallery: [
+      '/Anuradhapura.webp',
+      '/Gallery/Sacred Temple of the Tooth.jpg'
+    ],
+    tips: [
+      'Dress modestly when visiting the ancient city ruins (shoulders and knees covered).',
+      'You must remove footwear and hats before entering active temple yards; socks are recommended to protect feet from hot stone floors.',
+      'Hire a licensed local guide at the ticketing office to explain the deep history of each site.'
+    ]
+  },
+  {
+    id: 'polonnaruwa',
+    name: 'Polonnaruwa',
+    region: 'Cultural Triangle',
+    tagline: 'Medieval Citadel Ruins & Monumental Stone Sculptures',
+    description: 'Polonnaruwa is the historic second ancient capital of Sri Lanka, representing a majestic medieval kingdom of immense architectural and historical value. This UNESCO World Heritage site is highly celebrated for its beautifully preserved ruins of royal palaces, council chambers, monastic complexes, and the monumental Gal Vihara—a sacred rock temple housing four colossal Buddha statues masterfully carved from a single granite cliff face.',
+    imageUrl: '/Polonnaruwa.jpg',
+    highlights: [
+      'Admire the masterfully carved granite Buddha statues at Gal Vihara',
+      'Explore the ancient Royal Palace complex of King Parakramabahu',
+      'Wander through the beautifully designed Polonnaruwa Vatadage',
+      'View the massive ancient reservoir Parakrama Samudra (Sea of Parakrama)'
+    ],
+    bestTimeToVisit: 'January to April or July to September',
+    activities: [
+      'Bicycle Ruins Exploration Tour',
+      'Stone Sculpture Photography',
+      'Visiting Archaeological Museum',
+      'Scenic Reservoir Lakeside Walks'
+    ],
+    gallery: [
+      '/Polonnaruwa.jpg',
+      '/Gallery/Dambulla Golden Cave Temple.jpg'
+    ],
+    tips: [
+      'The archaeological site is flat and compact, making bicycle rental the absolute best and most enjoyable way to explore.',
+      'Wear light clothing but keep a wrap/sarong handy to cover up when stepping into sacred temple terraces.',
+      'Bring plenty of water, as walking or cycling in the ruins can be very dehydrating.'
+    ]
   }
 ];

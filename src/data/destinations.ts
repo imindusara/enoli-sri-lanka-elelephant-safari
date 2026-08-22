@@ -142,7 +142,7 @@ export const destinationsData: Destination[] = [
     region: 'Southeast Coast',
     tagline: 'Leopard Kingdom and Wilderness Wildlife',
     description: 'Yala National Park is Sri Lanka\'s most famous wildlife sanctuary. Bordering the Indian Ocean, it contains a variety of ecosystems including moist monsoon forests, dry monsoon forests, thorn forests, grasslands, and freshwater wetlands. It has one of the highest leopard densities in the world.',
-    imageUrl: '/elephant.jpg',
+    imageUrl: '/Gallery/Yala National Park Leopard.webp',
     highlights: [
       'Spot elusive Sri Lankan leopards in the wild',
       'Observe herds of wild Asian elephants and sloth bears',

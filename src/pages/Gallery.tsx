@@ -30,39 +30,39 @@ export const Gallery: React.FC = () => {
     // Adventure
     {
       id: 'adv-1',
-      url: '/gallery/Ella Scenic Train Ride.webp',
+      url: '/Gallery/Ella Scenic Train Ride.webp',
       title: 'Ella Scenic Train Ride',
       category: 'Adventure'
     },
     {
       id: 'adv-2',
-      url: '/gallery/Hiking Little Adam\'s Peak.webp',
+      url: '/Gallery/Hiking Little Adam\'s Peak.webp',
       title: 'Hiking Little Adam\'s Peak',
       category: 'Adventure'
     },
     // Coastal
     {
       id: 'cst-1',
-      url: '/gallery/Coconut Tree Hill Mirissa.webp',
+      url: '/Gallery/Coconut Tree Hill Mirissa.webp',
       title: 'Coconut Tree Hill Mirissa',
       category: 'Coastal'
     },
     {
       id: 'cst-2',
-      url: '/gallery/Traditional Stilt Fishermen.jpg',
+      url: '/Gallery/Traditional Stilt Fishermen.jpg',
       title: 'Traditional Stilt Fishermen',
       category: 'Coastal'
     },
     // Culture
     {
       id: 'clt-1',
-      url: '/gallery/Traditional Kandy Dancer.webp',
+      url: '/Gallery/Traditional Kandy Dancer.webp',
       title: 'Traditional Kandy Dancer',
       category: 'Culture'
     },
     {
       id: 'clt-2',
-      url: '/gallery/Polonnaruwa Ancient Ruins.webp',
+      url: '/Gallery/Polonnaruwa Ancient Ruins.webp',
       title: 'Polonnaruwa Ancient Ruins',
       category: 'Culture'
     },
@@ -75,85 +75,85 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 'ico-2',
-      url: '/gallery/Nine Arch Bridge Ella.webp',
+      url: '/Gallery/Nine Arch Bridge Ella.webp',
       title: 'Nine Arch Bridge Ella',
       category: 'Iconic'
     },
     // Moments
     {
       id: 'mom-1',
-      url: '/gallery/Traditional Tea Plucking.webp',
+      url: '/Gallery/Traditional Tea Plucking.webp',
       title: 'Traditional Tea Plucking',
       category: 'Moments'
     },
     {
       id: 'mom-2',
-      url: '/gallery/Clay Pot Traditional Cooking.jpg',
+      url: '/Gallery/Clay Pot Traditional Cooking.jpg',
       title: 'Clay Pot Traditional Cooking',
       category: 'Moments'
     },
     // Nature
     {
       id: 'nat-1',
-      url: '/gallery/Misty Tea Hills Nuwara Eliya.webp',
+      url: '/Gallery/Misty Tea Hills Nuwara Eliya.webp',
       title: 'Misty Tea Hills Nuwara Eliya',
       category: 'Nature'
     },
     {
       id: 'nat-2',
-      url: '/gallery/Ramboda Waterfall.png',
+      url: '/Gallery/Ramboda Waterfall.png',
       title: 'Ramboda Waterfall',
       category: 'Nature'
     },
     // River Safari
     {
       id: 'riv-1',
-      url: '/gallery/Madu Ganga Boat Safari.jpg',
+      url: '/Gallery/Madu Ganga Boat Safari.jpg',
       title: 'Madu Ganga Boat Safari',
       category: 'River Safari'
     },
     {
       id: 'riv-2',
-      url: '/gallery/River Boating Adventure.jpg',
+      url: '/Gallery/River Boating Adventure.jpg',
       title: 'River Boating Adventure',
       category: 'River Safari'
     },
     // Safari
     {
       id: 'saf-1',
-      url: '/gallery/Minneriya Wild Elephant Safari.webp',
+      url: '/Gallery/Minneriya Wild Elephant Safari.webp',
       title: 'Minneriya Wild Elephant Safari',
       category: 'Safari'
     },
     {
       id: 'saf-2',
-      url: '/gallery/Yala National Park Leopard.webp',
+      url: '/Gallery/Yala National Park Leopard.webp',
       title: 'Yala National Park Leopard',
       category: 'Safari'
     },
     // Spiritual
     {
       id: 'spi-1',
-      url: '/gallery/Sacred Temple of the Tooth.jpg',
+      url: '/Gallery/Sacred Temple of the Tooth.jpg',
       title: 'Sacred Temple of the Tooth',
       category: 'Spiritual'
     },
     {
       id: 'spi-2',
-      url: '/gallery/Dambulla Golden Cave Temple.jpg',
+      url: '/Gallery/Dambulla Golden Cave Temple.jpg',
       title: 'Dambulla Golden Cave Temple',
       category: 'Spiritual'
     },
     // Wildlife
     {
       id: 'wld-1',
-      url: '/gallery/Majestic Sri Lankan Elephant.jpg',
+      url: '/Gallery/Majestic Sri Lankan Elephant.jpg',
       title: 'Majestic Sri Lankan Elephant',
       category: 'Wildlife'
     },
     {
       id: 'wld-2',
-      url: '/gallery/Wild Peacock in Habitat.jpg',
+      url: '/Gallery/Wild Peacock in Habitat.jpg',
       title: 'Wild Peacock in Habitat',
       category: 'Wildlife'
     }

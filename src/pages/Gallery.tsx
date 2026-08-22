@@ -30,39 +30,39 @@ export const Gallery: React.FC = () => {
     // Adventure
     {
       id: 'adv-1',
-      url: 'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Ella Scenic Train Ride.webp',
       title: 'Ella Scenic Train Ride',
       category: 'Adventure'
     },
     {
       id: 'adv-2',
-      url: 'https://images.unsplash.com/photo-1578590494538-cd46ea167b05?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Hiking Little Adam\'s Peak.webp',
       title: 'Hiking Little Adam\'s Peak',
       category: 'Adventure'
     },
     // Coastal
     {
       id: 'cst-1',
-      url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Coconut Tree Hill Mirissa.webp',
       title: 'Coconut Tree Hill Mirissa',
       category: 'Coastal'
     },
     {
       id: 'cst-2',
-      url: 'https://images.unsplash.com/photo-1563201412-f240ecf91439?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Traditional Stilt Fishermen.jpg',
       title: 'Traditional Stilt Fishermen',
       category: 'Coastal'
     },
     // Culture
     {
       id: 'clt-1',
-      url: 'https://images.unsplash.com/photo-1608958416710-530bb662b2d7?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Traditional Kandy Dancer.webp',
       title: 'Traditional Kandy Dancer',
       category: 'Culture'
     },
     {
       id: 'clt-2',
-      url: 'https://images.unsplash.com/photo-1588598126483-24124fe709b6?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Polonnaruwa Ancient Ruins.webp',
       title: 'Polonnaruwa Ancient Ruins',
       category: 'Culture'
     },
@@ -75,85 +75,85 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 'ico-2',
-      url: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Nine Arch Bridge Ella.webp',
       title: 'Nine Arch Bridge Ella',
       category: 'Iconic'
     },
     // Moments
     {
       id: 'mom-1',
-      url: 'https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Traditional Tea Plucking.webp',
       title: 'Traditional Tea Plucking',
       category: 'Moments'
     },
     {
       id: 'mom-2',
-      url: 'https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Clay Pot Traditional Cooking.jpg',
       title: 'Clay Pot Traditional Cooking',
       category: 'Moments'
     },
     // Nature
     {
       id: 'nat-1',
-      url: 'https://images.unsplash.com/photo-1550950158-d0d960dff51b?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Misty Tea Hills Nuwara Eliya.webp',
       title: 'Misty Tea Hills Nuwara Eliya',
       category: 'Nature'
     },
     {
       id: 'nat-2',
-      url: 'https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Ramboda Waterfall.png',
       title: 'Ramboda Waterfall',
       category: 'Nature'
     },
     // River Safari
     {
       id: 'riv-1',
-      url: 'https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Madu Ganga Boat Safari.jpg',
       title: 'Madu Ganga Boat Safari',
       category: 'River Safari'
     },
     {
       id: 'riv-2',
-      url: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/River Boating Adventure.jpg',
       title: 'River Boating Adventure',
       category: 'River Safari'
     },
     // Safari
     {
       id: 'saf-1',
-      url: 'https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Minneriya Wild Elephant Safari.webp',
       title: 'Minneriya Wild Elephant Safari',
       category: 'Safari'
     },
     {
       id: 'saf-2',
-      url: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Yala National Park Leopard.webp',
       title: 'Yala National Park Leopard',
       category: 'Safari'
     },
     // Spiritual
     {
       id: 'spi-1',
-      url: 'https://images.unsplash.com/photo-1625736746816-ef163884e954?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Sacred Temple of the Tooth.jpg',
       title: 'Sacred Temple of the Tooth',
       category: 'Spiritual'
     },
     {
       id: 'spi-2',
-      url: 'https://images.unsplash.com/photo-1576487244153-c415547c1e5d?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Dambulla Golden Cave Temple.jpg',
       title: 'Dambulla Golden Cave Temple',
       category: 'Spiritual'
     },
     // Wildlife
     {
       id: 'wld-1',
-      url: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Majestic Sri Lankan Elephant.jpg',
       title: 'Majestic Sri Lankan Elephant',
       category: 'Wildlife'
     },
     {
       id: 'wld-2',
-      url: 'https://images.unsplash.com/photo-1520111666666-e0e64c23dbd4?auto=format&fit=crop&w=800&q=80',
+      url: '/gallery/Wild Peacock in Habitat.jpg',
       title: 'Wild Peacock in Habitat',
       category: 'Wildlife'
     }

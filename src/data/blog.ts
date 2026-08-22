@@ -38,7 +38,7 @@ export const blogPosts: BlogPost[] = [
     category: 'TRAVEL TIPS',
     date: '2026-07-28',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1563201412-f240ecf91439?auto=format&fit=crop&w=800&q=80',
+    image: '/galle.webp',
     excerpt: 'All you need to know about airport transfers: public buses, trains, Tuk-Tuks, and private vehicle bookings via the Southern Highway.',
     content: `Getting from Bandaranaike International Airport (BIA) in Colombo to the historic city of Galle is straightforward when you know the options. The distance is roughly 150 km.
 
@@ -57,7 +57,7 @@ For travelers looking to enjoy local life, travel to Colombo Fort Station and bo
     category: 'CULTURE & FOOD',
     date: '2026-07-15',
     readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=800&q=80',
+    image: '/Sri Lankan Clay Pot Cooking.jpg',
     excerpt: 'Experience the authentic aromas of traditional coconut milk curries and spices slow-cooked to perfection in earthenware.',
     content: `Sri Lankan cuisine is defined by its deep spices, fresh grated coconut, and traditional clay pot cooking methods. Earthenware pots are porous, allowing heat and moisture to circulate evenly, producing rich, earthy flavors.
 
@@ -76,7 +76,7 @@ Traditional clay pot curries like Jackfruit (Polos) curry or Fish Ambul Thiyal (
     category: 'SAFARI & WILDLIFE',
     date: '2026-07-10',
     readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&w=800&q=80',
+    image: '/isit Yala National Park for Leopard Safaris.jpg',
     excerpt: 'Get details on leopard sightings, park opening times, jeep rentals, and recommendations for high-chance wildlife safari hours.',
     content: `Yala National Park hosts one of the highest leopard densities in the world, making it the premier destination for big cat photography in Asia.
 
@@ -93,7 +93,7 @@ The absolute best months for spotting leopards are **February to June**. As wate
     category: 'BEACH & SURF',
     date: '2026-06-25',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+    image: '/Mirissa Coconut Tree Hill & Surf Spots.jpg',
     excerpt: 'A comprehensive guide to finding the secret paths to Coconut Tree Hill and the best beginner-friendly surf breaks in Mirissa.',
     content: `Mirissa is a beautiful crescent-shaped beach on the southern coast of Sri Lanka. It combines a laid-back backpacker atmosphere with luxury beach resorts and excellent surfing conditions.
 

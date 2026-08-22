@@ -59,8 +59,8 @@ export const About: React.FC = () => {
           <div className="reveal-on-scroll">
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-4/3">
               <img
-                src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80"
-                alt="Beautiful Sri Lankan tea plantation"
+                src="/logo.jpeg"
+                alt="Ceylon Nest Journeys Logo"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-primary/10"></div>

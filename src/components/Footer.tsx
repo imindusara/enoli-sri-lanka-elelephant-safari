@@ -134,7 +134,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-1 text-center md:text-left">
             <p>© {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved.</p>
             <p className="text-xs text-gray-450 mt-1">
-              Developed by <span className="font-bold text-gray-400">univerz</span> (<a href="tel:+94778873302" className="hover:text-accent text-accent-light transition-colors font-semibold">+94 77 887 3302</a>)
+              Developed by <a href="https://www.univerzlk.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-gray-400 hover:text-accent transition-colors">univerz</a> (<a href="https://wa.me/94778873302?text=Hi%20Univerz%20Im%20Found%20You%20your%20web%20site%20i%20want%20create%20a%20web%20site%20can%20you%20contact%20me" target="_blank" rel="noopener noreferrer" className="hover:text-accent text-accent-light transition-colors font-semibold">+94 77 887 3302</a>)
             </p>
           </div>
           <div className="flex flex-wrap gap-4 justify-center">

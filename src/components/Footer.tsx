@@ -131,7 +131,12 @@ export const Footer: React.FC = () => {
 
         {/* Policies & Copyright */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-medium">
-          <p>© {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved.</p>
+          <div className="space-y-1 text-center md:text-left">
+            <p>© {new Date().getFullYear()} Ceylon Nest Journeys. All rights reserved.</p>
+            <p className="text-[10px] text-gray-600">
+              Developed by <span className="font-bold text-gray-500">univerz</span> (<a href="tel:+94778873302" className="hover:text-accent transition-colors">+94 77 887 3302</a>)
+            </p>
+          </div>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/privacy-policy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link to="/terms-conditions" className="hover:text-accent transition-colors">Terms & Conditions</Link>

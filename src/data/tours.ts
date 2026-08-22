@@ -561,37 +561,6 @@ export const toursData: Tour[] = [
     price: 95
   },
   {
-    id: 'badulla-ella-scenic-train',
-    title: 'Badulla to Ella Scenic Train Experience',
-    category: 'transfers',
-    tagline: 'Ride the Iconic Demodara Nine Arches Loop & Highland Railways',
-    duration: '1 Day',
-    startLocation: 'Badulla or Ella railway stations',
-    overview: 'Experience one of the most scenic train journeys in the world! Travel along the famous highland railway track from Badulla to Ella. This tour includes your reserved train tickets, a guided trip through mountain tunnels, misty tea gardens, and the famous Demodara Loop (where the railway track loops under itself). Watch the train cross the iconic Nine Arches Bridge from both inside the carriage and from a spectacular valley viewpoint, accompanied by our guide.',
-    highlights: [
-      'Reserved train tickets (Badulla to Ella)',
-      'Traverse the famous Demodara Loop',
-      'Scenic walk on Nine Arches Bridge',
-      'Dedicated guide & local transport included'
-    ],
-    includes: [
-      'Reserved train observation/first class ticket',
-      'Dedicated guide support for the day',
-      'Local station transfers',
-      'Bottled drinking water'
-    ],
-    excludes: [
-      'Meals & personal snacks',
-      'Personal expenses & gratuities'
-    ],
-    imageUrl: '/ella.webp',
-    gallery: [
-      '/ella.webp',
-      '/classic sri lanka tour.webp'
-    ],
-    price: 35
-  },
-  {
     id: 'car-driver-hire',
     title: 'Private Car & Driver Hire',
     category: 'hire',

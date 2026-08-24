@@ -575,9 +575,10 @@ export const toursData: Tour[] = [
     tagline: 'Rent a Private Car/Van with English-Speaking Driver',
     duration: 'Flexible',
     startLocation: 'Any location in Sri Lanka',
-    overview: 'Explore Sri Lanka at your own pace! Rent a private air-conditioned vehicle with a professional, English-speaking driver. Choose between a standard car ($80/day) or a comfortable van ($120/day). You plan your own hotel bookings and sightseeing stops, while we handle all transport costs, driver needs, and highway fees.',
+    overview: 'Explore Sri Lanka at your own pace! Rent a private air-conditioned vehicle with a professional, English-speaking driver. Choose between a standard car ($80/day) or a comfortable van ($120/day). You plan your own hotel bookings and sightseeing stops, while we handle all transport costs, driver needs, and highway fees. (Includes 120km per day; additional mileage is charged separately).',
     highlights: [
       'Private air-conditioned car ($80/day) or van ($120/day)',
+      'Includes 120km per day (additional mileage charged separately)',
       'Includes driver salary, driver accommodation, and meals',
       'All fuel costs, highway fees, and parking fees included',
       'Professional English-speaking driver'
@@ -590,7 +591,8 @@ export const toursData: Tour[] = [
     ],
     excludes: [
       'Guest hotel bookings & accommodation (guests must arrange their own hotels)',
-      'Entrance tickets to attractions, safari costs, and activity fees'
+      'Entrance tickets to attractions, safari costs, and activity fees',
+      'Extra mileage charges (if exceeding the daily limit of 120km)'
     ],
     imageUrl: '/classic sri lanka tour.webp',
     gallery: [

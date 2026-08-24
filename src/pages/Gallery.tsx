@@ -20,6 +20,7 @@ export const Gallery: React.FC = () => {
     'Iconic',
     'Moments',
     'Nature',
+    'Our Guides',
     'River Safari',
     'Safari',
     'Spiritual',
@@ -156,6 +157,37 @@ export const Gallery: React.FC = () => {
       url: '/Gallery/Wild Peacock in Habitat.jpg',
       title: 'Wild Peacock in Habitat',
       category: 'Wildlife'
+    },
+    // Our Guides
+    {
+      id: 'og-1',
+      url: '/Gallery/OG1.jpeg',
+      title: 'Guide Moments with Tourists',
+      category: 'Our Guides'
+    },
+    {
+      id: 'og-2',
+      url: '/Gallery/OG2.jpeg',
+      title: 'Exploring Sri Lanka Ancient Cities',
+      category: 'Our Guides'
+    },
+    {
+      id: 'og-3',
+      url: '/Gallery/OG3.jpeg',
+      title: 'Wildlife Park Tour Moments',
+      category: 'Our Guides'
+    },
+    {
+      id: 'og-4',
+      url: '/Gallery/OG4.jpeg',
+      title: 'Highlands Sightseeing Memories',
+      category: 'Our Guides'
+    },
+    {
+      id: 'og-5',
+      url: '/Gallery/OG5.jpeg',
+      title: 'Scenic Lake View Tour Memories',
+      category: 'Our Guides'
     }
   ];
 

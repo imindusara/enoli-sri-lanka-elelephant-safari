@@ -429,10 +429,10 @@ export const toursData: Tour[] = [
     ],
     imageUrl: '/Signature Sri Lanka Tour.webp',
     gallery: [
-      'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1608958223696-e251a37c3574?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80'
+      '/sigiriya.jpg',
+      '/Mirissa Coconut Tree Hill & Surf Spots.jpg',
+      '/Anuradhapura.webp',
+      '/Yala National Park.jpg'
     ],
     priceLabel: 'Contact us for pricing',
     itinerary: [

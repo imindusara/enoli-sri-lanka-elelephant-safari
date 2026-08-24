@@ -53,10 +53,10 @@ export const toursData: Tour[] = [
     ],
     imageUrl: '/ella.webp',
     gallery: [
-      'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1588598126744-12502ef0a221?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=600&q=80'
+      '/ella.webp',
+      '/Ella Misty Valleys, Tea Gardens & Epic Railways1.webp',
+      '/Ella Misty Valleys, Tea Gardens & Epic Railways 02.webp',
+      '/Ella Misty Valleys, Tea Gardens & Epic Railways 03.webp'
     ],
     price: 230
   },
@@ -88,10 +88,10 @@ export const toursData: Tour[] = [
     ],
     imageUrl: '/galle.webp',
     gallery: [
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1563182660-983568a64d1c?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=600&q=80'
+      '/galle.webp',
+      '/Mirissa Coconut Tree Hill & Surf Spots.jpg',
+      '/Colombo Airport to Bentota Scenic Transfer.jpg',
+      '/Sri Lankan Clay Pot Cooking.jpg'
     ],
     price: 170
   },
@@ -122,10 +122,10 @@ export const toursData: Tour[] = [
     ],
     imageUrl: '/sigiriya.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1578590494538-cd46ea167b05?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1608958223696-e251a37c3574?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80'
+      '/sigiriya.jpg',
+      '/Anuradhapura.webp',
+      '/Polonnaruwa.jpg',
+      '/sigiriya and kandy.jpg'
     ],
     price: 300
   },
@@ -158,10 +158,10 @@ export const toursData: Tour[] = [
     ],
     imageUrl: '/sigiriya and kandy.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1578590494538-cd46ea167b05?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1608958223696-e251a37c3574?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80'
+      '/sigiriya.jpg',
+      '/sigiriya and kandy.jpg',
+      '/Anuradhapura.webp',
+      '/Polonnaruwa.jpg'
     ],
     price: 350,
     itinerary: [
@@ -219,10 +219,11 @@ export const toursData: Tour[] = [
     ],
     imageUrl: '/classic sri lanka tour.webp',
     gallery: [
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1588598126744-12502ef0a221?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1608958223696-e251a37c3574?auto=format&fit=crop&w=600&q=80'
+      '/sigiriya.jpg',
+      '/sigiriya and kandy.jpg',
+      '/ella.webp',
+      '/Yala National Park.jpg',
+      '/Polonnaruwa.jpg'
     ],
     price: 780,
     itinerary: [
@@ -313,10 +314,13 @@ export const toursData: Tour[] = [
     ],
     imageUrl: '/Grand Sri Lanka Tour.webp',
     gallery: [
-      'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1608958223696-e251a37c3574?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80'
+      '/sigiriya.jpg',
+      '/sigiriya and kandy.jpg',
+      '/ella.webp',
+      '/Yala National Park.jpg',
+      '/Mirissa Coconut Tree Hill & Surf Spots.jpg',
+      '/Polonnaruwa.jpg',
+      '/Anuradhapura.webp'
     ],
     price: 980,
     itinerary: [
@@ -430,9 +434,13 @@ export const toursData: Tour[] = [
     imageUrl: '/Signature Sri Lanka Tour.webp',
     gallery: [
       '/sigiriya.jpg',
+      '/sigiriya and kandy.jpg',
+      '/ella.webp',
+      '/Yala National Park.jpg',
       '/Mirissa Coconut Tree Hill & Surf Spots.jpg',
+      '/Polonnaruwa.jpg',
       '/Anuradhapura.webp',
-      '/Yala National Park.jpg'
+      '/Trincomalee.jpg'
     ],
     priceLabel: 'Contact us for pricing',
     itinerary: [

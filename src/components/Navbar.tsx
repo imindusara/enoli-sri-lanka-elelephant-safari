@@ -68,9 +68,9 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-white/20 flex items-center h-16 lg:h-24 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-white/20 flex items-center h-16 md:h-20 ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-md shadow-md lg:h-20' 
+          ? 'bg-white/90 backdrop-blur-md shadow-md md:h-16' 
           : 'bg-white/70 backdrop-blur-sm'
       }`}
     >
@@ -78,21 +78,21 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-full">
           
           {/* LEFT: Logo & Brand Area */}
-          <div className="w-[28%] min-w-[200px] shrink-0">
-            <Link to="/" className="flex items-center space-x-3 group">
+          <div className="w-[24%] md:w-[28%] min-w-[150px] md:min-w-[200px] shrink-0">
+            <Link to="/" className="flex items-center space-x-2 md:space-x-3 group">
               <img 
                 src="/logo.jpeg" 
                 alt="Ceylon Nest Journeys Logo" 
-                className="h-10 w-10 lg:h-12 lg:w-12 object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105" 
+                className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 object-contain rounded-xl shadow-xs transition-transform duration-300 group-hover:scale-105" 
               />
-              <span className="font-serif text-xs lg:text-sm xl:text-base font-black tracking-wider text-primary leading-tight uppercase transition-colors group-hover:text-accent">
+              <span className="font-serif text-[10px] md:text-xs lg:text-sm xl:text-base font-black tracking-wider text-primary leading-tight uppercase transition-colors group-hover:text-accent">
                 CEYLON NEST
               </span>
             </Link>
           </div>
 
           {/* CENTER: Main Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 text-[13px] xl:text-[14px] font-semibold tracking-wide text-charcoal">
+          <div className="hidden md:flex items-center justify-center space-x-2.5 lg:space-x-6 xl:space-x-8 text-[11px] lg:text-[13px] xl:text-[14px] font-semibold tracking-wide text-charcoal">
             
             {/* HOME */}
             <Link
@@ -114,12 +114,12 @@ export const Navbar: React.FC = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
+                className={`flex items-center gap-0.5 lg:gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
                   isActive('/tours') ? 'text-primary font-bold' : 'text-charcoal'
                 }`}
               >
                 <span>{t('nav_tours')}</span>
-                <ChevronDown className="h-4 w-4 shrink-0" />
+                <ChevronDown className="h-3.5 w-3.5 shrink-0" />
               </button>
               
               {activeDropdown === 'tours' && (
@@ -155,17 +155,17 @@ export const Navbar: React.FC = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
+                className={`flex items-center gap-0.5 lg:gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
                   isActive('/destinations') ? 'text-primary font-bold' : 'text-charcoal'
                 }`}
               >
                 <span>{t('nav_destinations')}</span>
-                <ChevronDown className="h-4 w-4 shrink-0" />
+                <ChevronDown className="h-3.5 w-3.5 shrink-0" />
               </button>
               
               {activeDropdown === 'destinations' && (
                 <div className="absolute left-1/2 -translate-x-1/2 top-[95%] pt-3 w-56 z-50">
-                  <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 py-3 border border-gray-100 overflow-hidden animate-fade-in">
+                  <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 py-3 border border-gray-150 overflow-hidden animate-fade-in">
                     <Link to="/destinations" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all border-b border-gray-50 mb-1">
                       All Destinations
                     </Link>
@@ -237,12 +237,12 @@ export const Navbar: React.FC = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
+                className={`flex items-center gap-0.5 lg:gap-1 hover:text-accent transition-colors cursor-pointer focus:outline-none ${
                   isActive('/reviews') || isActive('/gallery') || isActive('/blog') || isActive('/contact') ? 'text-primary font-bold' : 'text-charcoal'
                 }`}
               >
                 <span>More</span>
-                <ChevronDown className="h-4 w-4 shrink-0" />
+                <ChevronDown className="h-3.5 w-3.5 shrink-0" />
               </button>
               
               {activeDropdown === 'more' && (
@@ -274,7 +274,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* RIGHT: Language Selector & BOOK NOW Button */}
-          <div className="hidden lg:flex items-center justify-end space-x-6 w-[28%] shrink-0">
+          <div className="hidden md:flex items-center justify-end space-x-3 lg:space-x-6 w-[28%] shrink-0">
             {/* Language Selector */}
             <div 
               className="relative"
@@ -282,11 +282,11 @@ export const Navbar: React.FC = () => {
             >
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-charcoal hover:text-accent transition-colors cursor-pointer focus:outline-none"
+                className="flex items-center gap-1 text-[10px] lg:text-xs font-bold uppercase tracking-wide text-charcoal hover:text-accent transition-colors cursor-pointer focus:outline-none"
               >
-                <Globe className="h-4.5 w-4.5 text-charcoal-light" />
+                <Globe className="h-4 w-4 text-charcoal-light" />
                 <span>{language}</span>
-                <ChevronDown className="h-3.5 w-3.5" />
+                <ChevronDown className="h-3 w-3" />
               </button>
               
               {activeDropdown === 'language' && (
@@ -319,14 +319,14 @@ export const Navbar: React.FC = () => {
             {/* BOOK NOW Button */}
             <Link
               to="/book-now"
-              className="bg-accent hover:bg-accent-light text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-full transition-all duration-300 hover:scale-103 shadow-xs hover:shadow-md animate-pulse hover:animate-none whitespace-nowrap border border-accent-light/10"
+              className="bg-accent hover:bg-accent-light text-white font-bold text-[10px] lg:text-xs uppercase tracking-widest px-4 lg:px-6 py-2.5 lg:py-3.5 rounded-full transition-all duration-300 hover:scale-103 shadow-xs hover:shadow-md animate-pulse hover:animate-none whitespace-nowrap border border-accent-light/10"
             >
               {t('nav_book_now')}
             </Link>
           </div>
 
           {/* Mobile Actions (Mobile Hamburger & Quick Actions) */}
-          <div className="lg:hidden flex items-center space-x-3">
+          <div className="md:hidden flex items-center space-x-3">
             <Link
               to="/book-now"
               className="bg-accent text-white px-4 py-2 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all shadow-xs"
@@ -348,7 +348,7 @@ export const Navbar: React.FC = () => {
 
       {/* MOBILE SLIDE-OUT DRAWER */}
       {isOpen && (
-        <div className="lg:hidden fixed top-16 left-0 right-0 bg-white border-t border-gray-150 shadow-2xl py-6 px-5 space-y-3 overflow-y-auto h-[calc(100vh-64px)] z-50">
+        <div className="md:hidden fixed top-16 left-0 right-0 bg-white border-t border-gray-150 shadow-2xl py-6 px-5 space-y-3 overflow-y-auto h-[calc(100vh-64px)] z-50">
           
           {/* HOME */}
           <Link

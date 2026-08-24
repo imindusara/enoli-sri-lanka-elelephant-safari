@@ -145,11 +145,27 @@ export const Home: React.FC = () => {
             </p>
 
             {/* Day / Multi-day Toggles */}
-            <div className="flex justify-center mt-8">
-              <div className="bg-cream p-1.5 rounded-full inline-flex border border-gray-150 shadow-sm">
+            {/* Mobile Dropdown (Visible only on mobile screens < 640px) */}
+            <div className="block sm:hidden w-full max-w-xs mx-auto mt-6 px-4">
+              <select
+                value={activeTab}
+                onChange={(e) => setActiveTab(e.target.value as any)}
+                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-base font-semibold text-charcoal focus:outline-none focus:border-primary min-h-[46px] shadow-xs cursor-pointer"
+              >
+                <option value="all">All Tours</option>
+                <option value="day">{t('tours_day')}</option>
+                <option value="multi-day">{t('tours_multi')}</option>
+                <option value="transfers">Scenic Transfers</option>
+                <option value="hire">Car & Driver</option>
+              </select>
+            </div>
+
+            {/* Desktop & Tablet Buttons (Hidden on mobile) */}
+            <div className="hidden sm:flex justify-center mt-8 max-w-full px-2">
+              <div className="bg-cream p-1.5 rounded-full flex justify-center border border-gray-150 shadow-sm max-w-full">
                 <button
                   onClick={() => setActiveTab('all')}
-                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     activeTab === 'all'
                       ? 'bg-primary text-white shadow-md'
                       : 'text-charcoal-light hover:text-charcoal'
@@ -159,7 +175,7 @@ export const Home: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setActiveTab('day')}
-                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     activeTab === 'day'
                       ? 'bg-primary text-white shadow-md'
                       : 'text-charcoal-light hover:text-charcoal'
@@ -169,7 +185,7 @@ export const Home: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setActiveTab('multi-day')}
-                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     activeTab === 'multi-day'
                       ? 'bg-primary text-white shadow-md'
                       : 'text-charcoal-light hover:text-charcoal'
@@ -179,7 +195,7 @@ export const Home: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setActiveTab('transfers')}
-                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     activeTab === 'transfers'
                       ? 'bg-primary text-white shadow-md'
                       : 'text-charcoal-light hover:text-charcoal'
@@ -189,7 +205,7 @@ export const Home: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setActiveTab('hire')}
-                  className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     activeTab === 'hire'
                       ? 'bg-primary text-white shadow-md'
                       : 'text-charcoal-light hover:text-charcoal'

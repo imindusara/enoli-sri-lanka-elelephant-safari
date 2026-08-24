@@ -99,7 +99,7 @@ export const Contact: React.FC = () => {
               <div>
                 <h4 className="font-serif font-bold text-base text-charcoal">Quick Response Time</h4>
                 <p className="text-charcoal-light text-xs sm:text-sm mt-1 leading-relaxed">
-                  We usually reply to WhatsApp and email enquiries **within a few hours**. Feel free to ping us at any time.
+                  We usually reply to WhatsApp and email enquiries <strong className="font-bold text-primary">within a few hours</strong>. Feel free to ping us at any time.
                 </p>
               </div>
             </div>

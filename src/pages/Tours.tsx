@@ -74,10 +74,26 @@ export const Tours: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Category Filters */}
         <div className="flex flex-col items-center mb-12 space-y-6">
-          <div className="bg-white p-1 rounded-2xl sm:rounded-full flex flex-wrap justify-center sm:inline-flex border border-gray-200 shadow-sm max-w-full">
+          {/* Mobile Dropdown (Visible only on mobile screens < 640px) */}
+          <div className="block sm:hidden w-full max-w-xs mx-auto px-4">
+            <select
+              value={activeTab}
+              onChange={(e) => handleTabChange(e.target.value as any)}
+              className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-base font-semibold text-charcoal focus:outline-none focus:border-primary min-h-[46px] shadow-xs cursor-pointer"
+            >
+              <option value="all">All Tours</option>
+              <option value="day">Day Tours</option>
+              <option value="multi-day">Multi-Day Tours</option>
+              <option value="transfers">Scenic Transfers</option>
+              <option value="hire">Car & Driver</option>
+            </select>
+          </div>
+
+          {/* Desktop & Tablet Buttons (Hidden on mobile) */}
+          <div className="hidden sm:inline-flex bg-white p-1 rounded-full border border-gray-205 shadow-sm max-w-full">
             <button
               onClick={() => handleTabChange('all')}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
+              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'all'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -87,7 +103,7 @@ export const Tours: React.FC = () => {
             </button>
             <button
               onClick={() => handleTabChange('day')}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
+              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'day'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -97,7 +113,7 @@ export const Tours: React.FC = () => {
             </button>
             <button
               onClick={() => handleTabChange('multi-day')}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
+              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'multi-day'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -107,7 +123,7 @@ export const Tours: React.FC = () => {
             </button>
             <button
               onClick={() => handleTabChange('transfers')}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
+              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'transfers'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -117,7 +133,7 @@ export const Tours: React.FC = () => {
             </button>
             <button
               onClick={() => handleTabChange('hire')}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
+              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer min-h-[40px] ${
                 activeTab === 'hire'
                   ? 'bg-primary text-white shadow-md'
                   : 'text-charcoal-light hover:text-charcoal'
@@ -131,7 +147,24 @@ export const Tours: React.FC = () => {
           {activeTab === 'multi-day' && (
             <div className="flex flex-col sm:flex-row items-center gap-3 justify-center w-full max-w-full">
               <span className="text-[10px] sm:text-xs font-bold text-charcoal-light uppercase tracking-wider">Duration:</span>
-              <div className="flex flex-wrap justify-center gap-2 max-w-full">
+              
+              {/* Mobile Duration Dropdown (Visible only on mobile screens < 640px) */}
+              <div className="block sm:hidden w-full max-w-xs mx-auto px-4">
+                <select
+                  value={durationFilter}
+                  onChange={(e) => setDurationFilter(e.target.value as any)}
+                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-charcoal focus:outline-none focus:border-primary min-h-[40px] shadow-xs cursor-pointer"
+                >
+                  <option value="all">All Durations</option>
+                  <option value="2">2 Days</option>
+                  <option value="5">5 Days</option>
+                  <option value="7">7 Days</option>
+                  <option value="9">9 Days</option>
+                </select>
+              </div>
+
+              {/* Desktop & Tablet Duration Buttons (Hidden on mobile) */}
+              <div className="hidden sm:flex flex-wrap justify-center gap-2 max-w-full">
                 {(['all', '2', '5', '7', '9'] as const).map((dur) => (
                   <button
                     key={dur}

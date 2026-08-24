@@ -140,7 +140,7 @@ Message: ${formData.message || 'None'}`;
           Enquiry Received!
         </h3>
         <p className="text-charcoal-light max-w-md mx-auto mb-8 leading-relaxed">
-          Thank you for reaching out to **Ceylon Nest Journeys**. Our travel specialists will customize your itinerary and contact you with a details quote within a few hours.
+          Thank you for reaching out to <strong className="font-bold text-primary">Ceylon Nest Journeys</strong>. Our travel specialists will customize your itinerary and contact you with a detailed quote within a few hours.
         </p>
         <button
           onClick={() => {

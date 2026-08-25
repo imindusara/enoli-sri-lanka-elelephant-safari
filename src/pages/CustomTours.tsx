@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Sparkles, Send } from 'lucide-react';
+import { CheckCircle2, Sparkles, Send, MessageCircle, Mail } from 'lucide-react';
 
 export const CustomTours: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ export const CustomTours: React.FC = () => {
     destinations: [] as string[],
     interests: [] as string[],
     notes: '',
+    preferredContact: 'whatsapp' as 'whatsapp' | 'email',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -86,6 +87,7 @@ export const CustomTours: React.FC = () => {
           Name: formData.name,
           Email: formData.email,
           "Phone / WhatsApp": formData.phone,
+          "Preferred Contact": formData.preferredContact === 'whatsapp' ? 'WhatsApp' : 'Email',
           "Trip Duration": `${formData.duration} Days`,
           "Travelers Count": formData.travelers,
           "Service Type Selected": serviceLabel,
@@ -99,8 +101,10 @@ export const CustomTours: React.FC = () => {
     } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-      // Open WhatsApp pre-filled chat in a new tab
-      window.open(whatsappUrl, '_blank');
+      // Open WhatsApp pre-filled chat in a new tab if requested
+      if (formData.preferredContact === 'whatsapp') {
+        window.open(whatsappUrl, '_blank');
+      }
     }
   };
 
@@ -247,6 +251,45 @@ export const CustomTours: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Service Type Selection */}
+                <div className="space-y-3">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-charcoal">Select Service Type *</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, serviceType: 'full-package' })}
+                      className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all cursor-pointer min-h-[120px] ${
+                        formData.serviceType === 'full-package'
+                          ? 'border-accent bg-primary/5 ring-2 ring-accent/10'
+                          : 'border-gray-200 bg-white hover:border-gray-300'
+                      }`}
+                    >
+                      <div>
+                        <span className="block font-bold text-sm text-primary">Full Tour Package</span>
+                        <span className="text-[11px] text-charcoal-light block mt-2 leading-relaxed">
+                          Includes premium 4★ hotel accommodation, daily breakfast & dinner, private vehicle, and guiding driver.
+                        </span>
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, serviceType: 'driver-only' })}
+                      className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all cursor-pointer min-h-[120px] ${
+                        formData.serviceType === 'driver-only'
+                          ? 'border-accent bg-primary/5 ring-2 ring-accent/10'
+                          : 'border-gray-200 bg-white hover:border-gray-300'
+                      }`}
+                    >
+                      <div>
+                        <span className="block font-bold text-sm text-primary">Driver & Vehicle Only</span>
+                        <span className="text-[11px] text-charcoal-light block mt-2 leading-relaxed">
+                          Includes private vehicle, fuel, parking, highway tolls, and English-speaking driver. Excludes hotels (you book your own accommodation).
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
                 {/* Destinations Select */}
                 <div className="space-y-3">
                   <label className="block text-xs font-bold uppercase tracking-wider text-charcoal">Preferred Hotspots to Include</label>
@@ -296,45 +339,6 @@ export const CustomTours: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Service Type Selection */}
-                <div className="space-y-3">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-charcoal">Select Service Type *</label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, serviceType: 'full-package' })}
-                      className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all cursor-pointer min-h-[120px] ${
-                        formData.serviceType === 'full-package'
-                          ? 'border-accent bg-primary/5 ring-2 ring-accent/10'
-                          : 'border-gray-200 bg-white hover:border-gray-300'
-                      }`}
-                    >
-                      <div>
-                        <span className="block font-bold text-sm text-primary">Full Tour Package</span>
-                        <span className="text-[11px] text-charcoal-light block mt-2 leading-relaxed">
-                          Includes premium 4★ hotel accommodation, daily breakfast & dinner, private vehicle, and guiding driver.
-                        </span>
-                      </div>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, serviceType: 'driver-only' })}
-                      className={`p-5 rounded-2xl border text-left flex flex-col justify-between transition-all cursor-pointer min-h-[120px] ${
-                        formData.serviceType === 'driver-only'
-                          ? 'border-accent bg-primary/5 ring-2 ring-accent/10'
-                          : 'border-gray-200 bg-white hover:border-gray-300'
-                      }`}
-                    >
-                      <div>
-                        <span className="block font-bold text-sm text-primary">Driver & Vehicle Only</span>
-                        <span className="text-[11px] text-charcoal-light block mt-2 leading-relaxed">
-                          Includes private vehicle, fuel, parking, highway tolls, and English-speaking driver. Excludes hotels (you book your own accommodation).
-                        </span>
-                      </div>
-                    </button>
-                  </div>
-                </div>
-
                 {/* Extra Notes */}
                 <div className="space-y-2">
                   <label className="block text-xs font-bold uppercase tracking-wider text-charcoal">Special Requests or Custom Requests</label>
@@ -345,6 +349,48 @@ export const CustomTours: React.FC = () => {
                     placeholder="Tell us about your flight timings, dietary options, accessibility requirements, or special milestones."
                     className="w-full bg-cream border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent"
                   ></textarea>
+                </div>
+
+                {/* Preferred Contact Method */}
+                <div className="space-y-3 pt-6 border-t border-gray-100">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-charcoal">How would you like us to reply? *</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, preferredContact: 'whatsapp' })}
+                      className={`p-4 rounded-xl border text-left flex items-start gap-4 transition-all cursor-pointer ${
+                        formData.preferredContact === 'whatsapp'
+                          ? 'border-green-500 bg-green-50/30 ring-1 ring-green-500/50'
+                          : 'border-gray-200 bg-white hover:border-green-300'
+                      }`}
+                    >
+                      <div className={`p-2 rounded-full ${formData.preferredContact === 'whatsapp' ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-400'}`}>
+                        <MessageCircle className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <span className={`block font-bold text-sm ${formData.preferredContact === 'whatsapp' ? 'text-green-700' : 'text-charcoal'}`}>WhatsApp</span>
+                        <span className="text-[11px] text-charcoal-light block mt-1">We will open a chat with our team immediately after submission.</span>
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, preferredContact: 'email' })}
+                      className={`p-4 rounded-xl border text-left flex items-start gap-4 transition-all cursor-pointer ${
+                        formData.preferredContact === 'email'
+                          ? 'border-primary bg-primary/5 ring-1 ring-primary/30'
+                          : 'border-gray-200 bg-white hover:border-primary/40'
+                      }`}
+                    >
+                      <div className={`p-2 rounded-full ${formData.preferredContact === 'email' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-400'}`}>
+                        <Mail className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <span className={`block font-bold text-sm ${formData.preferredContact === 'email' ? 'text-primary' : 'text-charcoal'}`}>Email</span>
+                        <span className="text-[11px] text-charcoal-light block mt-1">We will send your bespoke itinerary draft directly to your inbox.</span>
+                      </div>
+                    </button>
+                  </div>
                 </div>
 
                 {/* Submit button */}

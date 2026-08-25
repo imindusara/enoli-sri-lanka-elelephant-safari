@@ -249,7 +249,7 @@ export const destinationsData: Destination[] = [
     ],
     gallery: [
       '/Anuradhapura.webp',
-      '/Gallery/Sacred Temple of the Tooth.jpg'
+      '/jayasri maha bodhi.jpg'
     ],
     tips: [
       'Dress modestly when visiting the ancient city ruins (shoulders and knees covered).',

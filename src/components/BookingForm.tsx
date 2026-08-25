@@ -205,22 +205,36 @@ Message: ${formData.message || 'None'}`;
             <label htmlFor="tourId" className="block text-xs font-bold text-charcoal uppercase tracking-wider">
               {t('form_tour')}
             </label>
-            <select
-              id="tourId"
-              name="tourId"
-              value={formData.tourId}
-              onChange={handleChange}
-              className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-cream/40 focus:outline-none focus:border-primary text-sm min-h-[48px]"
-            >
-              {toursData.map(tour => (
-                <option key={tour.id} value={tour.id}>
-                  {tour.title}
+            <div className="relative w-full bg-cream/40 border border-gray-200 rounded-xl flex justify-center items-center min-h-[48px] focus-within:border-primary transition-colors cursor-pointer">
+              <div className="flex items-center space-x-2 text-sm text-charcoal pointer-events-none">
+                <span>
+                  {formData.tourId === 'customized-trip' 
+                    ? 'Customized Tour (Design My Own Trip)' 
+                    : formData.tourId 
+                      ? (toursData.find(t => t.id === formData.tourId)?.title || 'Select a Tour')
+                      : 'Select a Tour'
+                  }
+                </span>
+                <svg className="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+              <select
+                id="tourId"
+                name="tourId"
+                value={formData.tourId || ''}
+                onChange={handleChange}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              >
+                <option value="" disabled>Select a Tour</option>
+                {toursData.map(tour => (
+                  <option key={tour.id} value={tour.id}>
+                    {tour.title}
+                  </option>
+                ))}
+                <option value="customized-trip">
+                  Customized Tour (Design My Own Trip)
                 </option>
-              ))}
-              <option value="customized-trip">
-                Customized Tour (Design My Own Trip)
-              </option>
-            </select>
+              </select>
+            </div>
             {errors.tourId && <p className="text-red-500 text-xs mt-1 font-medium">{errors.tourId}</p>}
           </div>
         )}

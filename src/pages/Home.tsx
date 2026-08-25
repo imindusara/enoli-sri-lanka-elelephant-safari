@@ -146,18 +146,29 @@ export const Home: React.FC = () => {
 
             {/* Day / Multi-day Toggles */}
             {/* Mobile Dropdown (Visible only on mobile screens < 640px) */}
-            <div className="block sm:hidden w-full max-w-xs mx-auto mt-6 px-4">
-              <select
-                value={activeTab}
-                onChange={(e) => setActiveTab(e.target.value as any)}
-                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-base font-semibold text-charcoal focus:outline-none focus:border-primary min-h-[46px] shadow-xs cursor-pointer"
-              >
-                <option value="all">All Tours</option>
-                <option value="day">{t('tours_day')}</option>
-                <option value="multi-day">{t('tours_multi')}</option>
-                <option value="transfers">Scenic Transfers</option>
-                <option value="hire">Car & Driver</option>
-              </select>
+            <div className="block sm:hidden w-full max-w-sm mx-auto mt-6 px-4">
+              <div className="relative w-full bg-white border border-gray-300 rounded-xl flex justify-center items-center min-h-[48px] shadow-sm cursor-pointer focus-within:border-primary focus-within:ring-1 focus-within:ring-primary hover:border-gray-400 transition-colors">
+                <div className="flex items-center space-x-2 text-base font-semibold text-charcoal pointer-events-none">
+                  <span>
+                    {activeTab === 'all' ? 'All Tours' : 
+                     activeTab === 'day' ? t('tours_day') : 
+                     activeTab === 'multi-day' ? t('tours_multi') : 
+                     activeTab === 'transfers' ? 'Scenic Transfers' : 'Car & Driver'}
+                  </span>
+                  <svg className="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <select
+                  value={activeTab}
+                  onChange={(e) => setActiveTab(e.target.value as any)}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                >
+                  <option value="all">All Tours</option>
+                  <option value="day">{t('tours_day')}</option>
+                  <option value="multi-day">{t('tours_multi')}</option>
+                  <option value="transfers">Scenic Transfers</option>
+                  <option value="hire">Car & Driver</option>
+                </select>
+              </div>
             </div>
 
             {/* Desktop & Tablet Buttons (Hidden on mobile) */}

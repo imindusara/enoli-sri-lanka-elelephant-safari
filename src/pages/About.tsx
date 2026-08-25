@@ -61,9 +61,9 @@ export const About: React.FC = () => {
               <img
                 src="/logo.jpeg"
                 alt="Ceylon Nest Journeys Logo"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain rounded-2xl"
               />
-              <div className="absolute inset-0 bg-primary/10"></div>
+              <div className="absolute inset-0 bg-primary/5 pointer-events-none rounded-2xl"></div>
             </div>
           </div>
         </div>

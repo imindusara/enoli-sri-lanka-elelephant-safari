@@ -536,38 +536,7 @@ export const toursData: Tour[] = [
       }
     ]
   },
-  {
-    id: 'sightseeing-transfer-galle',
-    title: 'Colombo/Airport to Galle Sightseeing Transfer',
-    category: 'transfers',
-    tagline: 'Travel from Colombo/Airport to Galle with 3-4 Scenic Sightseeing Stops',
-    duration: '1 Day (Transfer + Tour)',
-    startLocation: 'Colombo or Bandaranaike International Airport (CMB)',
-    overview: 'Transform your transport into an adventure! Instead of a plain taxi ride, book our premium sightseeing transfer from Colombo City or the International Airport to Galle. Along the way, we stop at 3 to 4 major highlights of the southwestern coast, including the Madu River boat safari, a sea turtle conservation hatchery, traditional stilt fishermen spots, and historic coastal sites. Travel in a comfortable private A/C vehicle with a dedicated driver-guide who handles your luggage safely.',
-    highlights: [
-      'Madu River mangrove boat safari',
-      'Sea Turtle hatchery & conservation project',
-      'Traditional stilt fishermen photo stop',
-      'Private A/C transfer with luggage security'
-    ],
-    includes: [
-      'Air-conditioned private vehicle',
-      'Professional English-speaking driver-guide',
-      'Luggage transport & transfer to Galle hotel',
-      'All fuel fees, highway tolls & parking fees'
-    ],
-    excludes: [
-      'Food & beverages (lunch/snacks)',
-      'Entrance fees & safari tickets',
-      'Personal expenses & gratuities'
-    ],
-    imageUrl: '/galle.webp',
-    gallery: [
-      '/galle.webp',
-      '/ella.webp'
-    ],
-    price: 95
-  },
+
   {
     id: 'car-driver-hire',
     title: 'Private Car & Driver Hire',

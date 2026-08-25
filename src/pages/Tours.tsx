@@ -75,18 +75,29 @@ export const Tours: React.FC = () => {
         {/* Category Filters */}
         <div className="flex flex-col items-center mb-12 space-y-6">
           {/* Mobile Dropdown (Visible only on mobile screens < 640px) */}
-          <div className="block sm:hidden w-full max-w-xs mx-auto px-4">
-            <select
-              value={activeTab}
-              onChange={(e) => handleTabChange(e.target.value as any)}
-              className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-base font-semibold text-charcoal focus:outline-none focus:border-primary min-h-[46px] shadow-xs cursor-pointer"
-            >
-              <option value="all">All Tours</option>
-              <option value="day">Day Tours</option>
-              <option value="multi-day">Multi-Day Tours</option>
-              <option value="transfers">Scenic Transfers</option>
-              <option value="hire">Car & Driver</option>
-            </select>
+          <div className="block sm:hidden w-full max-w-sm mx-auto px-4">
+            <div className="relative w-full bg-white border border-gray-300 rounded-xl flex justify-center items-center min-h-[48px] shadow-sm cursor-pointer focus-within:border-primary focus-within:ring-1 focus-within:ring-primary hover:border-gray-400 transition-colors">
+              <div className="flex items-center space-x-2 text-base font-semibold text-charcoal pointer-events-none">
+                <span>
+                  {activeTab === 'all' ? 'All Tours' : 
+                   activeTab === 'day' ? 'Day Tours' : 
+                   activeTab === 'multi-day' ? 'Multi-Day Tours' : 
+                   activeTab === 'transfers' ? 'Scenic Transfers' : 'Car & Driver'}
+                </span>
+                <svg className="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+              <select
+                value={activeTab}
+                onChange={(e) => handleTabChange(e.target.value as any)}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              >
+                <option value="all">All Tours</option>
+                <option value="day">Day Tours</option>
+                <option value="multi-day">Multi-Day Tours</option>
+                <option value="transfers">Scenic Transfers</option>
+                <option value="hire">Car & Driver</option>
+              </select>
+            </div>
           </div>
 
           {/* Desktop & Tablet Buttons (Hidden on mobile) */}
@@ -149,18 +160,29 @@ export const Tours: React.FC = () => {
               <span className="text-[10px] sm:text-xs font-bold text-charcoal-light uppercase tracking-wider">Duration:</span>
               
               {/* Mobile Duration Dropdown (Visible only on mobile screens < 640px) */}
-              <div className="block sm:hidden w-full max-w-xs mx-auto px-4">
-                <select
-                  value={durationFilter}
-                  onChange={(e) => setDurationFilter(e.target.value as any)}
-                  className="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-charcoal focus:outline-none focus:border-primary min-h-[40px] shadow-xs cursor-pointer"
-                >
-                  <option value="all">All Durations</option>
-                  <option value="2">2 Days</option>
-                  <option value="5">5 Days</option>
-                  <option value="7">7 Days</option>
-                  <option value="9">9 Days</option>
-                </select>
+              <div className="block sm:hidden w-full max-w-sm mx-auto px-4">
+                <div className="relative w-full bg-white border border-gray-300 rounded-xl flex justify-center items-center min-h-[44px] shadow-sm cursor-pointer focus-within:border-primary focus-within:ring-1 focus-within:ring-primary hover:border-gray-400 transition-colors">
+                  <div className="flex items-center space-x-2 text-sm font-semibold text-charcoal pointer-events-none">
+                    <span>
+                      {durationFilter === 'all' ? 'All Durations' : 
+                       durationFilter === '2' ? '2 Days' : 
+                       durationFilter === '5' ? '5 Days' : 
+                       durationFilter === '7' ? '7 Days' : '9 Days'}
+                    </span>
+                    <svg className="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                  <select
+                    value={durationFilter}
+                    onChange={(e) => setDurationFilter(e.target.value as any)}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  >
+                    <option value="all">All Durations</option>
+                    <option value="2">2 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                    <option value="9">9 Days</option>
+                  </select>
+                </div>
               </div>
 
               {/* Desktop & Tablet Duration Buttons (Hidden on mobile) */}
@@ -182,6 +204,34 @@ export const Tours: React.FC = () => {
             </div>
           )}
         </div>
+
+        {/* Difference Explanation Banner */}
+        {(activeTab === 'all' || activeTab === 'day' || activeTab === 'transfers') && (
+          <div className="bg-cream rounded-xl p-6 mb-12 border border-gray-100 shadow-sm reveal-on-scroll">
+            <h3 className="text-center font-bold text-charcoal mb-6 text-sm uppercase tracking-wider">Know the Difference</h3>
+            <div className="flex flex-col md:flex-row gap-8 justify-center">
+              <div className="flex-1 max-w-md bg-white p-5 rounded-lg border border-gray-100 shadow-xs">
+                <h4 className="font-bold text-primary mb-2 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                  Day Tours
+                </h4>
+                <p className="text-charcoal-light text-sm">
+                  Includes pickup from your specified location (e.g., your hotel), a full day of sightseeing, and a return drop-off to your starting location or another agreed point.
+                </p>
+              </div>
+              
+              <div className="flex-1 max-w-md bg-white p-5 rounded-lg border border-gray-100 shadow-xs">
+                <h4 className="font-bold text-accent mb-2 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
+                  Scenic Transfers
+                </h4>
+                <p className="text-charcoal-light text-sm">
+                  A one-way sightseeing transfer designed to pick you up at the airport (or Colombo) and drop you off at your next destination. Return trip is not included.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Tour List Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

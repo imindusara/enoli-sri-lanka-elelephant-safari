@@ -178,7 +178,7 @@ export const TourDetail: React.FC = () => {
               </div>
               <div className="text-xs text-charcoal-light bg-cream p-4 rounded-xl border border-gray-100 flex-grow max-w-md">
                 <span className="font-bold text-charcoal block mb-1">Pricing Disclaimers:</span>
-                *Based on double/twin sharing. Final price depends on exact group size, seasonal travel rates & choice of hotel category.
+                *Based on double/twin sharing. Final price depends on exact group size & seasonal travel rates.
               </div>
             </div>
 

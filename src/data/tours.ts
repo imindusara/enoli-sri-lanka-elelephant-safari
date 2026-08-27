@@ -54,8 +54,8 @@ export const toursData: Tour[] = [
     imageUrl: '/ella.webp',
     gallery: [
       '/ella.webp',
-      '/Ella Misty Valleys, Tea Gardens & Epic Railways1.webp',
-      '/Ella Misty Valleys, Tea Gardens & Epic Railways 02.webp',
+      '/Rawana waterfall.jpg',
+      '/mini Adams peak.jpg',
       '/Ella Misty Valleys, Tea Gardens & Epic Railways 03.webp'
     ],
     price: 230
@@ -89,9 +89,10 @@ export const toursData: Tour[] = [
     imageUrl: '/galle.webp',
     gallery: [
       '/galle.webp',
-      '/Mirissa Coconut Tree Hill & Surf Spots.jpg',
-      '/Colombo Airport to Bentota Scenic Transfer.jpg',
-      '/Sri Lankan Clay Pot Cooking.jpg'
+      '/turtle and Madu river photos 1.jpg',
+      '/turtle and Madu river photos2.webp',
+      '/turtle and Madu river photos 3.jpg',
+      '/turtle and Madu river photos 4.webp'
     ],
     price: 170
   },
@@ -123,9 +124,9 @@ export const toursData: Tour[] = [
     imageUrl: '/sigiriya.jpg',
     gallery: [
       '/sigiriya.jpg',
-      '/Anuradhapura.webp',
-      '/Polonnaruwa.jpg',
-      '/sigiriya and kandy.jpg'
+      '/Dambullla.webp',
+      '/Sri Lankan Clay Pot Cooking.jpg',
+      '/elephants.jpeg'
     ],
     price: 300
   },
@@ -159,9 +160,9 @@ export const toursData: Tour[] = [
     imageUrl: '/sigiriya and kandy.jpg',
     gallery: [
       '/sigiriya.jpg',
-      '/sigiriya and kandy.jpg',
-      '/Anuradhapura.webp',
-      '/Polonnaruwa.jpg'
+      '/Sri Lankan Clay Pot Cooking.jpg',
+      '/elephants.jpeg',
+      '/botanical garden.jpg'
     ],
     price: 350,
     itinerary: [

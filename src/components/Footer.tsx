@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, ChevronDown, ChevronUp } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -34,6 +34,15 @@ export const Footer: React.FC = () => {
                 aria-label="Facebook"
               >
                 <Facebook className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://www.instagram.com/ceylonnestjourneys?utm_source=qr&igsi=d2ExNXpqNXJ0bnlz" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300" 
+                aria-label="Instagram"
+              >
+                <Instagram className="h-4 w-4" />
               </a>
               <a 
                 href="https://www.tiktok.com/@ceylohbyun2?_r=1&_t=ZS-996EzvCnX4j" 

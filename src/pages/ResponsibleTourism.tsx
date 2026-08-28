@@ -21,7 +21,7 @@ export const ResponsibleTourism: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
         {/* Core Philosophy */}
         <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 shadow-sm space-y-6 text-center max-w-3xl mx-auto">
-          <h3 className="font-serif font-bold text-2xl text-primary">Our Core Sustainability Policy</h3>
+          <h2 className="font-serif font-bold text-2xl text-primary">Our Core Sustainability Policy</h2>
           <p className="text-charcoal-light text-sm sm:text-base leading-relaxed">
             At Ceylon Nest Journeys, we believe that travel should enrich both the traveler and the host country. We strive to minimize our carbon footprint, protect delicate natural habitats, support local micro-enterprises, and preserve Sri Lanka's beautiful cultural heritage for generations to come.
           </p>
@@ -33,7 +33,7 @@ export const ResponsibleTourism: React.FC = () => {
             <div className="h-10 w-10 bg-accent/15 border border-accent/20 text-accent rounded-full flex items-center justify-center">
               <ShieldAlert className="h-5 w-5" />
             </div>
-            <h4 className="font-serif font-bold text-lg text-primary">Ethical Wildlife Safaris</h4>
+            <h3 className="font-serif font-bold text-lg text-primary">Ethical Wildlife Safaris</h3>
             <p className="text-charcoal-light text-xs sm:text-sm leading-relaxed">
               We mandate strict guidelines for all national park safaris: maintaining safe boundaries from animals, turning off jeep engines when parked, and avoiding any interaction that disturbs nesting birds or leopards.
             </p>
@@ -43,7 +43,7 @@ export const ResponsibleTourism: React.FC = () => {
             <div className="h-10 w-10 bg-accent/15 border border-accent/20 text-accent rounded-full flex items-center justify-center">
               <Heart className="h-5 w-5" />
             </div>
-            <h4 className="font-serif font-bold text-lg text-primary">Supporting Local Communities</h4>
+            <h3 className="font-serif font-bold text-lg text-primary">Supporting Local Communities</h3>
             <p className="text-charcoal-light text-xs sm:text-sm leading-relaxed">
               We consciously route our tours through local family-owned guest houses, hire local village guides, and patronize authentic craft cooperatives, ensuring your tourism dollars go directly to community families.
             </p>
@@ -53,7 +53,7 @@ export const ResponsibleTourism: React.FC = () => {
             <div className="h-10 w-10 bg-accent/15 border border-accent/20 text-accent rounded-full flex items-center justify-center">
               <RefreshCw className="h-5 w-5" />
             </div>
-            <h4 className="font-serif font-bold text-lg text-primary">Plastic Waste Reduction</h4>
+            <h3 className="font-serif font-bold text-lg text-primary">Plastic Waste Reduction</h3>
             <p className="text-charcoal-light text-xs sm:text-sm leading-relaxed">
               We encourage travelers to minimize single-use plastics. Our vehicles provide water refills where possible, and we partner with eco-friendly accommodation hosts who reject plastic water bottles.
             </p>

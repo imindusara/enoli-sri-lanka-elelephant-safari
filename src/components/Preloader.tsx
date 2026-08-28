@@ -50,12 +50,12 @@ export const Preloader: React.FC = () => {
           <span className="text-[#D4AF37] text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] block">
             PREMIUM TRAVELS & TOURS
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-widest leading-none">
+          <div className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-widest leading-none">
             CEYLON NEST
-          </h1>
-          <h2 className="text-xl sm:text-2xl font-serif text-[#D4AF37] tracking-widest leading-none mt-1">
+          </div>
+          <div className="text-xl sm:text-2xl font-serif text-[#D4AF37] tracking-widest leading-none mt-1">
             JOURNEYS
-          </h2>
+          </div>
         </div>
 
         {/* Right Elephant: Slides in from the right slowly (flipped horizontally) */}

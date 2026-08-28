@@ -12,16 +12,16 @@ export const PrivacyPolicy: React.FC = () => {
           <div className="space-y-4 text-charcoal-light text-xs sm:text-sm leading-relaxed">
             <p>This privacy notice describes how Ceylon Nest Journeys collects, protects, and handles details provided when using this website.</p>
 
-            <h3 className="font-serif font-bold text-lg text-primary mt-6">1. Information We Collect</h3>
+            <h2 className="font-serif font-bold text-lg text-primary mt-6">1. Information We Collect</h2>
             <p>When submitting a booking or contact form, we collect personal information such as your name, email address, phone number (WhatsApp), travel dates, and travel choices. This data is only used to manage your booking.</p>
 
-            <h3 className="font-serif font-bold text-lg text-primary mt-6">2. Data Security</h3>
+            <h2 className="font-serif font-bold text-lg text-primary mt-6">2. Data Security</h2>
             <p>We are committed to ensuring your information is secure. We use modern hosting standards and encryption to prevent unauthorized access or disclosure of your personal details.</p>
 
-            <h3 className="font-serif font-bold text-lg text-primary mt-6">3. Third Party Sharing</h3>
+            <h2 className="font-serif font-bold text-lg text-primary mt-6">3. Third Party Sharing</h2>
             <p>We never sell, rent, or lease your personal information to third parties. We only share required passenger details with hotel partners, national park rangers, and transfer providers when reserving your tour itinerary items.</p>
 
-            <h3 className="font-serif font-bold text-lg text-primary mt-6">4. Cookies</h3>
+            <h2 className="font-serif font-bold text-lg text-primary mt-6">4. Cookies</h2>
             <p>Our website utilizes minor cookies to improve your user experience and track anonymous analytical web traffic. You can choose to disable cookies in your browser settings if desired.</p>
           </div>
         </div>

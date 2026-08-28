@@ -121,9 +121,9 @@ export const FAQ: React.FC = () => {
                   onClick={() => toggleFAQ(index)}
                   className="w-full text-left p-5 sm:p-6 flex justify-between items-center gap-4 hover:bg-cream/40 transition-colors cursor-pointer min-h-[48px]"
                 >
-                  <span className="font-serif font-bold text-sm sm:text-base text-primary">
+                  <h3 className="font-serif font-bold text-sm sm:text-base text-primary">
                     {index + 1}. {faq.q}
-                  </span>
+                  </h3>
                   {isOpen ? (
                     <ChevronUp className="h-5 w-5 text-accent shrink-0" />
                   ) : (

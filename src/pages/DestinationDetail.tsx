@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { destinationsData } from '../data/destinations';
 import { toursData } from '../data/tours';
 import { MapPin, Calendar, Compass, Star, ArrowLeft, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export const DestinationDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const destination = destinationsData.find((d) => d.id === id);
 
   useEffect(() => {
@@ -20,12 +19,12 @@ export const DestinationDetail: React.FC = () => {
           <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
           <h2 className="font-serif font-bold text-2xl text-primary mb-2">Destination Not Found</h2>
           <p className="text-charcoal-light text-sm mb-6">The destination you are looking for does not exist or has been moved.</p>
-          <button
-            onClick={() => navigate('/destinations')}
+          <Link
+            to="/destinations"
             className="inline-flex items-center gap-2 bg-primary hover:bg-accent text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
           >
             <ArrowLeft className="h-4 w-4" /> Back to All Destinations
-          </button>
+          </Link>
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, Users, Heart, Target, Sparkles } from 'lucide-react';
+import { TripAdvisorBanner } from '../components/TripAdvisorBadge';
 
 export const About: React.FC = () => {
   const team = [
@@ -138,6 +139,11 @@ export const About: React.FC = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* TripAdvisor Verified Operator Recognition */}
+      <section className="py-12 px-4 max-w-5xl mx-auto pb-20">
+        <TripAdvisorBanner />
       </section>
     </div>
   );

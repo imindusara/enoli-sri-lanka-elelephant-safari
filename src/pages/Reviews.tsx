@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Star, MessageSquare, User, Globe, PenTool, CheckCircle2 } from 'lucide-react';
+import { Star, MessageSquare, User, Globe, PenTool, CheckCircle2, ExternalLink } from 'lucide-react';
+import { TripAdvisorBanner, TripAdvisorIcon } from '../components/TripAdvisorBadge';
+import { TRIPADVISOR_URL } from '../constants/links';
 
 interface Review {
   id: string;
@@ -142,9 +144,13 @@ export const Reviews: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 mt-12">
+      <div className="max-w-5xl mx-auto px-4 mt-8 space-y-10">
+        
+        {/* Prominent TripAdvisor Official Banner */}
+        <TripAdvisorBanner />
+
         {/* Navigation Tabs */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center">
           <div className="bg-white p-1.5 rounded-full inline-flex border border-gray-150 shadow-sm">
             <button
               onClick={() => setActiveTab('read')}
@@ -155,7 +161,7 @@ export const Reviews: React.FC = () => {
               }`}
             >
               <MessageSquare className="h-4 w-4" />
-              Read Reviews ({reviewsList.length})
+              Website Reviews ({reviewsList.length})
             </button>
             <button
               onClick={() => setActiveTab('write')}
@@ -320,8 +326,26 @@ export const Reviews: React.FC = () => {
                   type="submit"
                   className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-colors shadow-md hover:shadow-lg cursor-pointer"
                 >
-                  Submit Luxury Review
+                  Submit Website Review
                 </button>
+
+                {/* Direct TripAdvisor Review Callout */}
+                <div className="relative flex py-2 items-center">
+                  <div className="flex-grow border-t border-gray-200"></div>
+                  <span className="flex-shrink mx-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Or</span>
+                  <div className="flex-grow border-t border-gray-200"></div>
+                </div>
+
+                <a
+                  href={TRIPADVISOR_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#00AA6C] hover:bg-[#008f5a] text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <TripAdvisorIcon className="h-4 w-4" />
+                  <span>Write Review on Tripadvisor</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
               </form>
             )}
           </div>

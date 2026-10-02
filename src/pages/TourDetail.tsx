@@ -23,6 +23,7 @@ import {
   Compass as CompassIcon
 } from 'lucide-react';
 import { TourCard } from '../components/TourCard';
+import { TripAdvisorCard } from '../components/TripAdvisorBadge';
 
 export const TourDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -333,10 +334,11 @@ export const TourDetail: React.FC = () => {
 
           </div>
 
-          {/* Sidebar Booking Form */}
-          <div className="lg:col-span-1 space-y-8">
-            <div className="lg:sticky lg:top-28">
+          {/* Sidebar Booking Form & Trust Badge */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="lg:sticky lg:top-28 space-y-6">
               <BookingForm defaultTourId={tour.id} />
+              <TripAdvisorCard />
             </div>
           </div>
         </div>

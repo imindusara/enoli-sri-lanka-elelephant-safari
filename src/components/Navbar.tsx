@@ -248,8 +248,9 @@ export const Navbar: React.FC = () => {
               {activeDropdown === 'more' && (
                 <div className="absolute left-1/2 -translate-x-1/2 top-[95%] pt-3 w-52 z-50">
                   <div className="rounded-2xl bg-white shadow-xl ring-1 ring-black/5 py-3 border border-gray-100 overflow-hidden animate-fade-in">
-                    <Link to="/reviews" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
-                      Reviews
+                    <Link to="/reviews" className="flex items-center justify-between px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
+                      <span>Reviews</span>
+                      <span className="text-[10px] bg-[#00AA6C]/10 text-[#00AA6C] px-1.5 py-0.5 rounded font-bold">5.0 ★</span>
                     </Link>
                     <Link to="/gallery" className="block px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal hover:bg-cream hover:text-primary transition-all">
                       Gallery
@@ -466,8 +467,9 @@ export const Navbar: React.FC = () => {
             </button>
             {mobileExpanded.more && (
               <div className="pl-6 space-y-1 border-l-2 border-accent/20 ml-4">
-                <Link to="/reviews" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
-                  Reviews
+                <Link to="/reviews" className="py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center justify-between pr-4">
+                  <span>Reviews</span>
+                  <span className="text-[10px] bg-[#00AA6C]/10 text-[#00AA6C] px-2 py-0.5 rounded font-bold">5.0 ★ Tripadvisor</span>
                 </Link>
                 <Link to="/gallery" className="block py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-primary min-h-[44px] flex items-center">
                   Gallery

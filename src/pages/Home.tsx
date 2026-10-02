@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Award, ThumbsUp, Car, Sparkles, MessageCircle, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Award, ThumbsUp, Car, Sparkles, MessageCircle, CheckCircle2, Star, ExternalLink } from 'lucide-react';
 import { toursData } from '../data/tours';
 import { TourCard } from '../components/TourCard';
 import { useTranslation } from '../contexts/LanguageContext';
+import { TripAdvisorPill, TripAdvisorIcon, TripAdvisorRatingCircles } from '../components/TripAdvisorBadge';
+import { TRIPADVISOR_URL } from '../constants/links';
 
 export const Home: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'day' | 'multi-day' | 'transfers' | 'hire'>('all');
@@ -120,14 +122,15 @@ export const Home: React.FC = () => {
             {t('hero_subtitle')}
           </p>
 
-          {/* Single Clear CTA Button (Eliminated competing CTA) */}
-          <div className="pt-2 w-full sm:w-auto animate-fade-in-up">
+          {/* Single Clear CTA Button & TripAdvisor Trust Pill */}
+          <div className="pt-2 w-full sm:w-auto flex flex-col items-center gap-4 animate-fade-in-up">
             <Link
               to="/custom-tours"
               className="w-full sm:w-auto inline-flex bg-primary hover:bg-primary-dark text-white px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(30,77,59,0.4)] border border-transparent hover:border-accent hover:-translate-y-0.5 items-center justify-center text-center cursor-pointer min-h-[48px]"
             >
               {t('hero_cta_explore')}
             </Link>
+            <TripAdvisorPill />
           </div>
         </div>
       </section>
@@ -420,12 +423,22 @@ export const Home: React.FC = () => {
 
       {/* Testimonials Section */}
       <section id="reviews" className="py-20 px-4 bg-white scroll-mt-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 reveal-on-scroll">
+        <div className="max-w-6xl mx-auto space-y-12">
+          
+          <div className="text-center reveal-on-scroll">
             <span className="text-accent text-xs font-bold uppercase tracking-widest block mb-3">{t('nav_reviews')}</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary mb-4">
               {t('reviews_title')}
             </h2>
+            
+            {/* TripAdvisor trust pill badge */}
+            <div className="inline-flex items-center gap-3 bg-cream px-4 py-2 rounded-full border border-gray-150 shadow-2xs mt-2">
+              <div className="bg-[#00AA6C] text-white p-1 rounded-full">
+                <TripAdvisorIcon className="h-3.5 w-3.5" />
+              </div>
+              <span className="text-xs font-bold text-charcoal">Rated 5.0 on Tripadvisor</span>
+              <TripAdvisorRatingCircles size="sm" />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -434,9 +447,16 @@ export const Home: React.FC = () => {
                 key={index}
                 className="bg-cream p-8 rounded-2xl shadow-sm border border-gray-150 flex flex-col justify-between reveal-on-scroll animate-fade-in"
               >
-                <p className="text-charcoal-light italic text-sm leading-relaxed mb-6 font-sans">
-                  "{t.text}"
-                </p>
+                <div className="space-y-3">
+                  <div className="flex text-[#D4AF37]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-charcoal-light italic text-sm leading-relaxed mb-6 font-sans">
+                    "{t.text}"
+                  </p>
+                </div>
                 <div>
                   <h4 className="font-serif font-bold text-primary text-base">{t.author}</h4>
                   <p className="text-xs font-semibold text-accent uppercase tracking-wider">{t.location}</p>
@@ -444,6 +464,27 @@ export const Home: React.FC = () => {
               </div>
             ))}
           </div>
+
+          {/* TripAdvisor Link Button in Home Reviews */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+            <Link
+              to="/reviews"
+              className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-sm text-center"
+            >
+              Read All Traveler Reviews
+            </Link>
+            <a
+              href={TRIPADVISOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-[#00AA6C] hover:bg-[#008f5a] text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-sm inline-flex items-center justify-center gap-2"
+            >
+              <TripAdvisorIcon className="h-4 w-4" />
+              <span>View on Tripadvisor</span>
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div>
+
         </div>
       </section>
 

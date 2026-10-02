@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Sparkles, Send, MessageCircle, Mail } from 'lucide-react';
+import { TripAdvisorCard } from '../components/TripAdvisorBadge';
 
 export const CustomTours: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -159,6 +160,9 @@ export const CustomTours: React.FC = () => {
               </li>
             </ul>
           </div>
+
+          {/* TripAdvisor Trust Card */}
+          <TripAdvisorCard />
         </div>
 
         {/* Form Column */}

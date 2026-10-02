@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, ChevronDown, ChevronUp } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import { TripAdvisorIcon, TripAdvisorRatingCircles } from './TripAdvisorBadge';
+import { TRIPADVISOR_URL, FACEBOOK_URL, INSTAGRAM_URL, TIKTOK_URL } from '../constants/links';
 
 export const Footer: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -25,9 +27,21 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-gray-400 leading-relaxed">
               Crafting exceptional journeys with genuine hospitality, personalized service, and unforgettable memories in Sri Lanka.
             </p>
-            <div className="flex space-x-4 pt-2">
+            
+            {/* Social Icons including TripAdvisor */}
+            <div className="flex items-center space-x-3 pt-2">
               <a 
-                href="https://www.facebook.com/share/1Mb9JS24sS/" 
+                href={TRIPADVISOR_URL}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-[#00AA6C] hover:bg-[#008f5a] text-white p-2.5 rounded-full transition-all duration-300 shadow-sm hover:scale-110 flex items-center justify-center" 
+                aria-label="Tripadvisor - Ceylon Nest Journeys"
+                title="Tripadvisor"
+              >
+                <TripAdvisorIcon className="h-4 w-4" />
+              </a>
+              <a 
+                href={FACEBOOK_URL} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300" 
@@ -36,7 +50,7 @@ export const Footer: React.FC = () => {
                 <Facebook className="h-4 w-4" />
               </a>
               <a 
-                href="https://www.instagram.com/ceylonnestjourneys?utm_source=qr&igsi=d2ExNXpqNXJ0bnlz" 
+                href={INSTAGRAM_URL} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300" 
@@ -45,7 +59,7 @@ export const Footer: React.FC = () => {
                 <Instagram className="h-4 w-4" />
               </a>
               <a 
-                href="https://www.tiktok.com/@ceylohbyun2?_r=1&_t=ZS-996EzvCnX4j" 
+                href={TIKTOK_URL} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="bg-primary-dark hover:bg-accent hover:text-white p-2.5 rounded-full transition-colors duration-300 flex items-center justify-center" 
@@ -56,6 +70,26 @@ export const Footer: React.FC = () => {
                 </svg>
               </a>
             </div>
+
+            {/* TripAdvisor Mini Trust Badge in Footer */}
+            <a
+              href={TRIPADVISOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary-dark/80 hover:bg-primary-dark border border-[#00AA6C]/30 px-3 py-2 rounded-xl text-xs transition-all group"
+            >
+              <div className="bg-[#00AA6C] text-white p-1 rounded-md">
+                <TripAdvisorIcon className="h-3.5 w-3.5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-white text-[11px]">Tripadvisor</span>
+                  <TripAdvisorRatingCircles size="sm" />
+                </div>
+                <span className="text-[10px] text-gray-400 group-hover:text-[#34E0A1] transition-colors">5.0 Excellent • Reviews</span>
+              </div>
+              <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-white ml-auto" />
+            </a>
           </div>
 
           {/* Quick Links Column (Accordion on Mobile) */}
@@ -87,6 +121,17 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/reviews" className="hover:text-accent transition-colors duration-200 block text-gray-400 py-2 md:py-0">Reviews</Link>
+              </li>
+              <li>
+                <a 
+                  href={TRIPADVISOR_URL} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-[#34E0A1] transition-colors duration-200 flex items-center gap-1 text-gray-400 py-2 md:py-0"
+                >
+                  <span>Tripadvisor Page</span>
+                  <ExternalLink className="h-3 w-3 inline text-gray-500" />
+                </a>
               </li>
             </ul>
           </div>

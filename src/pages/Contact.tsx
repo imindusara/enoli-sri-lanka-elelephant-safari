@@ -2,6 +2,8 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { BookingForm } from '../components/BookingForm';
 import { Phone, Mail, MapPin, MessageSquare, Clock } from 'lucide-react';
+import { TripAdvisorIcon, TripAdvisorCard } from '../components/TripAdvisorBadge';
+import { TRIPADVISOR_URL, WHATSAPP_URL, PHONE_NUMBER, EMAIL_ADDRESS, OFFICE_ADDRESS } from '../constants/links';
 
 export const Contact: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -15,25 +17,31 @@ export const Contact: React.FC = () => {
     {
       icon: <Phone className="h-6 w-6 text-accent" />,
       title: 'Phone Inquiry',
-      value: '+94 77 111 2040',
-      link: 'tel:+94771112040',
+      value: PHONE_NUMBER,
+      link: `tel:${PHONE_NUMBER.replace(/\s+/g, '')}`,
     },
     {
       icon: <MessageSquare className="h-6 w-6 text-accent" />,
       title: 'WhatsApp Chat',
-      value: '+94 77 111 2040',
-      link: 'https://wa.me/94771112040',
+      value: PHONE_NUMBER,
+      link: WHATSAPP_URL,
+    },
+    {
+      icon: <TripAdvisorIcon className="h-6 w-6 text-[#00AA6C]" />,
+      title: 'Tripadvisor Profile',
+      value: 'Ceylon Nest Journeys (5.0 ★)',
+      link: TRIPADVISOR_URL,
     },
     {
       icon: <Mail className="h-6 w-6 text-accent" />,
       title: 'Email Us',
-      value: 'ceylonnestjourneys@gmail.com',
-      link: 'mailto:ceylonnestjourneys@gmail.com',
+      value: EMAIL_ADDRESS,
+      link: `mailto:${EMAIL_ADDRESS}`,
     },
     {
       icon: <MapPin className="h-6 w-6 text-accent" />,
       title: 'Office Address',
-      value: 'No 124, kanda kurudu watta, dediyawala, waskaduwa',
+      value: OFFICE_ADDRESS,
       link: '#',
     },
   ];
@@ -103,6 +111,9 @@ export const Contact: React.FC = () => {
                 </p>
               </div>
             </div>
+
+            {/* TripAdvisor Card Widget */}
+            <TripAdvisorCard />
           </div>
 
           {/* Booking Form Column */}

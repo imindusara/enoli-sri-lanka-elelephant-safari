@@ -5,19 +5,24 @@ import { TripAdvisorBanner } from '../components/TripAdvisorBadge';
 export const About: React.FC = () => {
   const team = [
     {
-      name: 'Nalinda Perera',
-      role: 'Founder & Head of Operations',
+      name: 'Mr. Lakmal Mannaperuma',
+      role: 'Founder & Owner',
       image: '/Owner.png',
     },
     {
-      name: 'Chaminda Silva',
-      role: 'Senior English-Speaking Guide',
-      image: '/Senior tour guide.png',
+      name: 'Mr. Gihan Chamara',
+      role: 'Director',
+      image: '/Director.jpeg',
     },
     {
-      name: 'Priyanthi Fernando',
-      role: 'Tour Coordinator',
-      image: '/Director.jpeg',
+      name: 'Mr. Chathura Rajapaksha',
+      role: 'Director',
+      image: '/Director 2.jpeg',
+    },
+    {
+      name: 'Mr. Udara Fernando',
+      role: 'Senior Tour Guide',
+      image: '/Senior tour guide.png',
     },
   ];
 
@@ -119,13 +124,13 @@ export const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((member, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center space-y-4 reveal-on-scroll hover:shadow-md transition-shadow"
+              className="bg-primary rounded-2xl p-6 border border-accent/20 shadow-md text-center space-y-4 reveal-on-scroll hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="w-24 h-24 rounded-full overflow-hidden mx-auto shadow-inner bg-gray-100">
+              <div className="w-24 h-24 rounded-full overflow-hidden mx-auto shadow-md ring-2 ring-accent/50 bg-white/10">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -133,8 +138,8 @@ export const About: React.FC = () => {
                 />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-lg text-charcoal">{member.name}</h4>
-                <p className="text-xs font-semibold text-accent uppercase tracking-wider mt-0.5">{member.role}</p>
+                <h4 className="font-serif font-bold text-lg text-white">{member.name}</h4>
+                <p className="text-xs font-semibold text-accent-light uppercase tracking-wider mt-1">{member.role}</p>
               </div>
             </div>
           ))}

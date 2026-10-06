@@ -7,17 +7,17 @@ export const About: React.FC = () => {
     {
       name: 'Nalinda Perera',
       role: 'Founder & Head of Operations',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300&q=80',
+      image: '/Owner.png',
     },
     {
       name: 'Chaminda Silva',
       role: 'Senior English-Speaking Guide',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&h=300&q=80',
+      image: '/Senior tour guide.png',
     },
     {
       name: 'Priyanthi Fernando',
       role: 'Tour Coordinator',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&h=300&q=80',
+      image: '/Director.jpeg',
     },
   ];
 
